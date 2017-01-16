@@ -391,8 +391,8 @@
  <ddl-generator type="ca.sqlpower.architect.ddl.PostgresDDLGenerator" allow-connection="false" target-schema="moviedb"> </ddl-generator>
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
- <play-pen zoom="1.0" viewportX="7907" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
-  <table-pane table-ref="TAB1" x="8297" y="288" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+ <play-pen zoom="1.0" viewportX="0" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
+  <table-pane table-ref="TAB1" x="472" y="223" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB6" x="514" y="444" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB15" x="530" y="318" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB21" x="270" y="420" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
@@ -405,7 +405,7 @@
   <table-pane table-ref="TAB71" x="254" y="655" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB77" x="527" y="669" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB82" x="261" y="342" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-link relationship-ref="REL88" pkConnection="0.5087719298245614" fkConnection="0.4647887323943662" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
+  <table-link relationship-ref="REL88" pkConnection="0.6285714285714286" fkConnection="0.4" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
   <table-link relationship-ref="REL92" pkConnection="0.5895953757225434" fkConnection="0.37142857142857144" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
   <table-link relationship-ref="REL102" pkConnection="0.2743362831858407" fkConnection="0.7746478873239436" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
   <table-link relationship-ref="REL94" pkConnection="0.336283185840708" fkConnection="0.5352112676056338" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
@@ -418,7 +418,7 @@
   <table-link relationship-ref="REL114" pkConnection="0.17543859649122806" fkConnection="0.8591549295774648" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
   <table-link relationship-ref="REL112" pkConnection="0.4673913043478261" fkConnection="0.5255102040816326" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
   <table-link relationship-ref="REL106" pkConnection="0.3088235294117647" fkConnection="0.7894736842105263" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="40"/>
-  <table-link relationship-ref="REL90" pkConnection="0.5087719298245614" fkConnection="0.4788732394366197" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
+  <table-link relationship-ref="REL90" pkConnection="0.05714285714285714" fkConnection="0.9081632653061225" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
  </play-pen>
  <critic-manager>
   <critic-grouping platformType="Generic" enabled="true">
