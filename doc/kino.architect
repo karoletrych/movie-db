@@ -4,8 +4,8 @@
  <print-settings numCopies="1" zoom="1.0" pageNumbersPrinted="true" orientation="1" paperWidth="612.0" paperHeight="792.0" leftBorder="50.0" rightBorder="50.0" topBorder="50.0" bottomBorder="50.0" />
  <project-data-sources>
   <data-source id="DS0">
-   <property key="Logical" value="postgres" />
    <property key="Connection Type" value="PostgreSQL" />
+   <property key="Logical" value="PlayPen Database" />
    <property key="JDBC URL" value="jdbc:postgresql://localhost:5432/postgres" />
    <property key="UID" value="postgres" />
    <property key="PWD" value="q" />
@@ -22,7 +22,7 @@
   <table id="TAB1" populated="true" UUID="c6860467-44bc-4dbf-80b5-38e4d8c6d2f3" name="kraj" objectType="TABLE" physicalName="kraj" >
    <remarks></remarks>
    <folder id="FOLTAB11" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL2" populated="true" UUID="2103e51c-9302-412a-b253-40d9ed09cf97" autoIncrement="false" autoIncrementSequenceName="kraj_kraj_id_seq" defaultValue="" name="kraj_id" nullable="0" physicalName="kraj_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL2" populated="true" UUID="2103e51c-9302-412a-b253-40d9ed09cf97" autoIncrement="false" autoIncrementSequenceName="kraj_kraj_id_seq" defaultValue="" name="kraj_id" nullable="0" physicalName="kraj_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
     <column id="COL3" populated="true" UUID="71d6cda7-e647-40b2-bd6a-ca3e143bb49e" autoIncrement="false" autoIncrementSequenceName="kraj_nazwa_seq" defaultValue="" name="nazwa" nullable="0" physicalName="nazwa" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
@@ -48,13 +48,13 @@
     <column id="COL8" populated="true" UUID="0f48be59-059e-4187-a1fc-0bfa17d7c4ff" autoIncrement="false" autoIncrementSequenceName="film_data_premiery_seq" defaultValue="" name="data_premiery" nullable="1" physicalName="data_premiery" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
      <remarks></remarks>
     </column>
-    <column id="COL9" populated="true" UUID="d1b4aeaf-8be9-4d54-94d9-7eb092d25aad" autoIncrement="false" autoIncrementSequenceName="film_status_seq" defaultValue="" name="status" nullable="0" physicalName="status" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL9" populated="true" UUID="d1b4aeaf-8be9-4d54-94d9-7eb092d25aad" autoIncrement="false" autoIncrementSequenceName="film_status_seq" defaultValue="" name="status" nullable="0" physicalName="status" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
     <column id="COL10" populated="true" UUID="e59bd397-b95d-4092-9f32-3363b116e669" autoIncrement="false" autoIncrementSequenceName="film_dochod_seq" defaultValue="" name="dochod" nullable="1" physicalName="dochod" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
      <remarks></remarks>
     </column>
-    <column id="COL11" populated="true" UUID="38d790e1-43dd-4d7d-885a-f64069717b7f" autoIncrement="false" autoIncrementSequenceName="film_url_okladki_seq" defaultValue="" name="url_okladki" nullable="1" physicalName="url_okladki" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL11" populated="true" UUID="38d790e1-43dd-4d7d-885a-f64069717b7f" autoIncrement="false" autoIncrementSequenceName="film_url_okladki_seq" defaultValue="" name="url_plakatu" nullable="1" physicalName="url_plakatu" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
     <column id="COL12" populated="true" UUID="f79eb0ec-2e19-4a0d-9983-30726d7ce9a7" autoIncrement="false" autoIncrementSequenceName="film_tytull_seq" defaultValue="" name="tytul" nullable="0" physicalName="tytul" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
@@ -77,7 +77,7 @@
     <column id="COL16" populated="true" UUID="d97460e8-e362-4d8a-a1b3-f70db91fc7a4" autoIncrement="true" autoIncrementSequenceName="film_krajprodukcji_film_krajprodukcji_id_seq" defaultValue="" name="film_krajprodukcji_id" nullable="0" physicalName="film_krajprodukcji_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL17" populated="true" UUID="8efac126-ead8-4ca8-80c1-122823cb3c75" autoIncrement="false" autoIncrementSequenceName="kraj_kraj_id_seq_1" defaultValue="" name="kraj_id" nullable="0" physicalName="kraj_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL17" populated="true" UUID="8efac126-ead8-4ca8-80c1-122823cb3c75" autoIncrement="false" autoIncrementSequenceName="kraj_kraj_id_seq_1" defaultValue="" name="kraj_id" nullable="0" physicalName="kraj_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
     <column id="COL18" populated="true" UUID="90d54a3f-0a68-4f2a-89a1-52ab31bb32c8" autoIncrement="false" autoIncrementSequenceName="film_film_id_seq_1" defaultValue="" name="film_id" nullable="0" physicalName="film_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
@@ -329,7 +329,7 @@
     <column id="COL84" populated="true" UUID="aa7f3f7e-49ae-4df8-a4b9-3cfadd77939d" autoIncrement="false" autoIncrementSequenceName="czlowiek_czlowiek_id_seq_3" defaultValue="" name="czlowiek_id" nullable="0" physicalName="czlowiek_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL85" populated="true" UUID="938e4dc6-50f3-40a2-8414-fb24cb65eeed" autoIncrement="false" autoIncrementSequenceName="kraj_kraj_id_seq_2" defaultValue="" name="kraj_id" nullable="0" physicalName="kraj_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL85" populated="true" UUID="938e4dc6-50f3-40a2-8414-fb24cb65eeed" autoIncrement="false" autoIncrementSequenceName="kraj_kraj_id_seq_2" defaultValue="" name="kraj_id" nullable="0" physicalName="kraj_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
     </folder>
@@ -388,7 +388,7 @@
    </relationship>
   </relationships>
  </target-database>
- <ddl-generator type="ca.sqlpower.architect.ddl.PostgresDDLGenerator" allow-connection="false" target-schema="moviedb"> </ddl-generator>
+ <ddl-generator type="ca.sqlpower.architect.ddl.PostgresDDLGenerator" allow-connection="true" target-schema="moviedb"> </ddl-generator>
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
  <play-pen zoom="1.0" viewportX="0" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
