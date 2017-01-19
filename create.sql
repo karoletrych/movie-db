@@ -1,231 +1,232 @@
-create schema filmdb;
+CREATE SCHEMA moviedb;
 
-CREATE TABLE filmdb.dzial (
-                dzial_id INTEGER NOT NULL,
-                nazwa VARCHAR NOT NULL,
-                CONSTRAINT dzial_pk PRIMARY KEY (dzial_id)
+CREATE TABLE moviedb.dzial (
+                department_id INTEGER NOT NULL,
+                name VARCHAR NOT NULL,
+                CONSTRAINT dzial_pk PRIMARY KEY (department_id)
 );
 
 
-CREATE TABLE filmdb.praca (
-                praca_id INTEGER NOT NULL,
-                dzial_id INTEGER NOT NULL,
-                nazwa VARCHAR NOT NULL,
-                CONSTRAINT praca_pk PRIMARY KEY (praca_id)
+CREATE TABLE moviedb.job (
+                job_id INTEGER NOT NULL,
+                department_id INTEGER NOT NULL,
+                name VARCHAR NOT NULL,
+                CONSTRAINT job_pk PRIMARY KEY (job_id)
 );
 
 
-CREATE TABLE filmdb.gatunek (
+CREATE TABLE moviedb.genre (
                 gatunek_id INTEGER NOT NULL,
                 nazwa VARCHAR NOT NULL,
-                CONSTRAINT gatunek_pk PRIMARY KEY (gatunek_id)
+                CONSTRAINT genre_pk PRIMARY KEY (gatunek_id)
 );
 
 
-CREATE TABLE filmdb.uzytkownik (
-                id_uzytkownik INTEGER NOT NULL,
+CREATE TABLE moviedb.member (
+                member_id INTEGER NOT NULL,
                 login VARCHAR NOT NULL,
                 email VARCHAR NOT NULL,
-                hash_hasla VARCHAR NOT NULL,
-                CONSTRAINT uzytkownik_pk PRIMARY KEY (id_uzytkownik)
+                password_hash VARCHAR NOT NULL,
+                CONSTRAINT member_pk PRIMARY KEY (member_id)
 );
 
 
-CREATE TABLE filmdb.czlowiek (
-                czlowiek_id INTEGER NOT NULL,
-                data_urodzenia DATE,
-                data_zgonu DATE,
-                biografia VARCHAR NOT NULL,
-                plec INTEGER NOT NULL,
-                miejsce_urodzenia VARCHAR NOT NULL,
-                nazwisko VARCHAR NOT NULL,
-                CONSTRAINT czlowiek_pk PRIMARY KEY (czlowiek_id)
+CREATE TABLE moviedb.person (
+                person_id INTEGER NOT NULL,
+                birthday DATE,
+                deathday DATE,
+                biography VARCHAR NOT NULL,
+                sex INTEGER NOT NULL,
+                place_of_birth VARCHAR NOT NULL,
+                name VARCHAR NOT NULL,
+                CONSTRAINT person_pk PRIMARY KEY (person_id)
 );
 
 
-CREATE TABLE filmdb.film (
-                film_id INTEGER NOT NULL,
-                data_premiery DATE,
-                status VARCHAR NOT NULL,
-                dochod NUMERIC,
-                url_plakatu VARCHAR,
-                tytul VARCHAR NOT NULL,
-                CONSTRAINT film_pk PRIMARY KEY (film_id)
+CREATE TABLE moviedb.movie (
+                movie_id INTEGER NOT NULL,
+                release_date DATE,
+                status INTEGER NOT NULL,
+                revenue NUMERIC,
+                poster_url VARCHAR,
+                title VARCHAR NOT NULL,
+                vote_average REAL,
+                CONSTRAINT movie_pk PRIMARY KEY (movie_id)
 );
 
 
-CREATE SEQUENCE filmdb.ekipa_ekipa_id_seq;
+CREATE SEQUENCE moviedb.crew_crew_id_seq;
 
-CREATE TABLE filmdb.ekipa (
-                ekipa_id INTEGER NOT NULL DEFAULT nextval('filmdb.ekipa_ekipa_id_seq'),
-                czlowiek_id INTEGER NOT NULL,
-                film_id INTEGER NOT NULL,
-                praca_id INTEGER NOT NULL,
-                CONSTRAINT ekipa_pk PRIMARY KEY (ekipa_id)
+CREATE TABLE moviedb.crew (
+                crew_id INTEGER NOT NULL DEFAULT nextval('moviedb.crew_crew_id_seq'),
+                person_id INTEGER NOT NULL,
+                movie_id INTEGER NOT NULL,
+                job_id INTEGER NOT NULL,
+                CONSTRAINT crew_pk PRIMARY KEY (crew_id)
 );
 
 
-ALTER SEQUENCE filmdb.ekipa_ekipa_id_seq OWNED BY filmdb.ekipa.ekipa_id;
+ALTER SEQUENCE moviedb.crew_crew_id_seq OWNED BY moviedb.crew.crew_id;
 
-CREATE SEQUENCE filmdb.film_gatunek_film_gatunek_id_seq;
+CREATE SEQUENCE moviedb.movie_genre_movie_genre_id_seq;
 
-CREATE TABLE filmdb.film_gatunek (
-                film_gatunek_id INTEGER NOT NULL DEFAULT nextval('filmdb.film_gatunek_film_gatunek_id_seq'),
-                film_id INTEGER NOT NULL,
-                gatunek_id INTEGER NOT NULL,
-                CONSTRAINT film_gatunek_pk PRIMARY KEY (film_gatunek_id)
+CREATE TABLE moviedb.movie_genre (
+                movie_genre_id INTEGER NOT NULL DEFAULT nextval('moviedb.movie_genre_movie_genre_id_seq'),
+                movie_id INTEGER NOT NULL,
+                genre_id INTEGER NOT NULL,
+                CONSTRAINT movie_genre_pk PRIMARY KEY (movie_genre_id)
 );
 
 
-ALTER SEQUENCE filmdb.film_gatunek_film_gatunek_id_seq OWNED BY filmdb.film_gatunek.film_gatunek_id;
+ALTER SEQUENCE moviedb.movie_genre_movie_genre_id_seq OWNED BY moviedb.movie_genre.movie_genre_id;
 
-CREATE TABLE filmdb.recenzja (
-                id_uzytkownik INTEGER NOT NULL,
-                film_id INTEGER NOT NULL,
-                tresc VARCHAR NOT NULL,
-                ocena INTEGER NOT NULL,
-                CONSTRAINT recenzja_pk PRIMARY KEY (id_uzytkownik, film_id)
+CREATE TABLE moviedb.review (
+                user_id INTEGER NOT NULL,
+                movie_id INTEGER NOT NULL,
+                content VARCHAR NOT NULL,
+                vote INTEGER NOT NULL,
+                CONSTRAINT review_pk PRIMARY KEY (user_id, movie_id)
 );
 
 
-CREATE SEQUENCE filmdb.obsada_obsada_id_seq;
+CREATE SEQUENCE moviedb._cast_cast_id_seq;
 
-CREATE TABLE filmdb.obsada (
-                obsada_id INTEGER NOT NULL DEFAULT nextval('filmdb.obsada_obsada_id_seq'),
-                czlowiek_id INTEGER NOT NULL,
-                film_id INTEGER NOT NULL,
-                postac VARCHAR NOT NULL,
-                CONSTRAINT obsada_pk PRIMARY KEY (obsada_id)
+CREATE TABLE moviedb._cast (
+                cast_id INTEGER NOT NULL DEFAULT nextval('moviedb._cast_cast_id_seq'),
+                character VARCHAR NOT NULL,
+                person_id INTEGER NOT NULL,
+                movie_id INTEGER NOT NULL,
+                CONSTRAINT _cast_pk PRIMARY KEY (cast_id, character, person_id, movie_id)
 );
 
 
-ALTER SEQUENCE filmdb.obsada_obsada_id_seq OWNED BY filmdb.obsada.obsada_id;
+ALTER SEQUENCE moviedb._cast_cast_id_seq OWNED BY moviedb._cast.cast_id;
 
-CREATE TABLE filmdb.kraj (
-                kraj_id VARCHAR NOT NULL,
-                nazwa VARCHAR NOT NULL,
-                CONSTRAINT kraj_pk PRIMARY KEY (kraj_id)
+CREATE TABLE moviedb.country (
+                country_id INTEGER NOT NULL,
+                name VARCHAR NOT NULL,
+                CONSTRAINT country_pk PRIMARY KEY (country_id)
 );
 
 
-CREATE SEQUENCE filmdb.kraj_pochodzenia_kraj_pochodzenia_id_seq;
+CREATE SEQUENCE moviedb.country_of_origin_country_of_origin_id_seq;
 
-CREATE TABLE filmdb.kraj_pochodzenia (
-                kraj_pochodzenia_id INTEGER NOT NULL DEFAULT nextval('filmdb.kraj_pochodzenia_kraj_pochodzenia_id_seq'),
-                czlowiek_id INTEGER NOT NULL,
-                kraj_id VARCHAR NOT NULL,
-                CONSTRAINT kraj_pochodzenia_pk PRIMARY KEY (kraj_pochodzenia_id)
+CREATE TABLE moviedb.country_of_origin (
+                country_of_origin_id INTEGER NOT NULL DEFAULT nextval('moviedb.country_of_origin_country_of_origin_id_seq'),
+                person_id INTEGER NOT NULL,
+                country_id INTEGER NOT NULL,
+                CONSTRAINT country_of_origin_pk PRIMARY KEY (country_of_origin_id)
 );
 
 
-ALTER SEQUENCE filmdb.kraj_pochodzenia_kraj_pochodzenia_id_seq OWNED BY filmdb.kraj_pochodzenia.kraj_pochodzenia_id;
+ALTER SEQUENCE moviedb.country_of_origin_country_of_origin_id_seq OWNED BY moviedb.country_of_origin.country_of_origin_id;
 
-CREATE SEQUENCE filmdb.film_krajprodukcji_film_krajprodukcji_id_seq;
+CREATE SEQUENCE moviedb.movie_productioncountry_movie_productioncountry_id_seq;
 
-CREATE TABLE filmdb.film_krajprodukcji (
-                film_krajprodukcji_id INTEGER NOT NULL DEFAULT nextval('filmdb.film_krajprodukcji_film_krajprodukcji_id_seq'),
-                kraj_id VARCHAR NOT NULL,
-                film_id INTEGER NOT NULL,
-                CONSTRAINT film_krajprodukcji_pk PRIMARY KEY (film_krajprodukcji_id)
+CREATE TABLE moviedb.movie_productioncountry (
+                movie_productioncountry_id INTEGER NOT NULL DEFAULT nextval('moviedb.movie_productioncountry_movie_productioncountry_id_seq'),
+                country_id INTEGER NOT NULL,
+                movie_id INTEGER NOT NULL,
+                CONSTRAINT movie_productioncountry_pk PRIMARY KEY (movie_productioncountry_id)
 );
 
 
-ALTER SEQUENCE filmdb.film_krajprodukcji_film_krajprodukcji_id_seq OWNED BY filmdb.film_krajprodukcji.film_krajprodukcji_id;
+ALTER SEQUENCE moviedb.movie_productioncountry_movie_productioncountry_id_seq OWNED BY moviedb.movie_productioncountry.movie_productioncountry_id;
 
-ALTER TABLE filmdb.praca ADD CONSTRAINT dzial_praca_fk
-FOREIGN KEY (dzial_id)
-REFERENCES filmdb.dzial (dzial_id)
+ALTER TABLE moviedb.job ADD CONSTRAINT dzial_praca_fk
+FOREIGN KEY (department_id)
+REFERENCES moviedb.dzial (department_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE filmdb.ekipa ADD CONSTRAINT praca_ekipa_fk
-FOREIGN KEY (praca_id)
-REFERENCES filmdb.praca (praca_id)
+ALTER TABLE moviedb.crew ADD CONSTRAINT praca_ekipa_fk
+FOREIGN KEY (job_id)
+REFERENCES moviedb.job (job_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE filmdb.film_gatunek ADD CONSTRAINT gatunek_film_gatunek_fk
-FOREIGN KEY (gatunek_id)
-REFERENCES filmdb.gatunek (gatunek_id)
+ALTER TABLE moviedb.movie_genre ADD CONSTRAINT gatunek_film_gatunek_fk
+FOREIGN KEY (genre_id)
+REFERENCES moviedb.genre (gatunek_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE filmdb.recenzja ADD CONSTRAINT uzytkownik_recenzja_fk
-FOREIGN KEY (id_uzytkownik)
-REFERENCES filmdb.uzytkownik (id_uzytkownik)
+ALTER TABLE moviedb.review ADD CONSTRAINT uzytkownik_recenzja_fk
+FOREIGN KEY (user_id)
+REFERENCES moviedb.member (member_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE filmdb.obsada ADD CONSTRAINT czlowiek_obsada_fk
-FOREIGN KEY (czlowiek_id)
-REFERENCES filmdb.czlowiek (czlowiek_id)
+ALTER TABLE moviedb._cast ADD CONSTRAINT czlowiek_obsada_fk
+FOREIGN KEY (person_id)
+REFERENCES moviedb.person (person_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE filmdb.ekipa ADD CONSTRAINT czlowiek_ekipa_fk
-FOREIGN KEY (czlowiek_id)
-REFERENCES filmdb.czlowiek (czlowiek_id)
+ALTER TABLE moviedb.crew ADD CONSTRAINT czlowiek_ekipa_fk
+FOREIGN KEY (person_id)
+REFERENCES moviedb.person (person_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE filmdb.kraj_pochodzenia ADD CONSTRAINT czlowiek_kraj_pochodzenia_fk
-FOREIGN KEY (czlowiek_id)
-REFERENCES filmdb.czlowiek (czlowiek_id)
+ALTER TABLE moviedb.country_of_origin ADD CONSTRAINT czlowiek_kraj_pochodzenia_fk
+FOREIGN KEY (person_id)
+REFERENCES moviedb.person (person_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE filmdb.film_krajprodukcji ADD CONSTRAINT film_film_krajprodukcji_fk
-FOREIGN KEY (film_id)
-REFERENCES filmdb.film (film_id)
+ALTER TABLE moviedb.movie_productioncountry ADD CONSTRAINT film_film_krajprodukcji_fk
+FOREIGN KEY (movie_id)
+REFERENCES moviedb.movie (movie_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE filmdb.obsada ADD CONSTRAINT film_obsada_fk
-FOREIGN KEY (film_id)
-REFERENCES filmdb.film (film_id)
+ALTER TABLE moviedb._cast ADD CONSTRAINT film_obsada_fk
+FOREIGN KEY (movie_id)
+REFERENCES moviedb.movie (movie_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE filmdb.recenzja ADD CONSTRAINT film_recenzja_fk
-FOREIGN KEY (film_id)
-REFERENCES filmdb.film (film_id)
+ALTER TABLE moviedb.review ADD CONSTRAINT film_recenzja_fk
+FOREIGN KEY (movie_id)
+REFERENCES moviedb.movie (movie_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE filmdb.film_gatunek ADD CONSTRAINT film_film_gatunek_fk
-FOREIGN KEY (film_id)
-REFERENCES filmdb.film (film_id)
+ALTER TABLE moviedb.movie_genre ADD CONSTRAINT film_film_gatunek_fk
+FOREIGN KEY (movie_id)
+REFERENCES moviedb.movie (movie_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE filmdb.ekipa ADD CONSTRAINT film_ekipa_fk
-FOREIGN KEY (film_id)
-REFERENCES filmdb.film (film_id)
+ALTER TABLE moviedb.crew ADD CONSTRAINT film_ekipa_fk
+FOREIGN KEY (movie_id)
+REFERENCES moviedb.movie (movie_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE filmdb.film_krajprodukcji ADD CONSTRAINT kraj_film_krajprodukcji_fk
-FOREIGN KEY (kraj_id)
-REFERENCES filmdb.kraj (kraj_id)
+ALTER TABLE moviedb.movie_productioncountry ADD CONSTRAINT kraj_film_krajprodukcji_fk
+FOREIGN KEY (country_id)
+REFERENCES moviedb.country (country_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE filmdb.kraj_pochodzenia ADD CONSTRAINT kraj_kraj_pochodzenia_fk
-FOREIGN KEY (kraj_id)
-REFERENCES filmdb.kraj (kraj_id)
+ALTER TABLE moviedb.country_of_origin ADD CONSTRAINT kraj_kraj_pochodzenia_fk
+FOREIGN KEY (country_id)
+REFERENCES moviedb.country (country_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
