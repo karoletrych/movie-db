@@ -20,7 +20,7 @@ namespace DataRetriever
                     var cast = httpRetriever.RetrieveCastFromFilm(id);
                     foreach (var person in cast)
                     {
-                        RetrievePerson(httpRetriever, dao, person.CzlowiekId);
+                        RetrievePerson(httpRetriever, dao, person.PersonId);
                     }
 
                     RetrievePerson(httpRetriever, dao, id);
@@ -34,10 +34,10 @@ namespace DataRetriever
         private static void RetrieveFilm(HTTPRetriever httpRetriever, DAO dao, int id)
         {
             var film = httpRetriever.RetrieveFilm(id);
-            dao.InsertFilm(film);
+            dao.InsertMovie(film);
             var countries = httpRetriever.RetrieveCountriesFromFilm(id).ToList();
             dao.InsertCountries(countries);
-            dao.InsertFilm_Countries(film.FilmId, countries.Select(x => x.KrajId));
+            dao.InsertMovie_Countries(film.MovieId, countries.Select(x => x.CountryId));
         }
 
         private static void RetrievePerson(HTTPRetriever httpRetriever, DAO dao, int id)

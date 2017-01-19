@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Database;
 
@@ -31,7 +25,7 @@ namespace GUI
 
         private void searchBox_TextChanged(object sender, EventArgs e)
         {
-            var films = _dao.GetFilmsByTitleLike(searchBox.Text).ToList();
+            var films = _dao.GetMoviesByTitleLike(searchBox.Text).ToList();
             
 
             filmsView.DataSource = films;

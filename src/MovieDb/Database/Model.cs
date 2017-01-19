@@ -2,99 +2,100 @@
 
 namespace Database
 {
-    public class Film
+    public class Movie
     {
-        public int FilmId { get; set; }
-        public DateTime? DataPremiery { get; set; }
+        public int MovieId { get; set; }
+        public DateTime? ReleaseDate { get; set; }
         public string Status { get; set; }
-        public decimal Dochod { get; set; }
-        public string UrlPlakatu { get; set; }
-        public string Tytul { get; set; }
+        public decimal Revenue { get; set; }
+        public string PosterUrl { get; set; }
+        public string Title { get; set; }
+        public float AverageVote { get; set; }
     }
 
-    public class FilmKrajProdukcji
+    public class Movie_ProductionCountry
     {
-        public int KrajId { get; set; }
-        public int FilmId { get; set; }
+        public int CountryId { get; set; }
+        public int MovieId { get; set; }
     }
 
-    public class Kraj
+    public class Country
     {
-        public string KrajId { get; set; }
-        public string Nazwa { get; set; }
+        public string CountryId { get; set; }
+        public string Name { get; set; }
     }
 
-    public class FilmGatunek
+    public class MovieGenre
     {
-        public int FilmId { get; set; }
-        public int GatunekId { get; set; }
+        public int MovieId { get; set; }
+        public int GenreId { get; set; }
     }
 
-    public class Gatunek
+    public class Genre
     {
-        public int GatunekId { get; set; }
-        public string Nazwa { get; set; }
+        public int GenreId { get; set; }
+        public string Name { get; set; }
     }
 
-    public class Recenzja
+    public class Review
     {
-        public int IdUzytkownik { get; set; }
-        public int FilmId { get; set; }
+        public int UserId { get; set; }
+        public int MovieId { get; set; }
 
-        public string Tresc { get; set; }
-        public int Ocena { get; set; }
+        public string Content { get; set; }
+        public int Vote { get; set; }
     }
 
-    public class Uzytkownik
+    public class Member
     {
-        public int IdUzytkownik { get; set; }
+        public int MemberId { get; set; }
 
         public string Login { get; set; }
         public string Email { get; set; }
-        public string HashHasla { get; set; }
+        public string PasswordHash { get; set; }
     }
 
-    public class Obsada
+    public class Cast
     {
-        public int CzlowiekId { get; set; }
-        public int FilmId { get; set; }
-        public string Postac { get; set; }
+        public int PersonId { get; set; }
+        public int MovieId { get; set; }
+        public string Character { get; set; }
     }
 
-    public class Ekipa
+    public class Crew
     {
-        public int CzlowiekId { get; set; }
-        public int FilmId { get; set; }
-        public int PracaId { get; set; }
+        public int PersonId { get; set; }
+        public int MovieId { get; set; }
+        public int JobId { get; set; }
     }
 
-    public class Praca
+    public class Job
     {
-        public int PracaId { get; set; }
-        public int DzialId { get; set; }
-        public string Nazwa { get; set; }
+        public int JobId { get; set; }
+        public int DepartmentId { get; set; }
+        public string Name { get; set; }
     }
 
-    public class Dzial
+    public class Department
     {
-        public int DzialId { get; set; }
-        public string Nazwa { get; set; }
+        public int DepartmentId { get; set; }
+        public string Name { get; set; }
     }
 
-    public class Czlowiek
+    public class Person
     {
-        public int CzlowiekId { get; set; }
-        public DateTime? DataUrodzenia { get; set; }
-        public DateTime? DataZgonu { get; set; }
-        public string Biografia { get; set; }
-        public int Plec { get; set; }
-        public string MiejsceUrodzenia { get; set; }
-        public string Nazwisko { get; set; }
+        public int PersonId { get; set; }
+        public DateTime? BirthDay { get; set; }
+        public DateTime? DeathDay { get; set; }
+        public string Biography { get; set; }
+        public int Gender { get; set; }
+        public string PlaceOfBirth { get; set; }
+        public string Name { get; set; }
     }
 
-    public class KrajPochodzenia
+    public class CountryOfOrigin
     {
-        public int CzlowiekId { get; set; }
-        public int KrajId { get; }
+        public int PersonId { get; set; }
+        public int CountryId { get; }
     }
 }

@@ -22,23 +22,23 @@ namespace DataRetriever
             _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public Film RetrieveFilm(int id)
+        public Movie RetrieveFilm(int id)
         {
             var path = Format(ConnectionString, "movie", id);
             var response = Get(path);
 
             var dataPremiery = DateTime.Parse(response["release_date"]);
-            return new Film
+            return new Movie
             {
-                DataPremiery = dataPremiery,
-                Dochod = response["revenue"],
-                FilmId = id,
+                ReleaseDate = dataPremiery,
+                Revenue = response["revenue"],
+                MovieId = id,
                 Status = response["status"],
-                Tytul = response["title"]
+                Title = response["title"]
             };
         }
 
-        public IEnumerable<Kraj> RetrieveCountriesFromFilm(int id)
+        public IEnumerable<Country> RetrieveCountriesFromFilm(int id)
         {
             var path = Format(ConnectionString, "movie", id);
             var response = Get(path);
@@ -46,44 +46,44 @@ namespace DataRetriever
             var countries = response["production_countries"];
             foreach (var country in countries)
             {
-                yield return new Kraj
+                yield return new Country
                 {
-                    KrajId = country["iso_3166_1"],
-                    Nazwa = country["name"]
+                    CountryId = country["iso_3166_1"],
+                    Name = country["name"]
                 };
             }
         }
 
-        public IEnumerable<Obsada> RetrieveCastFromFilm(int id)
+        public IEnumerable<Cast> RetrieveCastFromFilm(int id)
         {
             var path = Format(ConnectionString, "movie", id + @"/credits");
             var response = Get(path);
             var casts = response["cast"];
             foreach (var cast in casts)
             {
-                var obsada = new Obsada
+                var obsada = new Cast
                 {
-                    FilmId = id,
-                    Postac = cast["character"],
-                    CzlowiekId = cast["id"]
+                    MovieId = id,
+                    Character = cast["character"],
+                    PersonId = cast["id"]
                 };
                 yield return obsada;
             }
         }
 
-        public Czlowiek RetrievePerson(int person_id)
+        public Person RetrievePerson(int person_id)
         {
             var path = Format(ConnectionString, "person", person_id);
             var response = Get(path);
-            var person = new Czlowiek
+            var person = new Person
             {
-                Biografia = response["biography"],
-                CzlowiekId = person_id,
-                DataUrodzenia = TryParse(response["birthday"]),
-                MiejsceUrodzenia = response["place_of_birth"],
-                Nazwisko = response["name"],
-                Plec = response["gender"],
-                DataZgonu = TryParse(response["deathday"])
+                Biography = response["biography"],
+                PersonId = person_id,
+                BirthDay = TryParse(response["birthday"]),
+                PlaceOfBirth = response["place_of_birth"],
+                Name = response["name"],
+                Gender = response["gender"],
+                DeathDay = TryParse(response["deathday"])
             };
             return person;
         }

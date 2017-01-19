@@ -36,7 +36,7 @@ CREATE TABLE moviedb.person (
                 birthday DATE,
                 deathday DATE,
                 biography VARCHAR NOT NULL,
-                sex INTEGER NOT NULL,
+                gender INTEGER NOT NULL,
                 place_of_birth VARCHAR NOT NULL,
                 name VARCHAR NOT NULL,
                 CONSTRAINT person_pk PRIMARY KEY (person_id)
@@ -46,7 +46,7 @@ CREATE TABLE moviedb.person (
 CREATE TABLE moviedb.movie (
                 movie_id INTEGER NOT NULL,
                 release_date DATE,
-                status INTEGER NOT NULL,
+                status VARCHAR NOT NULL,
                 revenue NUMERIC,
                 poster_url VARCHAR,
                 title VARCHAR NOT NULL,
@@ -103,7 +103,7 @@ CREATE TABLE moviedb._cast (
 ALTER SEQUENCE moviedb._cast_cast_id_seq OWNED BY moviedb._cast.cast_id;
 
 CREATE TABLE moviedb.country (
-                country_id INTEGER NOT NULL,
+                country_id VARCHAR NOT NULL,
                 name VARCHAR NOT NULL,
                 CONSTRAINT country_pk PRIMARY KEY (country_id)
 );
@@ -114,7 +114,7 @@ CREATE SEQUENCE moviedb.country_of_origin_country_of_origin_id_seq;
 CREATE TABLE moviedb.country_of_origin (
                 country_of_origin_id INTEGER NOT NULL DEFAULT nextval('moviedb.country_of_origin_country_of_origin_id_seq'),
                 person_id INTEGER NOT NULL,
-                country_id INTEGER NOT NULL,
+                country_id VARCHAR NOT NULL,
                 CONSTRAINT country_of_origin_pk PRIMARY KEY (country_of_origin_id)
 );
 
@@ -125,7 +125,7 @@ CREATE SEQUENCE moviedb.movie_productioncountry_movie_productioncountry_id_seq;
 
 CREATE TABLE moviedb.movie_productioncountry (
                 movie_productioncountry_id INTEGER NOT NULL DEFAULT nextval('moviedb.movie_productioncountry_movie_productioncountry_id_seq'),
-                country_id INTEGER NOT NULL,
+                country_id VARCHAR NOT NULL,
                 movie_id INTEGER NOT NULL,
                 CONSTRAINT movie_productioncountry_pk PRIMARY KEY (movie_productioncountry_id)
 );

@@ -22,7 +22,7 @@
   <table id="TAB1" populated="true" UUID="c6860467-44bc-4dbf-80b5-38e4d8c6d2f3" name="kraj" objectType="TABLE" physicalName="country" >
    <remarks></remarks>
    <folder id="FOLTAB11" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL2" populated="true" UUID="2103e51c-9302-412a-b253-40d9ed09cf97" autoIncrement="false" autoIncrementSequenceName="country_country_id_seq" defaultValue="" name="kraj_id" nullable="0" physicalName="country_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL2" populated="true" UUID="2103e51c-9302-412a-b253-40d9ed09cf97" autoIncrement="false" autoIncrementSequenceName="country_country_id_seq" defaultValue="" name="kraj_id" nullable="0" physicalName="country_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
     <column id="COL3" populated="true" UUID="71d6cda7-e647-40b2-bd6a-ca3e143bb49e" autoIncrement="false" autoIncrementSequenceName="country_name_seq" defaultValue="" name="nazwa" nullable="0" physicalName="name" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
@@ -48,7 +48,7 @@
     <column id="COL8" populated="true" UUID="0f48be59-059e-4187-a1fc-0bfa17d7c4ff" autoIncrement="false" autoIncrementSequenceName="movie_release_date_seq" defaultValue="" name="data_premiery" nullable="1" physicalName="release_date" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
      <remarks></remarks>
     </column>
-    <column id="COL9" populated="true" UUID="d1b4aeaf-8be9-4d54-94d9-7eb092d25aad" autoIncrement="false" autoIncrementSequenceName="movie_status_seq" defaultValue="" name="status" nullable="0" physicalName="status" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL9" populated="true" UUID="d1b4aeaf-8be9-4d54-94d9-7eb092d25aad" autoIncrement="false" autoIncrementSequenceName="movie_status_seq" defaultValue="" name="status" nullable="0" physicalName="status" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
     <column id="COL10" populated="true" UUID="e59bd397-b95d-4092-9f32-3363b116e669" autoIncrement="false" autoIncrementSequenceName="movie_revenue_seq" defaultValue="" name="dochod" nullable="1" physicalName="revenue" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
@@ -80,7 +80,7 @@
     <column id="COL17" populated="true" UUID="d97460e8-e362-4d8a-a1b3-f70db91fc7a4" autoIncrement="true" autoIncrementSequenceName="movie_productioncountry_movie_productioncountry_id_seq" defaultValue="" name="film_krajprodukcji_id" nullable="0" physicalName="movie_productioncountry_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL18" populated="true" UUID="8efac126-ead8-4ca8-80c1-122823cb3c75" autoIncrement="false" autoIncrementSequenceName="movie_productioncountry_country_id_seq" defaultValue="" name="kraj_id" nullable="0" physicalName="country_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL18" populated="true" UUID="8efac126-ead8-4ca8-80c1-122823cb3c75" autoIncrement="false" autoIncrementSequenceName="movie_productioncountry_country_id_seq" defaultValue="" name="kraj_id" nullable="0" physicalName="country_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
     <column id="COL19" populated="true" UUID="90d54a3f-0a68-4f2a-89a1-52ab31bb32c8" autoIncrement="false" autoIncrementSequenceName="movie_productioncountry_movie_id_seq" defaultValue="" name="film_id" nullable="0" physicalName="movie_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
@@ -141,7 +141,7 @@
     <column id="COL36" populated="true" UUID="52b27e23-18a6-495f-be5a-faa5d3f1c882" autoIncrement="false" autoIncrementSequenceName="person_biography_seq" defaultValue="" name="biografia" nullable="0" physicalName="biography" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL37" populated="true" UUID="ee0d49d3-2afe-45a1-a762-b14896a38dc3" autoIncrement="false" autoIncrementSequenceName="person_sex_seq" defaultValue="" name="plec" nullable="0" physicalName="sex" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL37" populated="true" UUID="ee0d49d3-2afe-45a1-a762-b14896a38dc3" autoIncrement="false" autoIncrementSequenceName="person_gender_seq" defaultValue="" name="plec" nullable="0" physicalName="gender" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
     <column id="COL38" populated="true" UUID="09d658ff-f143-41e2-889c-880f536448bf" autoIncrement="false" autoIncrementSequenceName="person_place_of_birth_seq" defaultValue="" name="miejsce_urodzenia" nullable="0" physicalName="place_of_birth" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
@@ -335,7 +335,7 @@
     <column id="COL88" populated="true" UUID="aa7f3f7e-49ae-4df8-a4b9-3cfadd77939d" autoIncrement="false" autoIncrementSequenceName="country_of_origin_person_id_seq" defaultValue="" name="czlowiek_id" nullable="0" physicalName="person_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL89" populated="true" UUID="938e4dc6-50f3-40a2-8414-fb24cb65eeed" autoIncrement="false" autoIncrementSequenceName="country_of_origin_country_id_seq" defaultValue="" name="kraj_id" nullable="0" physicalName="country_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL89" populated="true" UUID="938e4dc6-50f3-40a2-8414-fb24cb65eeed" autoIncrement="false" autoIncrementSequenceName="country_of_origin_country_id_seq" defaultValue="" name="kraj_id" nullable="0" physicalName="country_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
     </folder>
