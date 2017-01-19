@@ -1,0 +1,19 @@
+Widok pojedynczego filmu w którym się wyświetlają aktorzy, ekipa, kraj pochodzenia url itd.
+
+Dowolne filtrowanie filmów po kryteriach
+Sortowanie wg daty/średniej oceny kryteriów.
+
+Triggery:
+Liczenie średniej oceny dla filmu po wystawieniu nowej oceny.
+Walidacja oceny.
+
+Dodatkowe tabele:
+Filmy "Do obejrzenia" + "Obejrzane" per użytkownik.
+
+Wyświetlanie sugestii:
+A)filmy tego samego rezysera
+B)filmy z podobną obsadą
+C)zbieżność gustu z innymi użytkownikami
+
+Widoki:
+Użytkownik -> filmy ocenione przeze mnie

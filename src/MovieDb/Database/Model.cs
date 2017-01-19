@@ -2,7 +2,7 @@
 
 namespace Database
 {
-    public class film
+    public class Film
     {
         public int FilmId { get; set; }
         public DateTime? DataPremiery { get; set; }
@@ -12,31 +12,31 @@ namespace Database
         public string Tytul { get; set; }
     }
 
-    public class film_kraj_produkcji
+    public class FilmKrajProdukcji
     {
         public int KrajId { get; set; }
         public int FilmId { get; set; }
     }
 
-    public class kraj
+    public class Kraj
     {
         public string KrajId { get; set; }
         public string Nazwa { get; set; }
     }
 
-    public class film_gatunek
+    public class FilmGatunek
     {
         public int FilmId { get; set; }
         public int GatunekId { get; set; }
     }
 
-    public class gatunek
+    public class Gatunek
     {
         public int GatunekId { get; set; }
         public string Nazwa { get; set; }
     }
 
-    public class recenzja
+    public class Recenzja
     {
         public int IdUzytkownik { get; set; }
         public int FilmId { get; set; }
@@ -45,7 +45,7 @@ namespace Database
         public int Ocena { get; set; }
     }
 
-    public class uzytkownik
+    public class Uzytkownik
     {
         public int IdUzytkownik { get; set; }
 
@@ -54,45 +54,45 @@ namespace Database
         public string HashHasla { get; set; }
     }
 
-    public class obsada
+    public class Obsada
     {
         public int CzlowiekId { get; set; }
-        public int FamilyId { get; set; }
-        public string postac { get; set; }
+        public int FilmId { get; set; }
+        public string Postac { get; set; }
     }
 
-    public class ekipa
+    public class Ekipa
     {
         public int CzlowiekId { get; set; }
         public int FilmId { get; set; }
         public int PracaId { get; set; }
     }
 
-    public class praca
+    public class Praca
     {
         public int PracaId { get; set; }
         public int DzialId { get; set; }
         public string Nazwa { get; set; }
     }
 
-    public class dzial
+    public class Dzial
     {
         public int DzialId { get; set; }
         public string Nazwa { get; set; }
     }
 
-    public class czlowiek
+    public class Czlowiek
     {
         public int CzlowiekId { get; set; }
-        public DateTime DataUrodzenia { get; set; }
-        public DateTime DataZgonu { get; set; }
+        public DateTime? DataUrodzenia { get; set; }
+        public DateTime? DataZgonu { get; set; }
         public string Biografia { get; set; }
         public int Plec { get; set; }
         public string MiejsceUrodzenia { get; set; }
         public string Nazwisko { get; set; }
     }
 
-    public class kraj_pochodzenia
+    public class KrajPochodzenia
     {
         public int CzlowiekId { get; set; }
         public int KrajId { get; }
