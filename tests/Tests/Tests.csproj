@@ -56,18 +56,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="RetrieverTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Database\Database.csproj">
+    <ProjectReference Include="..\..\src\Database\Database.csproj">
       <Project>{A8259935-27EB-42FE-B818-96DF03183771}</Project>
       <Name>Database</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DataRetriever\DataRetriever.csproj">
+    <ProjectReference Include="..\..\src\DataRetriever\DataRetriever.csproj">
       <Project>{97f95302-0b42-439e-8b51-b0ec0171541c}</Project>
       <Name>DataRetriever</Name>
     </ProjectReference>

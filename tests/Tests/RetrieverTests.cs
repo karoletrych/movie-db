@@ -4,7 +4,7 @@ using Xunit;
 
 namespace Tests
 {
-    public class Class1
+    public class RetrieverTests
     {
         [Fact]
         public void FilmTest()
