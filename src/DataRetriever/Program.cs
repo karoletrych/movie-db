@@ -9,21 +9,21 @@ namespace DataRetriever
     {
         private static void Main(string[] args)
         {
-            var httpRetriever = new HTTPRetriever();
+            var httpRetriever = new HttpRetriever();
             var dao = new DAO();
             for (var id = 1; id < 900; id++)
             {
                 Console.WriteLine(id);
                 try
                 {
-                    RetrieveFilm(httpRetriever, dao, id);
+                    RetrieveAndInsertFilm(httpRetriever, dao, id);
                     var cast = httpRetriever.RetrieveCastFromFilm(id);
-                    foreach (var person in cast)
+                    foreach (var c in cast)
                     {
-                        RetrievePerson(httpRetriever, dao, person.PersonId);
+                        var person = RetrievePerson(httpRetriever, c.PersonId);
+                        dao.InsertPerson(person);
+                        dao.InsertCast(c);
                     }
-
-                    RetrievePerson(httpRetriever, dao, id);
                 }
                 catch (KeyNotFoundException)
                 {
@@ -31,7 +31,7 @@ namespace DataRetriever
             }
         }
 
-        private static void RetrieveFilm(HTTPRetriever httpRetriever, DAO dao, int id)
+        private static void RetrieveAndInsertFilm(HttpRetriever httpRetriever, DAO dao, int id)
         {
             var film = httpRetriever.RetrieveFilm(id);
             dao.InsertMovie(film);
@@ -40,10 +40,10 @@ namespace DataRetriever
             dao.InsertMovie_Countries(film.MovieId, countries.Select(x => x.CountryId));
         }
 
-        private static void RetrievePerson(HTTPRetriever httpRetriever, DAO dao, int id)
+        private static Person RetrievePerson(HttpRetriever httpRetriever, int id)
         {
             var person = httpRetriever.RetrievePerson(id);
-            dao.InsertPerson(person);
+            return person;
         }
     }
 }

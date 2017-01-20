@@ -105,19 +105,16 @@ values(:person_id, :birthday, :deathday, :biography, :gender, :place_of_birth, :
             command.ExecuteNonQuery();
         }
 
-        public void InsertCast(IEnumerable<Cast> cast)
+        public void InsertCast(Cast cast)
         {
-            foreach (var c in cast)
-            {
                 var command = _connection.CreateCommand();
                 command.CommandText =
-                    @"insert into cast (person_id, movie_id, character)
+                    @"insert into _cast (person_id, movie_id, character)
 values(:person_id, :movie_id, :character)";
-                command.Parameters.Add(new NpgsqlParameter("person_id", c.PersonId));
-                command.Parameters.Add(new NpgsqlParameter("movie_id", c.MovieId));
-                command.Parameters.Add(new NpgsqlParameter("character", c.Character));
+                command.Parameters.Add(new NpgsqlParameter("person_id", cast.PersonId));
+                command.Parameters.Add(new NpgsqlParameter("movie_id", cast.MovieId));
+                command.Parameters.Add(new NpgsqlParameter("character", cast.Character));
                 command.ExecuteNonQuery();
-            }
         }
     }
 }

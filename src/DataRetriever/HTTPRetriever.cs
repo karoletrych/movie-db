@@ -8,14 +8,14 @@ using static System.String;
 
 namespace DataRetriever
 {
-    public class HTTPRetriever
+    public class HttpRetriever
     {
         private const string ConnectionString =
             "https://api.themoviedb.org/3/{0}/{1}?api_key=da401c8351bc545ba0a95b1847e3e654&language=en-US";
 
         private readonly HttpClient _client;
 
-        public HTTPRetriever()
+        public HttpRetriever()
         {
             _client = new HttpClient();
             _client.DefaultRequestHeaders.Accept.Clear();
