@@ -116,5 +116,42 @@ values(:person_id, :movie_id, :character)";
                 command.Parameters.Add(new NpgsqlParameter("character", cast.Character));
                 command.ExecuteNonQuery();
         }
+
+        public void InsertDepartments(IEnumerable<Department> departments)
+        {
+            foreach (var department in departments)
+            {
+                var insertDepartmentCommand = _connection.CreateCommand();
+                insertDepartmentCommand.CommandText =
+                    @"insert into department (department_id, name)
+values(:department_id, :name) on conflict do nothing";
+                insertDepartmentCommand.Parameters.Add(new NpgsqlParameter("department_id", department.Id));
+                insertDepartmentCommand.Parameters.Add(new NpgsqlParameter("name", department.Name));
+                insertDepartmentCommand.ExecuteNonQuery();
+                foreach (var job in department.Jobs)
+                {
+                    var insertJobCommand = _connection.CreateCommand();
+                    insertJobCommand.CommandText =
+                        @"insert into job (job_id, department_id, name)
+values(:job_id, :department_id, :name) on conflict do nothing";
+                    insertJobCommand.Parameters.Add(new NpgsqlParameter("department_id", department.Id));
+                    insertJobCommand.Parameters.Add(new NpgsqlParameter("name", job.Name));
+                    insertJobCommand.Parameters.Add(new NpgsqlParameter("job_id", job.Id));
+                    insertJobCommand.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void InsertCrew(Crew cast)
+        {
+            var command = _connection.CreateCommand();
+            command.CommandText =
+                @"insert into crew (person_id, movie_id, job)
+values(:person_id, :movie_id, :job)";
+            command.Parameters.Add(new NpgsqlParameter("person_id", cast.PersonId));
+            command.Parameters.Add(new NpgsqlParameter("movie_id", cast.MovieId));
+            command.Parameters.Add(new NpgsqlParameter("job", cast.JobId));
+            command.ExecuteNonQuery();
+        }
     }
 }

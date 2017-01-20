@@ -10,28 +10,42 @@ namespace Tests
         public void FilmTest()
         {
             var retriever = new HttpRetriever();
-            var movie = retriever.RetrieveFilm(123);
+            var movie = retriever.RetrieveMovie(123);
         }
 
         [Fact]
         public void CountriesTest()
         {
             var retriever = new HttpRetriever();
-            var krajs = retriever.RetrieveCountriesFromFilm(123).ToList();
+            var countries = retriever.RetrieveCountriesFromFilm(123).ToList();
         }
 
         [Fact]
         public void PersonTest()
         {
             var retriever = new HttpRetriever();
-            var person = retriever.RetrievePerson(123);
+            var people = retriever.RetrievePerson(123);
         }
 
         [Fact]
         public void CastTest()
         {
             var retriever = new HttpRetriever();
-            var person = retriever.RetrieveCastFromFilm(123).ToList();
+            var casts = retriever.RetrieveCastFromFilm(123).ToList();
+        }
+
+        [Fact]
+        public void CrewTest()
+        {
+            var retriever = new HttpRetriever();
+            var crews = retriever.RetrieveCrewFromFilm(123).ToList();
+        }
+
+        [Fact]
+        public void JobsTest()
+        {
+            var retriever = new HttpRetriever();
+            var jobs = retriever.RetrieveDepartments().ToList();
         }
     }
 }

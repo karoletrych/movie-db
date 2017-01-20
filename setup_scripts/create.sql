@@ -1,9 +1,9 @@
 CREATE SCHEMA moviedb;
 
-CREATE TABLE moviedb.dzial (
+CREATE TABLE moviedb.department (
                 department_id INTEGER NOT NULL,
                 name VARCHAR NOT NULL,
-                CONSTRAINT dzial_pk PRIMARY KEY (department_id)
+                CONSTRAINT department_pk PRIMARY KEY (department_id)
 );
 
 
@@ -55,18 +55,13 @@ CREATE TABLE moviedb.movie (
 );
 
 
-CREATE SEQUENCE moviedb.crew_crew_id_seq;
-
 CREATE TABLE moviedb.crew (
-                crew_id INTEGER NOT NULL DEFAULT nextval('moviedb.crew_crew_id_seq'),
                 person_id INTEGER NOT NULL,
                 movie_id INTEGER NOT NULL,
                 job_id INTEGER NOT NULL,
-                CONSTRAINT crew_pk PRIMARY KEY (crew_id)
+                CONSTRAINT crew_pk PRIMARY KEY (person_id, movie_id, job_id)
 );
 
-
-ALTER SEQUENCE moviedb.crew_crew_id_seq OWNED BY moviedb.crew.crew_id;
 
 CREATE SEQUENCE moviedb.movie_genre_movie_genre_id_seq;
 
@@ -89,18 +84,13 @@ CREATE TABLE moviedb.review (
 );
 
 
-CREATE SEQUENCE moviedb._cast_cast_id_seq;
-
 CREATE TABLE moviedb._cast (
-                cast_id INTEGER NOT NULL DEFAULT nextval('moviedb._cast_cast_id_seq'),
                 character VARCHAR NOT NULL,
                 person_id INTEGER NOT NULL,
                 movie_id INTEGER NOT NULL,
-                CONSTRAINT _cast_pk PRIMARY KEY (cast_id, character, person_id, movie_id)
+                CONSTRAINT _cast_pk PRIMARY KEY (character, person_id, movie_id)
 );
 
-
-ALTER SEQUENCE moviedb._cast_cast_id_seq OWNED BY moviedb._cast.cast_id;
 
 CREATE TABLE moviedb.country (
                 country_id VARCHAR NOT NULL,
@@ -135,7 +125,7 @@ ALTER SEQUENCE moviedb.movie_productioncountry_movie_productioncountry_id_seq OW
 
 ALTER TABLE moviedb.job ADD CONSTRAINT dzial_praca_fk
 FOREIGN KEY (department_id)
-REFERENCES moviedb.dzial (department_id)
+REFERENCES moviedb.department (department_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;

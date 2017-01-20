@@ -11,6 +11,10 @@ namespace DataRetriever
         {
             var httpRetriever = new HttpRetriever();
             var dao = new DAO();
+
+            var departments = httpRetriever.RetrieveDepartments();
+            dao.InsertDepartments(departments);
+
             for (var id = 1; id < 900; id++)
             {
                 Console.WriteLine(id);
@@ -33,7 +37,7 @@ namespace DataRetriever
 
         private static void RetrieveAndInsertFilm(HttpRetriever httpRetriever, DAO dao, int id)
         {
-            var film = httpRetriever.RetrieveFilm(id);
+            var film = httpRetriever.RetrieveMovie(id);
             dao.InsertMovie(film);
             var countries = httpRetriever.RetrieveCountriesFromFilm(id).ToList();
             dao.InsertCountries(countries);
