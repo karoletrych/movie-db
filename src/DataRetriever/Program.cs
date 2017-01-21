@@ -28,6 +28,14 @@ namespace DataRetriever
                         dao.InsertPerson(person);
                         dao.InsertCast(c);
                     }
+                    var crew = httpRetriever.RetrieveCrewFromFilm(id);
+                    foreach (var c in crew)
+                    {
+                        var person = RetrievePerson(httpRetriever, c.PersonId);
+                        dao.InsertPerson(person);
+                        dao.InsertCrew(c);
+                    }
+
                 }
                 catch (KeyNotFoundException)
                 {

@@ -1,4 +1,3 @@
-CREATE SCHEMA moviedb;
 
 CREATE TABLE moviedb.department (
                 department_id INTEGER NOT NULL,
@@ -9,7 +8,7 @@ CREATE TABLE moviedb.department (
 
 CREATE TABLE moviedb.job (
                 job_name VARCHAR NOT NULL,
-                dzial_id INTEGER NOT NULL,
+                department_id INTEGER NOT NULL,
                 CONSTRAINT job_pk PRIMARY KEY (job_name)
 );
 
@@ -57,9 +56,8 @@ CREATE TABLE moviedb.movie (
 CREATE TABLE moviedb.crew (
                 person_id INTEGER NOT NULL,
                 movie_id INTEGER NOT NULL,
-                job_id INTEGER NOT NULL,
-                name VARCHAR NOT NULL,
-                CONSTRAINT crew_pk PRIMARY KEY (person_id, movie_id, job_id)
+                job_name VARCHAR NOT NULL,
+                CONSTRAINT crew_pk PRIMARY KEY (person_id, movie_id, job_name)
 );
 
 
@@ -124,14 +122,14 @@ CREATE TABLE moviedb.movie_productioncountry (
 ALTER SEQUENCE moviedb.movie_productioncountry_movie_productioncountry_id_seq OWNED BY moviedb.movie_productioncountry.movie_productioncountry_id;
 
 ALTER TABLE moviedb.job ADD CONSTRAINT dzial_praca_fk
-FOREIGN KEY (dzial_id)
+FOREIGN KEY (department_id)
 REFERENCES moviedb.department (department_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
 ALTER TABLE moviedb.crew ADD CONSTRAINT praca_ekipa_fk
-FOREIGN KEY (name)
+FOREIGN KEY (job_name)
 REFERENCES moviedb.job (job_name)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
