@@ -15,6 +15,9 @@ namespace DataRetriever
             var departments = httpRetriever.RetrieveDepartments();
             dao.InsertDepartments(departments);
 
+            var genres = httpRetriever.RetrieveGenres();
+            dao.InsertGenres(genres);
+
             for (var id = 1; id < 900; id++)
             {
                 Console.WriteLine(id);
@@ -35,7 +38,6 @@ namespace DataRetriever
                         dao.InsertPerson(person);
                         dao.InsertCrew(c);
                     }
-
                 }
                 catch (KeyNotFoundException)
                 {
@@ -46,10 +48,16 @@ namespace DataRetriever
         private static void RetrieveAndInsertFilm(HttpRetriever httpRetriever, DAO dao, int id)
         {
             var film = httpRetriever.RetrieveMovie(id);
+            // some of the genres are not contained in  /genre/movie/list
+            var genres = httpRetriever.RetrieveGenresFromMovie(id); 
+            var movieGenres = httpRetriever.RetrieveMovieGenres(id);
+            var countries = httpRetriever.RetrieveMovieProductionCountries(id).ToList();
+
             dao.InsertMovie(film);
-            var countries = httpRetriever.RetrieveCountriesFromFilm(id).ToList();
             dao.InsertCountries(countries);
-            dao.InsertMovie_Countries(film.MovieId, countries.Select(x => x.CountryId));
+            dao.InsertMovieCountries(film.MovieId, countries.Select(x => x.CountryId));
+            dao.InsertGenres(genres);
+            dao.InsertMovieGenres(movieGenres);
         }
 
         private static Person RetrievePerson(HttpRetriever httpRetriever, int id)

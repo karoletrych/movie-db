@@ -14,9 +14,9 @@ CREATE TABLE moviedb.job (
 
 
 CREATE TABLE moviedb.genre (
-                gatunek_id INTEGER NOT NULL,
-                nazwa VARCHAR NOT NULL,
-                CONSTRAINT genre_pk PRIMARY KEY (gatunek_id)
+                genre_id INTEGER NOT NULL,
+                name VARCHAR NOT NULL,
+                CONSTRAINT genre_pk PRIMARY KEY (genre_id)
 );
 
 
@@ -61,17 +61,12 @@ CREATE TABLE moviedb.crew (
 );
 
 
-CREATE SEQUENCE moviedb.movie_genre_movie_genre_id_seq;
-
 CREATE TABLE moviedb.movie_genre (
-                movie_genre_id INTEGER NOT NULL DEFAULT nextval('moviedb.movie_genre_movie_genre_id_seq'),
                 movie_id INTEGER NOT NULL,
                 genre_id INTEGER NOT NULL,
-                CONSTRAINT movie_genre_pk PRIMARY KEY (movie_genre_id)
+                CONSTRAINT movie_genre_pk PRIMARY KEY (movie_id, genre_id)
 );
 
-
-ALTER SEQUENCE moviedb.movie_genre_movie_genre_id_seq OWNED BY moviedb.movie_genre.movie_genre_id;
 
 CREATE TABLE moviedb.review (
                 user_id INTEGER NOT NULL,
@@ -137,7 +132,7 @@ NOT DEFERRABLE;
 
 ALTER TABLE moviedb.movie_genre ADD CONSTRAINT gatunek_film_gatunek_fk
 FOREIGN KEY (genre_id)
-REFERENCES moviedb.genre (gatunek_id)
+REFERENCES moviedb.genre (genre_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;

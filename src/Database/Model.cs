@@ -14,12 +14,6 @@ namespace Database
         public float AverageVote { get; set; }
     }
 
-    public class Movie_ProductionCountry
-    {
-        public int CountryId { get; set; }
-        public int MovieId { get; set; }
-    }
-
     public class Country
     {
         public string CountryId { get; set; }

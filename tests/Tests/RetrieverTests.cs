@@ -17,7 +17,7 @@ namespace Tests
         public void CountriesTest()
         {
             var retriever = new HttpRetriever();
-            var countries = retriever.RetrieveCountriesFromFilm(123).ToList();
+            var countries = retriever.RetrieveMovieProductionCountries(123).ToList();
         }
 
         [Fact]
@@ -46,6 +46,27 @@ namespace Tests
         {
             var retriever = new HttpRetriever();
             var jobs = retriever.RetrieveDepartments().ToList();
+        }
+
+        [Fact]
+        public void GenresTest()
+        {
+            var retriever = new HttpRetriever();
+            var jobs = retriever.RetrieveGenres().ToList();
+        }
+
+        [Fact]
+        public void MovieGenresTest()
+        {
+            var retriever = new HttpRetriever();
+            var jobs = retriever.RetrieveMovieGenres(123).ToList();
+        }
+
+        [Fact]
+        public void MovieGenresFromMovieTest()
+        {
+            var retriever = new HttpRetriever();
+            var jobs = retriever.RetrieveGenresFromMovie(123).ToList();
         }
     }
 }

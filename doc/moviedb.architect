@@ -213,10 +213,10 @@
   <table id="TAB55" populated="true" UUID="93ad96d8-078a-4076-8d1a-427d03cf1112" name="gatunek" objectType="TABLE" physicalName="genre" >
    <remarks></remarks>
    <folder id="FOLTAB551" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL56" populated="true" UUID="b404bd3b-7e9b-474c-8545-627e80ccff2c" autoIncrement="false" autoIncrementSequenceName="genre_gatunek_id_seq" defaultValue="" name="gatunek_id" nullable="0" physicalName="gatunek_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL56" populated="true" UUID="b404bd3b-7e9b-474c-8545-627e80ccff2c" autoIncrement="false" autoIncrementSequenceName="genre_genre_id_seq" defaultValue="" name="gatunek_id" nullable="0" physicalName="genre_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL57" populated="true" UUID="49570323-db50-4602-b1fc-81589157edb7" autoIncrement="false" autoIncrementSequenceName="genre_nazwa_seq" defaultValue="" name="nazwa" nullable="0" physicalName="nazwa" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL57" populated="true" UUID="49570323-db50-4602-b1fc-81589157edb7" autoIncrement="false" autoIncrementSequenceName="genre_name_seq" defaultValue="" name="nazwa" nullable="0" physicalName="name" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
     </folder>
@@ -226,20 +226,17 @@
     </folder>
     <folder id="FOLTAB554" populated="true" name="Indices" physicalName="Indices" type="4">
     <index id="IDX58" populated="true" UUID="8ef7290f-aacb-4764-89d1-4dc3fdea891b" clustered="false" name="genre_pk" physicalName="genre_pk" primaryKeyIndex="true" unique="false" >
-     <index-column id="IDC59" populated="true" UUID="b68acd12-8659-4221-81e1-1f33bb240709" ascendingOrDescending="UNSPECIFIED" column-ref="COL56" name="gatunek_id" physicalName="gatunek_id" />
+     <index-column id="IDC59" populated="true" UUID="b68acd12-8659-4221-81e1-1f33bb240709" ascendingOrDescending="UNSPECIFIED" column-ref="COL56" name="gatunek_id" physicalName="genre_id" />
     </index>
    </folder>
   </table>
   <table id="TAB60" populated="true" UUID="acf88659-1655-474e-9d82-9efcb7d3490b" name="film_gatunek" objectType="TABLE" physicalName="movie_genre" >
    <remarks></remarks>
    <folder id="FOLTAB601" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL61" populated="true" UUID="5b6ddd21-626f-409f-b46c-cbca53d1080b" autoIncrement="true" autoIncrementSequenceName="movie_genre_movie_genre_id_seq" defaultValue="" name="film_gatunek_id" nullable="0" physicalName="movie_genre_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL61" populated="true" UUID="f6a1dfd5-d187-4673-8f40-f8b516589444" autoIncrement="false" autoIncrementSequenceName="movie_genre_movie_id_seq" defaultValue="" name="film_id" nullable="0" physicalName="movie_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL62" populated="true" UUID="f6a1dfd5-d187-4673-8f40-f8b516589444" autoIncrement="false" autoIncrementSequenceName="movie_genre_movie_id_seq" defaultValue="" name="film_id" nullable="0" physicalName="movie_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
-     <remarks></remarks>
-    </column>
-    <column id="COL63" populated="true" UUID="64fc883e-a0e7-4ab6-aa39-061f215fe0b7" autoIncrement="false" autoIncrementSequenceName="movie_genre_genre_id_seq" defaultValue="" name="gatunek_id" nullable="0" physicalName="genre_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL62" populated="true" UUID="64fc883e-a0e7-4ab6-aa39-061f215fe0b7" autoIncrement="false" autoIncrementSequenceName="movie_genre_genre_id_seq" defaultValue="" name="gatunek_id" nullable="0" physicalName="genre_id" precision="0" primaryKeySeq="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
     </folder>
@@ -248,8 +245,9 @@
     <folder id="FOLTAB602" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
     <folder id="FOLTAB604" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX64" populated="true" UUID="7e0bc3f6-47ec-4b9c-8136-f03789f69bcb" clustered="false" name="movie_genre_pk" physicalName="movie_genre_pk" primaryKeyIndex="true" unique="false" >
-     <index-column id="IDC65" populated="true" UUID="7ca0977b-2f01-4f48-b257-8304569da8d8" ascendingOrDescending="UNSPECIFIED" column-ref="COL61" name="film_gatunek_id" physicalName="movie_genre_id" />
+    <index id="IDX63" populated="true" UUID="7e0bc3f6-47ec-4b9c-8136-f03789f69bcb" clustered="false" name="movie_genre_pk" physicalName="movie_genre_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC64" populated="true" UUID="a7d16810-89d5-4422-b93f-1666b7c87796" ascendingOrDescending="UNSPECIFIED" column-ref="COL61" name="film_id" physicalName="movie_id" />
+     <index-column id="IDC65" populated="true" UUID="5b8431d1-4bac-4838-ab3e-88e5d9e021f6" ascendingOrDescending="UNSPECIFIED" column-ref="COL62" name="gatunek_id" physicalName="genre_id" />
     </index>
    </folder>
   </table>
@@ -358,7 +356,7 @@
     <column-mapping id="CMP99" populated="true" UUID="05b50c9e-7755-41bb-9655-940ef5d484cb" fk-column-ref="COL42" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL7" />
    </relationship>
    <relationship id="REL100" populated="true" UUID="5ae69853-ce9d-4c6c-95d8-feb2421aa94c" deferrability="7" deleteRule="3" fk-table-ref="TAB60" fkCardinality="7" identifying="false" name="film_film_gatunek_fk" physicalName="film_film_gatunek_fk" pk-table-ref="TAB6" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP101" populated="true" UUID="cc1934e4-4052-4fdb-8749-8b72c4567ce1" fk-column-ref="COL62" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL7" />
+    <column-mapping id="CMP101" populated="true" UUID="cc1934e4-4052-4fdb-8749-8b72c4567ce1" fk-column-ref="COL61" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL7" />
    </relationship>
    <relationship id="REL102" populated="true" UUID="884a8d6a-cd54-4cb7-a7e6-1201dccf3e5c" deferrability="7" deleteRule="3" fk-table-ref="TAB66" fkCardinality="7" identifying="false" name="film_ekipa_fk" physicalName="film_ekipa_fk" pk-table-ref="TAB6" pkCardinality="2" updateRule="3" >
     <column-mapping id="CMP103" populated="true" UUID="87e0d02a-bc58-49c4-affd-ab1c39688bce" fk-column-ref="COL68" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL7" />
@@ -376,7 +374,7 @@
     <column-mapping id="CMP111" populated="true" UUID="fe6d3dd8-dee6-4cd7-b342-17eb0cb3e646" fk-column-ref="COL41" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL49" />
    </relationship>
    <relationship id="REL112" populated="true" UUID="2449ee7a-ac08-4f3c-87ea-a40657ab61d8" deferrability="7" deleteRule="3" fk-table-ref="TAB60" fkCardinality="7" identifying="false" name="gatunek_film_gatunek_fk" physicalName="gatunek_film_gatunek_fk" pk-table-ref="TAB55" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP113" populated="true" UUID="7d8d1d6c-6f28-4a79-8462-241d119d3b0e" fk-column-ref="COL63" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL56" />
+    <column-mapping id="CMP113" populated="true" UUID="7d8d1d6c-6f28-4a79-8462-241d119d3b0e" fk-column-ref="COL62" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL56" />
    </relationship>
    <relationship id="REL114" populated="true" UUID="12650ffa-78d1-435b-880b-5ba731e15d2f" deferrability="7" deleteRule="3" fk-table-ref="TAB66" fkCardinality="7" identifying="false" name="praca_ekipa_fk" physicalName="praca_ekipa_fk" pk-table-ref="TAB74" pkCardinality="2" updateRule="3" >
     <column-mapping id="CMP115" populated="true" UUID="4cfa6114-4493-4737-a696-41b44dfde622" fk-column-ref="COL69" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL75" />

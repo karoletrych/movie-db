@@ -12,9 +12,8 @@ namespace DataRetriever
     public class HttpRetriever
     {
         private const string ConnectionString =
-            "https://api.themoviedb.org/3/{0}/{1}?api_key=da401c8351bc545ba0a95b1847e3e654&language=en-US";
+            "https://api.themoviedb.org/3/{0}?api_key=da401c8351bc545ba0a95b1847e3e654&language=en-US";
 
-        private static int _jobId;
         private static int _departmentId;
 
         private readonly HttpClient _client;
@@ -28,7 +27,7 @@ namespace DataRetriever
 
         public Movie RetrieveMovie(int id)
         {
-            var path = Format(ConnectionString, "movie", id);
+            var path = Format(ConnectionString, "movie/" + id);
             var response = Get(path);
 
             var dataPremiery = DateTime.Parse(response["release_date"]);
@@ -42,9 +41,9 @@ namespace DataRetriever
             };
         }
 
-        public IEnumerable<Country> RetrieveCountriesFromFilm(int id)
+        public IEnumerable<Country> RetrieveMovieProductionCountries(int id)
         {
-            var path = Format(ConnectionString, "movie", id);
+            var path = Format(ConnectionString, "movie/" + id);
             var response = Get(path);
 
             var countries = response["production_countries"];
@@ -56,9 +55,36 @@ namespace DataRetriever
                 };
         }
 
+        public IEnumerable<MovieGenre> RetrieveMovieGenres(int id)
+        {
+            var path = Format(ConnectionString, "movie/" + id);
+            var response = Get(path);
+
+            var genres = response["genres"];
+            foreach (var genre in genres)
+                yield return new MovieGenre()
+                {
+                    GenreId = genre["id"],
+                    MovieId = id
+                };
+        }
+
+        public IEnumerable<Genre> RetrieveGenres()
+        {
+            var path = Format(ConnectionString, "genre/movie/list");
+            var response = Get(path);
+
+            foreach (var genre in response["genres"])
+                yield return new Genre
+                {
+                    GenreId = genre["id"],
+                    Name = genre["name"]
+                };
+        }
+
         public IEnumerable<Cast> RetrieveCastFromFilm(int id)
         {
-            var path = Format(ConnectionString, "movie", id + @"/credits");
+            var path = Format(ConnectionString, "movie/" + id + "/credits");
             var response = Get(path);
             var casts = response["cast"];
             foreach (var cast in casts)
@@ -75,7 +101,7 @@ namespace DataRetriever
 
         public IEnumerable<Department> RetrieveDepartments()
         {
-            var path = Format(ConnectionString, "job", "list");
+            var path = Format(ConnectionString, "job/list");
             var response = Get(path);
             foreach (var department in response["jobs"])
             {
@@ -96,7 +122,7 @@ namespace DataRetriever
 
         public IEnumerable<Crew> RetrieveCrewFromFilm(int id)
         {
-            var path = Format(ConnectionString, "movie", id + @"/credits");
+            var path = Format(ConnectionString, "movie/" + id + "/credits");
             var response = Get(path);
             var crews = response["crew"];
             foreach (var crew in crews)
@@ -113,7 +139,7 @@ namespace DataRetriever
 
         public Person RetrievePerson(int personId)
         {
-            var path = Format(ConnectionString, "person", personId);
+            var path = Format(ConnectionString, "person/" + personId);
             var response = Get(path);
             var person = new Person
             {
@@ -126,6 +152,20 @@ namespace DataRetriever
                 DeathDay = TryParse(response["deathday"])
             };
             return person;
+        }
+
+        public IEnumerable<Genre> RetrieveGenresFromMovie(int id)
+        {
+            var path = Format(ConnectionString, "movie/" + id);
+            var response = Get(path);
+
+            var genres = response["genres"];
+            foreach (var genre in genres)
+                yield return new Genre
+                {
+                    GenreId = genre["id"],
+                    Name = genre["name"]
+                };
         }
 
         private dynamic Get(string path)

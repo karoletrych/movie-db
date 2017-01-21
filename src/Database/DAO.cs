@@ -77,7 +77,7 @@ values(:country_id, :name) ON CONFLICT (country_id) DO NOTHING;";
             }
         }
 
-        public void InsertMovie_Countries(int movieId, IEnumerable<string> countries)
+        public void InsertMovieCountries(int movieId, IEnumerable<string> countries)
         {
             var command = _connection.CreateCommand();
             foreach (var country in countries)
@@ -148,11 +148,39 @@ values(:job_name, :department_id) on conflict do nothing";
             var command = _connection.CreateCommand();
             command.CommandText =
                 @"insert into crew (person_id, movie_id, job_name)
-values(:person_id, :movie_id, :job_name)";
+values(:person_id, :movie_id, :job_name) on conflict do nothing";
             command.Parameters.Add(new NpgsqlParameter("person_id", cast.PersonId));
             command.Parameters.Add(new NpgsqlParameter("movie_id", cast.MovieId));
             command.Parameters.Add(new NpgsqlParameter("job_name", cast.JobName));
             command.ExecuteNonQuery();
+        }
+
+        public void InsertGenres(IEnumerable<Genre> genres)
+        {
+            foreach (var genre in genres)
+            {
+                var command = _connection.CreateCommand();
+                command.CommandText =
+                    @"insert into genre(name, genre_id)
+values(:name, :genre_id) on conflict do nothing";
+                command.Parameters.Add(new NpgsqlParameter("name", genre.Name));
+                command.Parameters.Add(new NpgsqlParameter("genre_id", genre.GenreId));
+                command.ExecuteNonQuery();
+            }
+        }
+
+        public void InsertMovieGenres(IEnumerable<MovieGenre> movieGenres)
+        {
+            foreach (var movieGenre in movieGenres)
+            {
+                var command = _connection.CreateCommand();
+                command.CommandText =
+                    @"insert into movie_genre(movie_id, genre_id)
+values(:movie_id, :genre_id) on conflict do nothing";
+                command.Parameters.Add(new NpgsqlParameter("movie_id", movieGenre.MovieId));
+                command.Parameters.Add(new NpgsqlParameter("genre_id", movieGenre.GenreId));
+                command.ExecuteNonQuery();
+            }
         }
     }
 }
