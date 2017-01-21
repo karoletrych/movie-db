@@ -1,4 +1,4 @@
-DROP SCHEMA moviedb cascade;
+
 
 DROP TABLE moviedb.dzial cascade;
 
@@ -47,3 +47,4 @@ DROP SEQUENCE moviedb.movie_productioncountry_movie_productioncountry_id_seq cas
 
 DROP TABLE moviedb.movie_productioncountry cascade;
 
+DROP SCHEMA moviedb cascade;

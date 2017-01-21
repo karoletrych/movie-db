@@ -87,7 +87,7 @@ namespace DataRetriever
                 var newDepartment = new Department
                 {
                     Name = department["department"],
-                    Jobs = jobsNames.Select(name => new Job {Id = _jobId++, Name = name}),
+                    Jobs = jobsNames.Select(name => new Job {Name = name}),
                     Id = _departmentId++
                 };
                 yield return newDepartment;
@@ -104,7 +104,7 @@ namespace DataRetriever
                 var deserializedCrew = new Crew
                 {
                     MovieId = id,
-                    JobId = crew["job"],
+                    JobName = crew["job"],
                     PersonId = crew["id"]
                 };
                 yield return deserializedCrew;

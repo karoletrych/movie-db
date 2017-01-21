@@ -67,12 +67,11 @@ namespace Database
     {
         public int PersonId { get; set; }
         public int MovieId { get; set; }
-        public int JobId { get; set; }
+        public string JobName { get; set; }
     }
 
     public class Job
     {
-        public int Id { get; set; }
         public string Name { get; set; }
     }
 

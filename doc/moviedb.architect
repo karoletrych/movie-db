@@ -262,7 +262,10 @@
     <column id="COL68" populated="true" UUID="32477b99-be13-462d-9d65-d2010f023c24" autoIncrement="false" autoIncrementSequenceName="crew_movie_id_seq" defaultValue="" name="film_id" nullable="0" physicalName="movie_id" precision="0" primaryKeySeq="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL69" populated="true" UUID="34ff7880-1ce1-4717-93f4-9aeb29f59271" autoIncrement="false" autoIncrementSequenceName="crew_job_id_seq" defaultValue="" name="praca_id" nullable="0" physicalName="job_id" precision="0" primaryKeySeq="2" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL69" populated="true" UUID="34ff7880-1ce1-4717-93f4-9aeb29f59271" autoIncrement="false" autoIncrementSequenceName="crew_job_id_seq" defaultValue="" name="praca_id" nullable="0" physicalName="job_id" precision="0" primaryKeySeq="2" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL70" populated="true" UUID="461e4f7b-9eab-4e0c-a884-f975b4aa7458" autoIncrement="false" autoIncrementSequenceName="job_name_seq" defaultValue="" name="praca_nazwa" nullable="0" physicalName="name" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
     </folder>
@@ -271,33 +274,30 @@
     <folder id="FOLTAB662" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
     <folder id="FOLTAB664" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX70" populated="true" UUID="f5a7eda3-6fba-4197-b008-eb07e2654430" clustered="false" name="crew_pk" physicalName="crew_pk" primaryKeyIndex="true" unique="false" >
-     <index-column id="IDC71" populated="true" UUID="49fca890-3961-42e3-a7bc-993489cc910a" ascendingOrDescending="UNSPECIFIED" column-ref="COL67" name="czlowiek_id" physicalName="person_id" />
-     <index-column id="IDC72" populated="true" UUID="7607f06c-15d8-43db-9e1c-6aec91330914" ascendingOrDescending="UNSPECIFIED" column-ref="COL68" name="film_id" physicalName="movie_id" />
-     <index-column id="IDC73" populated="true" UUID="c346f587-57dc-4a96-8a43-a6345ce61696" ascendingOrDescending="UNSPECIFIED" column-ref="COL69" name="praca_id" physicalName="job_id" />
+    <index id="IDX71" populated="true" UUID="f5a7eda3-6fba-4197-b008-eb07e2654430" clustered="false" name="crew_pk" physicalName="crew_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC72" populated="true" UUID="49fca890-3961-42e3-a7bc-993489cc910a" ascendingOrDescending="UNSPECIFIED" column-ref="COL67" name="czlowiek_id" physicalName="person_id" />
+     <index-column id="IDC73" populated="true" UUID="7607f06c-15d8-43db-9e1c-6aec91330914" ascendingOrDescending="UNSPECIFIED" column-ref="COL68" name="film_id" physicalName="movie_id" />
+     <index-column id="IDC74" populated="true" UUID="c346f587-57dc-4a96-8a43-a6345ce61696" ascendingOrDescending="UNSPECIFIED" column-ref="COL69" name="praca_id" physicalName="job_id" />
     </index>
    </folder>
   </table>
-  <table id="TAB74" populated="true" UUID="f301516d-1f65-4b0a-9764-6ef55817328d" name="praca" objectType="TABLE" physicalName="job" >
+  <table id="TAB75" populated="true" UUID="f301516d-1f65-4b0a-9764-6ef55817328d" name="praca" objectType="TABLE" physicalName="job" >
    <remarks></remarks>
-   <folder id="FOLTAB741" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL75" populated="true" UUID="d083fc94-b7e1-4cd3-b09f-92f05ad6c4cc" autoIncrement="false" autoIncrementSequenceName="job_job_id_seq" defaultValue="" name="praca_id" nullable="0" physicalName="job_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+   <folder id="FOLTAB751" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL76" populated="true" UUID="bb8b8f81-7c71-40fa-892c-be3a03d3c448" autoIncrement="false" autoIncrementSequenceName="job_job_name_seq" defaultValue="" name="praca_nazwa" nullable="0" physicalName="job_name" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL76" populated="true" UUID="39cf949f-ebae-45f6-b227-79a9897991c5" autoIncrement="false" autoIncrementSequenceName="job_dzial_id_seq" defaultValue="" name="department_id" nullable="0" physicalName="department_id" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
-     <remarks></remarks>
-    </column>
-    <column id="COL77" populated="true" UUID="bb8b8f81-7c71-40fa-892c-be3a03d3c448" autoIncrement="false" autoIncrementSequenceName="job_name_seq" defaultValue="" name="nazwa" nullable="0" physicalName="name" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL77" populated="true" UUID="39cf949f-ebae-45f6-b227-79a9897991c5" autoIncrement="false" autoIncrementSequenceName="job_dzial_id_seq" defaultValue="" name="dzial_id" nullable="0" physicalName="dzial_id" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
     </folder>
-    <folder id="FOLTAB743" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    <folder id="FOLTAB753" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
     </folder>
-    <folder id="FOLTAB742" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    <folder id="FOLTAB752" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
-    <folder id="FOLTAB744" populated="true" name="Indices" physicalName="Indices" type="4">
+    <folder id="FOLTAB754" populated="true" name="Indices" physicalName="Indices" type="4">
     <index id="IDX78" populated="true" UUID="775af773-656c-4eb0-8b8e-ab596f34422f" clustered="false" name="job_pk" physicalName="job_pk" primaryKeyIndex="true" unique="false" >
-     <index-column id="IDC79" populated="true" UUID="91bdb847-5793-4f83-8040-d9ac280e4820" ascendingOrDescending="UNSPECIFIED" column-ref="COL75" name="praca_id" physicalName="job_id" />
+     <index-column id="IDC79" populated="true" UUID="db01cb59-d4b6-43c4-822b-f4e2e5542181" ascendingOrDescending="UNSPECIFIED" column-ref="COL76" name="praca_nazwa" physicalName="job_name" />
     </index>
    </folder>
   </table>
@@ -381,15 +381,15 @@
    <relationship id="REL113" populated="true" UUID="2449ee7a-ac08-4f3c-87ea-a40657ab61d8" deferrability="7" deleteRule="3" fk-table-ref="TAB60" fkCardinality="7" identifying="false" name="gatunek_film_gatunek_fk" physicalName="gatunek_film_gatunek_fk" pk-table-ref="TAB55" pkCardinality="2" updateRule="3" >
     <column-mapping id="CMP114" populated="true" UUID="7d8d1d6c-6f28-4a79-8462-241d119d3b0e" fk-column-ref="COL63" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL56" />
    </relationship>
-   <relationship id="REL115" populated="true" UUID="12650ffa-78d1-435b-880b-5ba731e15d2f" deferrability="7" deleteRule="3" fk-table-ref="TAB66" fkCardinality="7" identifying="false" name="praca_ekipa_fk" physicalName="praca_ekipa_fk" pk-table-ref="TAB74" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP116" populated="true" UUID="d89bb7e1-30a4-4db8-bb66-52ce25bdaa3e" fk-column-ref="COL69" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL75" />
+   <relationship id="REL115" populated="true" UUID="12650ffa-78d1-435b-880b-5ba731e15d2f" deferrability="7" deleteRule="3" fk-table-ref="TAB66" fkCardinality="7" identifying="false" name="praca_ekipa_fk" physicalName="praca_ekipa_fk" pk-table-ref="TAB75" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP116" populated="true" UUID="4cfa6114-4493-4737-a696-41b44dfde622" fk-column-ref="COL70" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL76" />
    </relationship>
-   <relationship id="REL117" populated="true" UUID="f240adaf-892c-417c-a383-835901ae3789" deferrability="7" deleteRule="3" fk-table-ref="TAB74" fkCardinality="7" identifying="false" name="dzial_praca_fk" physicalName="dzial_praca_fk" pk-table-ref="TAB80" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP118" populated="true" UUID="910ec09e-f754-4776-adc2-16cc295b0c8a" fk-column-ref="COL76" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL81" />
+   <relationship id="REL117" populated="true" UUID="f240adaf-892c-417c-a383-835901ae3789" deferrability="7" deleteRule="3" fk-table-ref="TAB75" fkCardinality="7" identifying="false" name="dzial_praca_fk" physicalName="dzial_praca_fk" pk-table-ref="TAB80" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP118" populated="true" UUID="910ec09e-f754-4776-adc2-16cc295b0c8a" fk-column-ref="COL77" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL81" />
    </relationship>
   </relationships>
  </target-database>
- <ddl-generator type="ca.sqlpower.architect.ddl.PostgresDDLGenerator" allow-connection="false" target-schema="moviedb"> </ddl-generator>
+ <ddl-generator type="ca.sqlpower.architect.ddl.PostgresDDLGenerator" allow-connection="true" target-schema="moviedb"> </ddl-generator>
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
  <play-pen zoom="1.0" viewportX="0" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
@@ -403,7 +403,7 @@
   <table-pane table-ref="TAB55" x="992" y="384" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB60" x="743" y="395" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB66" x="265" y="522" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB74" x="254" y="655" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB75" x="254" y="655" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB80" x="527" y="669" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB85" x="261" y="342" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-link relationship-ref="REL91" pkConnection="0.6114285714285714" fkConnection="0.6875" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>

@@ -6,18 +6,20 @@ namespace Database
 {
     public class DAO
     {
-        private const string ConnectionString = @"Server=127.0.0.1;
-Port=5432;
-Database=postgres;
-User Id=postgres;
-Password=q;
-Search Path=moviedb";
-
         private readonly NpgsqlConnection _connection;
 
         public DAO()
         {
-            _connection = new NpgsqlConnection(ConnectionString);
+            var connectionStringBuilder = new NpgsqlConnectionStringBuilder
+            {
+                Port = 5432,
+                Database = "postgres",
+                Username = "postgres",
+                Password = "q",
+                SearchPath = "moviedb",
+                Host = "localhost"
+            };
+            _connection = new NpgsqlConnection(connectionStringBuilder);
             _connection.Open();
         }
 
@@ -96,8 +98,8 @@ values(:country_id, :movie_id)";
                 @"insert into person (person_id, birthday, deathday, biography, gender, place_of_birth, name)
 values(:person_id, :birthday, :deathday, :biography, :gender, :place_of_birth, :name) ON CONFLICT DO NOTHING";
             command.Parameters.Add(new NpgsqlParameter("person_id", person.PersonId));
-            command.Parameters.Add(new NpgsqlParameter("birthday", (object)person.BirthDay ?? DBNull.Value));
-            command.Parameters.Add(new NpgsqlParameter("deathday", (object)person.DeathDay ?? DBNull.Value));
+            command.Parameters.Add(new NpgsqlParameter("birthday", (object) person.BirthDay ?? DBNull.Value));
+            command.Parameters.Add(new NpgsqlParameter("deathday", (object) person.DeathDay ?? DBNull.Value));
             command.Parameters.Add(new NpgsqlParameter("biography", person.Biography ?? ""));
             command.Parameters.Add(new NpgsqlParameter("gender", person.Gender));
             command.Parameters.Add(new NpgsqlParameter("place_of_birth", person.PlaceOfBirth ?? ""));
@@ -107,14 +109,14 @@ values(:person_id, :birthday, :deathday, :biography, :gender, :place_of_birth, :
 
         public void InsertCast(Cast cast)
         {
-                var command = _connection.CreateCommand();
-                command.CommandText =
-                    @"insert into _cast (person_id, movie_id, character)
+            var command = _connection.CreateCommand();
+            command.CommandText =
+                @"insert into _cast (person_id, movie_id, character)
 values(:person_id, :movie_id, :character)";
-                command.Parameters.Add(new NpgsqlParameter("person_id", cast.PersonId));
-                command.Parameters.Add(new NpgsqlParameter("movie_id", cast.MovieId));
-                command.Parameters.Add(new NpgsqlParameter("character", cast.Character));
-                command.ExecuteNonQuery();
+            command.Parameters.Add(new NpgsqlParameter("person_id", cast.PersonId));
+            command.Parameters.Add(new NpgsqlParameter("movie_id", cast.MovieId));
+            command.Parameters.Add(new NpgsqlParameter("character", cast.Character));
+            command.ExecuteNonQuery();
         }
 
         public void InsertDepartments(IEnumerable<Department> departments)
@@ -136,7 +138,6 @@ values(:department_id, :name) on conflict do nothing";
 values(:job_id, :department_id, :name) on conflict do nothing";
                     insertJobCommand.Parameters.Add(new NpgsqlParameter("department_id", department.Id));
                     insertJobCommand.Parameters.Add(new NpgsqlParameter("name", job.Name));
-                    insertJobCommand.Parameters.Add(new NpgsqlParameter("job_id", job.Id));
                     insertJobCommand.ExecuteNonQuery();
                 }
             }
@@ -150,7 +151,7 @@ values(:job_id, :department_id, :name) on conflict do nothing";
 values(:person_id, :movie_id, :job)";
             command.Parameters.Add(new NpgsqlParameter("person_id", cast.PersonId));
             command.Parameters.Add(new NpgsqlParameter("movie_id", cast.MovieId));
-            command.Parameters.Add(new NpgsqlParameter("job", cast.JobId));
+            command.Parameters.Add(new NpgsqlParameter("job", cast.JobName));
             command.ExecuteNonQuery();
         }
     }
