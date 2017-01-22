@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="DAO\CountriesDao.cs" />
     <Compile Include="DAO\DAO.cs" />
+    <Compile Include="DAO\GenresDao.cs" />
     <Compile Include="DAO\MovieDao.cs" />
     <Compile Include="Model\Model.cs" />
     <Compile Include="NotFoundException.cs" />

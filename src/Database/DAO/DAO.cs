@@ -88,32 +88,6 @@ values(:person_id, :movie_id, :job_name) on conflict do nothing";
             command.ExecuteNonQuery();
         }
 
-        public void InsertGenres(IEnumerable<Genre> genres)
-        {
-            foreach (var genre in genres)
-            {
-                var command = Connection.CreateCommand();
-                command.CommandText =
-                    @"insert into genre(name, genre_id)
-values(:name, :genre_id) on conflict do nothing";
-                command.Parameters.Add(new NpgsqlParameter("name", genre.Name));
-                command.Parameters.Add(new NpgsqlParameter("genre_id", genre.GenreId));
-                command.ExecuteNonQuery();
-            }
-        }
-
-        public void InsertMovieGenres(IEnumerable<MovieGenre> movieGenres)
-        {
-            foreach (var movieGenre in movieGenres)
-            {
-                var command = Connection.CreateCommand();
-                command.CommandText =
-                    @"insert into movie_genre(movie_id, genre_id)
-values(:movie_id, :genre_id) on conflict do nothing";
-                command.Parameters.Add(new NpgsqlParameter("movie_id", movieGenre.MovieId));
-                command.Parameters.Add(new NpgsqlParameter("genre_id", movieGenre.GenreId));
-                command.ExecuteNonQuery();
-            }
-        }
+        
     }
 }

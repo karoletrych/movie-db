@@ -38,6 +38,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.averageVote = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.productionCountries = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.genres = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.poster)).BeginInit();
             this.SuspendLayout();
             // 
@@ -132,11 +136,51 @@
             this.averageVote.TabIndex = 9;
             this.averageVote.Text = "averageVote";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(381, 47);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(80, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Kraje produkcji:";
+            // 
+            // productionCountries
+            // 
+            this.productionCountries.AutoSize = true;
+            this.productionCountries.Location = new System.Drawing.Point(468, 47);
+            this.productionCountries.Name = "productionCountries";
+            this.productionCountries.Size = new System.Drawing.Size(101, 13);
+            this.productionCountries.TabIndex = 11;
+            this.productionCountries.Text = "productionCountries";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(381, 78);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(47, 13);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Gatunki:";
+            // 
+            // genres
+            // 
+            this.genres.AutoSize = true;
+            this.genres.Location = new System.Drawing.Point(468, 78);
+            this.genres.Name = "genres";
+            this.genres.Size = new System.Drawing.Size(39, 13);
+            this.genres.TabIndex = 13;
+            this.genres.Text = "genres";
+            // 
             // MovieView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(776, 546);
+            this.Controls.Add(this.genres);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.productionCountries);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.averageVote);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -168,5 +212,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label averageVote;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label productionCountries;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label genres;
     }
 }

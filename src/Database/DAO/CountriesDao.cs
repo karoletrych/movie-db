@@ -33,5 +33,22 @@ values(:country_id, :movie_id)";
                 command.ExecuteNonQuery();
             }
         }
+
+        public IEnumerable<string> GetCountryNamesOfMovie(int movieId)
+        {
+            var command = Connection.CreateCommand();
+            command.CommandText =
+                @"SELECT name
+FROM 
+  country c JOIN movie_productioncountry mc on c.country_id = mc.country_id
+  JOIN movie m ON m.movie_id = mc.movie_id
+WHERE 
+  m.movie_id = @movie_id";
+            command.Parameters.Add(new NpgsqlParameter("movie_id", movieId));
+            var reader = command.ExecuteReader();
+            while (reader.Read())
+                yield return reader.GetString(0);
+            reader.Close();
+        }
     }
 }
