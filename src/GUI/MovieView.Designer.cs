@@ -46,6 +46,8 @@
             this.cast = new System.Windows.Forms.ListView();
             this.crew = new System.Windows.Forms.ListView();
             this.label8 = new System.Windows.Forms.Label();
+            this.reviews = new System.Windows.Forms.ListView();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.poster)).BeginInit();
             this.SuspendLayout();
             // 
@@ -210,11 +212,30 @@
             this.label8.TabIndex = 17;
             this.label8.Text = "Ekipa:";
             // 
+            // reviews
+            // 
+            this.reviews.Location = new System.Drawing.Point(19, 514);
+            this.reviews.Name = "reviews";
+            this.reviews.Size = new System.Drawing.Size(582, 195);
+            this.reviews.TabIndex = 18;
+            this.reviews.UseCompatibleStateImageBehavior = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(19, 495);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(55, 13);
+            this.label9.TabIndex = 19;
+            this.label9.Text = "Recenzje:";
+            // 
             // MovieView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(776, 634);
+            this.ClientSize = new System.Drawing.Size(681, 737);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.reviews);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.crew);
             this.Controls.Add(this.cast);
@@ -262,5 +283,7 @@
         private System.Windows.Forms.ListView cast;
         private System.Windows.Forms.ListView crew;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ListView reviews;
+        private System.Windows.Forms.Label label9;
     }
 }

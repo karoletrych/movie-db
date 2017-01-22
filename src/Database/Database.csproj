@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\CrewDAO.cs" />
+    <Compile Include="DAO\ReviewsDAO.cs" />
     <Compile Include="DatabaseConnectionFactory.cs" />
     <Compile Include="DAO\CastDAO.cs" />
     <Compile Include="DAO\CountriesDAO.cs" />

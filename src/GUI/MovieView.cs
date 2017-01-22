@@ -18,6 +18,7 @@ namespace GUI
         private readonly CrewDao _crewDao;
         private readonly GenresDao _genresDao;
         private readonly Movie _movie;
+        private readonly ReviewsDao _reviewsDao;
 
         public MovieView(int movieId, NpgsqlConnection connection)
         {
@@ -26,6 +27,7 @@ namespace GUI
             _movie = new MovieDao(connection).GetMovieById(movieId);
             _castDao = new CastDao(connection);
             _crewDao = new CrewDao(connection);
+            _reviewsDao = new ReviewsDao(connection);
             InitializeComponent();
         }
 
@@ -36,12 +38,18 @@ namespace GUI
             ShowGenres();
             ShowCast();
             ShowCrew();
-//            ShowUserReviews();
+            ShowUserReviews();
         }
 
         private void ShowUserReviews()
         {
-            throw new NotImplementedException();
+            reviews.View = View.Details;
+            var reviewsData = _reviewsDao.GetReviewsOfMovie(_movie.MovieId);
+            foreach (var tuple in reviewsData)
+                reviews.Items.Add(
+                    new ListViewItem(new[] {tuple.Item1.ToString(CultureInfo.CurrentCulture), tuple.Item2, tuple.Item3}));
+            reviews.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            reviews.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
         private void ShowCrew()
