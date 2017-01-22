@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class Form1
+    partial class MainView
     {
         /// <summary>
         /// Required designer variable.
@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.searchBox = new System.Windows.Forms.TextBox();
-            this.filmsView = new System.Windows.Forms.DataGridView();
+            this.moviesView = new System.Windows.Forms.DataGridView();
             this.loggedUser = new System.Windows.Forms.Label();
             this.loginBox = new System.Windows.Forms.TextBox();
             this.passwordBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.filmsView)).BeginInit();
+            this.login = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.moviesView)).BeginInit();
             this.SuspendLayout();
             // 
             // searchBox
@@ -46,17 +47,18 @@
             this.searchBox.TabIndex = 0;
             this.searchBox.TextChanged += new System.EventHandler(this.searchBox_TextChanged);
             // 
-            // filmsView
+            // moviesView
             // 
-            this.filmsView.AllowUserToAddRows = false;
-            this.filmsView.AllowUserToDeleteRows = false;
-            this.filmsView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.filmsView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.filmsView.Location = new System.Drawing.Point(124, 75);
-            this.filmsView.Name = "filmsView";
-            this.filmsView.ReadOnly = true;
-            this.filmsView.Size = new System.Drawing.Size(884, 497);
-            this.filmsView.TabIndex = 1;
+            this.moviesView.AllowUserToAddRows = false;
+            this.moviesView.AllowUserToDeleteRows = false;
+            this.moviesView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.moviesView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.moviesView.Location = new System.Drawing.Point(124, 75);
+            this.moviesView.Name = "moviesView";
+            this.moviesView.ReadOnly = true;
+            this.moviesView.Size = new System.Drawing.Size(884, 497);
+            this.moviesView.TabIndex = 1;
+            this.moviesView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.filmsView_CellContentClick);
             // 
             // loggedUser
             // 
@@ -99,22 +101,32 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Hasło";
             // 
-            // Form1
+            // login
+            // 
+            this.login.Location = new System.Drawing.Point(5, 118);
+            this.login.Name = "login";
+            this.login.Size = new System.Drawing.Size(100, 23);
+            this.login.TabIndex = 7;
+            this.login.Text = "zaloguj";
+            this.login.UseVisualStyleBackColor = true;
+            // 
+            // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1079, 644);
+            this.Controls.Add(this.login);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.passwordBox);
             this.Controls.Add(this.loginBox);
             this.Controls.Add(this.loggedUser);
-            this.Controls.Add(this.filmsView);
+            this.Controls.Add(this.moviesView);
             this.Controls.Add(this.searchBox);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "MainView";
+            this.Text = "MovieDb";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.filmsView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.moviesView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -123,12 +135,13 @@
         #endregion
 
         private System.Windows.Forms.TextBox searchBox;
-        private System.Windows.Forms.DataGridView filmsView;
+        private System.Windows.Forms.DataGridView moviesView;
         private System.Windows.Forms.Label loggedUser;
         private System.Windows.Forms.TextBox loginBox;
         private System.Windows.Forms.TextBox passwordBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button login;
     }
 }
 

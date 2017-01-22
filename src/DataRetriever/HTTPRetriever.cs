@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Web.Script.Serialization;
 using Database;
+using Database.Model;
 using static System.String;
 
 namespace DataRetriever
@@ -37,7 +38,8 @@ namespace DataRetriever
                 Revenue = response["revenue"],
                 MovieId = id,
                 Status = response["status"],
-                Title = response["title"]
+                Title = response["title"],
+                PosterUrl = response["poster_path"]
             };
         }
 

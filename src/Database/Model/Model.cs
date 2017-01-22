@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Database
+namespace Database.Model
 {
     public class Movie
     {
