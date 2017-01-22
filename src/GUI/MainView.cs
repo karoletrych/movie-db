@@ -3,15 +3,19 @@ using System.Linq;
 using System.Windows.Forms;
 using Database;
 using Database.DAO;
+using Npgsql;
 
 namespace GUI
 {
     public partial class MainView : Form
     {
-        private readonly MovieDao _dao = new MovieDao();
+        private readonly NpgsqlConnection _connection = DatabaseConnectionFactory.Create();
+        private readonly MovieDao _movieDao;
+
         public MainView()
         {
             InitializeComponent();
+            _movieDao = new MovieDao(_connection);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -26,7 +30,7 @@ namespace GUI
 
         private void searchBox_TextChanged(object sender, EventArgs e)
         {
-            var films = _dao.GetMoviesByTitleLike(searchBox.Text).ToList();
+            var films = _movieDao.GetMoviesByTitleLike(searchBox.Text).ToList();
             moviesView.DataSource = films.Select(x=> new {x.MovieId, x.Title, x.ReleaseDate}).ToList();
             moviesView.Columns[0].Visible = false;
         }
@@ -35,7 +39,7 @@ namespace GUI
         {
             var s = moviesView.Rows[e.RowIndex];
             var id = (int)s.Cells[0].Value;
-            var movieView = new MovieView(id);
+            var movieView = new MovieView(id, _connection);
             movieView.Show();
         }
     }

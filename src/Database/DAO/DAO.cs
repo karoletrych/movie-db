@@ -9,19 +9,9 @@ namespace Database.DAO
     {
         protected readonly NpgsqlConnection Connection;
 
-        public Dao()
+        public Dao(NpgsqlConnection connection)
         {
-            var connectionStringBuilder = new NpgsqlConnectionStringBuilder
-            {
-                Port = 5432,
-                Database = "postgres",
-                Username = "postgres",
-                Password = "q",
-                SearchPath = "moviedb",
-                Host = "localhost"
-            };
-            Connection = new NpgsqlConnection(connectionStringBuilder);
-            Connection.Open();
+            Connection = connection;
         }
 
         public void InsertPerson(Person person)
@@ -37,18 +27,6 @@ values(:person_id, :birthday, :deathday, :biography, :gender, :place_of_birth, :
             command.Parameters.Add(new NpgsqlParameter("gender", person.Gender));
             command.Parameters.Add(new NpgsqlParameter("place_of_birth", person.PlaceOfBirth ?? ""));
             command.Parameters.Add(new NpgsqlParameter("name", person.Name));
-            command.ExecuteNonQuery();
-        }
-
-        public void InsertCast(Cast cast)
-        {
-            var command = Connection.CreateCommand();
-            command.CommandText =
-                @"insert into _cast (person_id, movie_id, character)
-values(:person_id, :movie_id, :character) on conflict do nothing";
-            command.Parameters.Add(new NpgsqlParameter("person_id", cast.PersonId));
-            command.Parameters.Add(new NpgsqlParameter("movie_id", cast.MovieId));
-            command.Parameters.Add(new NpgsqlParameter("character", cast.Character));
             command.ExecuteNonQuery();
         }
 
@@ -76,18 +54,16 @@ values(:job_name, :department_id) on conflict do nothing";
             }
         }
 
-        public void InsertCrew(Crew cast)
+        public void InsertCrew(Crew crew)
         {
             var command = Connection.CreateCommand();
             command.CommandText =
                 @"insert into crew (person_id, movie_id, job_name)
 values(:person_id, :movie_id, :job_name) on conflict do nothing";
-            command.Parameters.Add(new NpgsqlParameter("person_id", cast.PersonId));
-            command.Parameters.Add(new NpgsqlParameter("movie_id", cast.MovieId));
-            command.Parameters.Add(new NpgsqlParameter("job_name", cast.JobName));
+            command.Parameters.Add(new NpgsqlParameter("person_id", crew.PersonId));
+            command.Parameters.Add(new NpgsqlParameter("movie_id", crew.MovieId));
+            command.Parameters.Add(new NpgsqlParameter("job_name", crew.JobName));
             command.ExecuteNonQuery();
         }
-
-        
     }
 }

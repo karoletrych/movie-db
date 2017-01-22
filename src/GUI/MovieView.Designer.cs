@@ -42,6 +42,8 @@
             this.productionCountries = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.genres = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cast = new System.Windows.Forms.ListView();
             ((System.ComponentModel.ISupportInitialize)(this.poster)).BeginInit();
             this.SuspendLayout();
             // 
@@ -172,11 +174,31 @@
             this.genres.TabIndex = 13;
             this.genres.Text = "genres";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(213, 183);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(47, 13);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Obsada:";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // cast
+            // 
+            this.cast.Location = new System.Drawing.Point(216, 200);
+            this.cast.Name = "cast";
+            this.cast.Size = new System.Drawing.Size(353, 108);
+            this.cast.TabIndex = 15;
+            this.cast.UseCompatibleStateImageBehavior = false;
+            // 
             // MovieView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(776, 546);
+            this.ClientSize = new System.Drawing.Size(776, 634);
+            this.Controls.Add(this.cast);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.genres);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.productionCountries);
@@ -216,5 +238,7 @@
         private System.Windows.Forms.Label productionCountries;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label genres;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ListView cast;
     }
 }

@@ -7,6 +7,10 @@ namespace Database.DAO
 {
     public class MovieDao : Dao
     {
+        public MovieDao(NpgsqlConnection connection) : base(connection)
+        {
+        }
+
         public void InsertMovie(Movie movie)
         {
             var command = Connection.CreateCommand();
@@ -33,19 +37,20 @@ values(:movie_id, :release_date, :status,
             var command = Connection.CreateCommand();
             command.CommandText =
                 @"select * from movie where title ilike @title";
-            command.Parameters.AddWithValue("@title", "%" + title + "%");
+            command.Parameters.Add(new NpgsqlParameter("@title", "%" + title + "%"));
             var reader = command.ExecuteReader();
             while (reader.Read())
             {
                 var movie = new Movie
-                {
-                    MovieId = reader.GetInt32(0),
-                    ReleaseDate = reader.GetDateTime(1),
-                    Status = reader.GetString(2),
-                    Revenue = reader.GetDecimal(3),
-                    PosterUrl = reader.GetValue(4) != DBNull.Value ? reader.GetString(4) : null,
-                    Title = reader.GetString(5)
-                };
+                (
+                    reader.GetDateTime(1),
+                    reader.GetInt32(0),
+                    reader.GetString(2),
+                    reader.GetDecimal(3),
+                    reader.GetValue(4) != DBNull.Value ? reader.GetString(4) : null,
+                    reader.GetString(5),
+                    reader.GetValue(6) != DBNull.Value ? reader.GetFloat(6) : (float?)null
+                );
                 yield return movie;
             }
             reader.Close();
@@ -56,19 +61,20 @@ values(:movie_id, :release_date, :status,
             var command = Connection.CreateCommand();
             command.CommandText =
                 @"select * from movie where movie_id = @id";
-            command.Parameters.AddWithValue("@id", id);
+            command.Parameters.Add(new NpgsqlParameter("@id", id));
             var reader = command.ExecuteReader();
             if (!reader.Read())
                 throw new NotFoundException();
             var movie = new Movie
-            {
-                MovieId = reader.GetInt32(0),
-                ReleaseDate = reader.GetDateTime(1),
-                Status = reader.GetString(2),
-                Revenue = reader.GetDecimal(3),
-                PosterUrl = reader.GetValue(4) != DBNull.Value ? reader.GetString(4) : null,
-                Title = reader.GetString(5)
-            };
+            (
+                reader.GetDateTime(1),
+                reader.GetInt32(0),
+                reader.GetString(2),
+                reader.GetDecimal(3),
+                reader.GetValue(4) != DBNull.Value ? reader.GetString(4) : null,
+                reader.GetString(5),
+                reader.GetValue(6) != DBNull.Value ? reader.GetFloat(6) : (float?)null
+            );
             reader.Close();
             return movie;
         }

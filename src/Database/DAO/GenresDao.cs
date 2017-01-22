@@ -6,6 +6,10 @@ namespace Database.DAO
 {
     public class GenresDao : Dao
     {
+        public GenresDao(NpgsqlConnection connection) : base(connection)
+        {
+        }
+
         public void InsertGenres(IEnumerable<Genre> genres)
         {
             foreach (var genre in genres)

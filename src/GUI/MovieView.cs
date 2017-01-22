@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Globalization;
-using System.Linq;
 using System.Windows.Forms;
 using Database.DAO;
 using Database.Model;
+using Npgsql;
 using static System.String;
 
 namespace GUI
@@ -15,12 +15,14 @@ namespace GUI
         private readonly Movie _movie;
         private readonly CountriesDao _countriesDao;
         private readonly GenresDao _genresDao;
+        private readonly CastDao _castDao;
 
-        public MovieView(int movieId)
+        public MovieView(int movieId, NpgsqlConnection connection)
         {
-            _countriesDao = new CountriesDao();
-            _genresDao = new GenresDao();
-            _movie = new MovieDao().GetMovieById(movieId);
+            _countriesDao = new CountriesDao(connection);
+            _genresDao = new GenresDao(connection);
+            _movie = new MovieDao(connection).GetMovieById(movieId);
+            _castDao = new CastDao(connection);
             InitializeComponent();
         }
 
@@ -29,7 +31,7 @@ namespace GUI
             ShowBasicInfo();
             ShowCountries();
             ShowGenres();
-//            ShowCast();
+            ShowCast();
 //            ShowCrew();
 //            ShowUserReviews();
         }
@@ -46,7 +48,16 @@ namespace GUI
 
         private void ShowCast()
         {
-            throw new NotImplementedException();
+            cast.Columns.Add("Aktor");
+            cast.Columns.Add("Postać");
+            cast.View = View.Details;
+            var castData = _castDao.GetCastOfMovie(_movie.MovieId);
+            foreach (var tuple in castData)
+            {
+                cast.Items.Add(new ListViewItem(new[] { tuple.Item1, tuple.Item2}));
+            }
+            cast.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            cast.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
         private void ShowGenres()
@@ -67,11 +78,17 @@ namespace GUI
             if (_movie.ReleaseDate != null)
                 releaseDate.Text = _movie.ReleaseDate.Value.ToString("yyyy-MM-dd");
             revenue.Text = _movie.Revenue.ToString(CultureInfo.CurrentCulture);
-            averageVote.Text = _movie.AverageVote.ToString(CultureInfo.CurrentCulture);
+            if (_movie.AverageVote != null)
+                averageVote.Text = _movie.AverageVote.Value.ToString(CultureInfo.CurrentCulture);
 
             status.Text = _movie.Status;
             var currentMovieImagePath = Format(ImagePath, ImageSize, _movie.PosterUrl);
             poster.ImageLocation = currentMovieImagePath;
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

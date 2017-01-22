@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Database;
 using Database.DAO;
 using Database.Model;
+using Npgsql;
 
 namespace DataRetriever
 {
@@ -12,15 +14,18 @@ namespace DataRetriever
         private readonly CountriesDao _countriesDao;
         private readonly HttpRetriever _httpRetriever;
         private readonly MovieDao _movieDao;
+        private readonly CastDao _castDao;
         private readonly Dao _dao;
+        private readonly NpgsqlConnection _databaseConnection = DatabaseConnectionFactory.Create();
 
         public DataRetriever()
         {
-            _genresDao = new GenresDao();
-            _countriesDao = new CountriesDao();
+            _castDao = new CastDao(_databaseConnection);
+            _genresDao = new GenresDao(_databaseConnection);
+            _countriesDao = new CountriesDao(_databaseConnection);
             _httpRetriever = new HttpRetriever();
-            _movieDao = new MovieDao();
-            _dao = new Dao();
+            _movieDao = new MovieDao(_databaseConnection);
+            _dao = new Dao(_databaseConnection);
         }
 
         public void Retrieve()
@@ -42,7 +47,7 @@ namespace DataRetriever
                     {
                         var person = RetrievePerson(_httpRetriever, c.PersonId);
                         _dao.InsertPerson(person);
-                        _dao.InsertCast(c);
+                        _castDao.InsertCast(c);
                     }
                     var crew = _httpRetriever.RetrieveCrewFromFilm(id);
                     foreach (var c in crew)
@@ -56,6 +61,7 @@ namespace DataRetriever
                 {
                 }
             }
+            _databaseConnection.Close();
         }
 
         private void RetrieveAndInsertFilm(int id)

@@ -4,7 +4,6 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Web.Script.Serialization;
-using Database;
 using Database.Model;
 using static System.String;
 
@@ -31,16 +30,17 @@ namespace DataRetriever
             var path = Format(ConnectionString, "movie/" + id);
             var response = Get(path);
 
-            var dataPremiery = DateTime.Parse(response["release_date"]);
+            var releaseDate = DateTime.Parse(response["release_date"]);
             return new Movie
-            {
-                ReleaseDate = dataPremiery,
-                Revenue = response["revenue"],
-                MovieId = id,
-                Status = response["status"],
-                Title = response["title"],
-                PosterUrl = response["poster_path"]
-            };
+            (
+                releaseDate: releaseDate,
+                movieId: id,
+                status: response["status"],
+                revenue: response["revenue"],
+                posterUrl: response["poster_path"],
+                title: response["title"],
+                averageVote: 0
+            );
         }
 
         public IEnumerable<Country> RetrieveMovieProductionCountries(int id)
@@ -51,10 +51,10 @@ namespace DataRetriever
             var countries = response["production_countries"];
             foreach (var country in countries)
                 yield return new Country
-                {
-                    CountryId = country["iso_3166_1"],
-                    Name = country["name"]
-                };
+                (
+                    countryId: country["iso_3166_1"],
+                    name: country["name"]
+                );
         }
 
         public IEnumerable<MovieGenre> RetrieveMovieGenres(int id)
@@ -64,11 +64,11 @@ namespace DataRetriever
 
             var genres = response["genres"];
             foreach (var genre in genres)
-                yield return new MovieGenre()
-                {
-                    GenreId = genre["id"],
-                    MovieId = id
-                };
+                yield return new MovieGenre
+                (
+                    movieId: id,
+                    genreId: genre["id"]
+                );
         }
 
         public IEnumerable<Genre> RetrieveGenres()
@@ -78,10 +78,10 @@ namespace DataRetriever
 
             foreach (var genre in response["genres"])
                 yield return new Genre
-                {
-                    GenreId = genre["id"],
-                    Name = genre["name"]
-                };
+                (
+                    genreId: genre["id"],
+                    name: genre["name"]
+                );
         }
 
         public IEnumerable<Cast> RetrieveCastFromFilm(int id)
@@ -92,11 +92,11 @@ namespace DataRetriever
             foreach (var cast in casts)
             {
                 var obsada = new Cast
-                {
-                    MovieId = id,
-                    Character = cast["character"],
-                    PersonId = cast["id"]
-                };
+                (
+                    person: cast["id"],
+                    movie: id,
+                    character: cast["character"]
+                );
                 yield return obsada;
             }
         }
@@ -109,15 +109,13 @@ namespace DataRetriever
             {
                 var jobsNames = new List<string>();
                 foreach (var job in department["job_list"])
-                {
                     jobsNames.Add(job);
-                }
                 var newDepartment = new Department
-                {
-                    Name = department["department"],
-                    Jobs = jobsNames.Select(name => new Job {Name = name}),
-                    Id = _departmentId++
-                };
+                (
+                    id: _departmentId++,
+                    name: department["department"],
+                    jobs: jobsNames.Select(name => new Job (name))
+                );
                 yield return newDepartment;
             }
         }
@@ -130,11 +128,11 @@ namespace DataRetriever
             foreach (var crew in crews)
             {
                 var deserializedCrew = new Crew
-                {
-                    MovieId = id,
-                    JobName = crew["job"],
-                    PersonId = crew["id"]
-                };
+                (
+                    person: crew["id"],
+                    movie: id,
+                    jobName: crew["job"]
+                );
                 yield return deserializedCrew;
             }
         }
@@ -144,15 +142,15 @@ namespace DataRetriever
             var path = Format(ConnectionString, "person/" + personId);
             var response = Get(path);
             var person = new Person
-            {
-                Biography = response["biography"],
-                PersonId = personId,
-                BirthDay = TryParse(response["birthday"]),
-                PlaceOfBirth = response["place_of_birth"],
-                Name = response["name"],
-                Gender = response["gender"],
-                DeathDay = TryParse(response["deathday"])
-            };
+            (
+                name: response["name"],
+                personId: personId,
+                birthDay: TryParse(response["birthday"]),
+                deathDay: response["deathday"],
+                biography: response["biography"],
+                gender: response["gender"],
+                placeOfBirth: TryParse(response["place_of_birth"])
+            );
             return person;
         }
 
@@ -164,10 +162,10 @@ namespace DataRetriever
             var genres = response["genres"];
             foreach (var genre in genres)
                 yield return new Genre
-                {
-                    GenreId = genre["id"],
-                    Name = genre["name"]
-                };
+                (
+                    genreId: genre["id"],
+                    name: genre["name"]
+                );
         }
 
         private dynamic Get(string path)

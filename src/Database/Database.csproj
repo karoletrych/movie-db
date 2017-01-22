@@ -44,10 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAO\CountriesDao.cs" />
+    <Compile Include="DatabaseConnectionFactory.cs" />
+    <Compile Include="DAO\CastDAO.cs" />
+    <Compile Include="DAO\CountriesDAO.cs" />
     <Compile Include="DAO\DAO.cs" />
-    <Compile Include="DAO\GenresDao.cs" />
-    <Compile Include="DAO\MovieDao.cs" />
+    <Compile Include="DAO\GenresDAO.cs" />
+    <Compile Include="DAO\MovieDAO.cs" />
     <Compile Include="Model\Model.cs" />
     <Compile Include="NotFoundException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
