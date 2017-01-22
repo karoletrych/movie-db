@@ -21,11 +21,10 @@ CREATE TABLE moviedb.genre (
 
 
 CREATE TABLE moviedb.member (
-                member_id INTEGER NOT NULL,
-                login VARCHAR NOT NULL,
+                member_login VARCHAR NOT NULL,
                 email VARCHAR NOT NULL,
                 password_hash VARCHAR NOT NULL,
-                CONSTRAINT member_pk PRIMARY KEY (member_id)
+                CONSTRAINT member_pk PRIMARY KEY (member_login)
 );
 
 
@@ -69,11 +68,11 @@ CREATE TABLE moviedb.movie_genre (
 
 
 CREATE TABLE moviedb.review (
-                user_id INTEGER NOT NULL,
                 movie_id INTEGER NOT NULL,
+                member_login VARCHAR NOT NULL,
                 content VARCHAR NOT NULL,
                 vote INTEGER NOT NULL,
-                CONSTRAINT review_pk PRIMARY KEY (user_id, movie_id)
+                CONSTRAINT review_pk PRIMARY KEY (movie_id, member_login)
 );
 
 
@@ -138,8 +137,8 @@ ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
 ALTER TABLE moviedb.review ADD CONSTRAINT uzytkownik_recenzja_fk
-FOREIGN KEY (user_id)
-REFERENCES moviedb.member (member_id)
+FOREIGN KEY (member_login)
+REFERENCES moviedb.member (member_login)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;

@@ -30,12 +30,15 @@
         {
             this.searchBox = new System.Windows.Forms.TextBox();
             this.moviesView = new System.Windows.Forms.DataGridView();
-            this.loggedUser = new System.Windows.Forms.Label();
+            this.labelx = new System.Windows.Forms.Label();
             this.loginBox = new System.Windows.Forms.TextBox();
             this.passwordBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.login = new System.Windows.Forms.Button();
+            this.register = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.loggedUser = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.moviesView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,14 +63,14 @@
             this.moviesView.TabIndex = 1;
             this.moviesView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.filmsView_CellContentClick);
             // 
-            // loggedUser
+            // labelx
             // 
-            this.loggedUser.AutoSize = true;
-            this.loggedUser.Location = new System.Drawing.Point(2, 9);
-            this.loggedUser.Name = "loggedUser";
-            this.loggedUser.Size = new System.Drawing.Size(138, 13);
-            this.loggedUser.TabIndex = 2;
-            this.loggedUser.Text = "Użytkownik: niezalogowany";
+            this.labelx.AutoSize = true;
+            this.labelx.Location = new System.Drawing.Point(2, 9);
+            this.labelx.Name = "labelx";
+            this.labelx.Size = new System.Drawing.Size(65, 13);
+            this.labelx.TabIndex = 2;
+            this.labelx.Text = "Użytkownik:";
             // 
             // loginBox
             // 
@@ -107,20 +110,50 @@
             this.login.Name = "login";
             this.login.Size = new System.Drawing.Size(100, 23);
             this.login.TabIndex = 7;
-            this.login.Text = "zaloguj";
+            this.login.Text = "Zaloguj";
             this.login.UseVisualStyleBackColor = true;
+            this.login.Click += new System.EventHandler(this.login_Click);
+            // 
+            // register
+            // 
+            this.register.Location = new System.Drawing.Point(5, 148);
+            this.register.Name = "register";
+            this.register.Size = new System.Drawing.Size(100, 23);
+            this.register.TabIndex = 8;
+            this.register.Text = "Zarejestruj";
+            this.register.UseVisualStyleBackColor = true;
+            this.register.Click += new System.EventHandler(this.register_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(88, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(0, 13);
+            this.label3.TabIndex = 9;
+            // 
+            // loggedUser
+            // 
+            this.loggedUser.AutoSize = true;
+            this.loggedUser.Location = new System.Drawing.Point(70, 9);
+            this.loggedUser.Name = "loggedUser";
+            this.loggedUser.Size = new System.Drawing.Size(0, 13);
+            this.loggedUser.TabIndex = 10;
             // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1079, 644);
+            this.Controls.Add(this.loggedUser);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.register);
             this.Controls.Add(this.login);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.passwordBox);
             this.Controls.Add(this.loginBox);
-            this.Controls.Add(this.loggedUser);
+            this.Controls.Add(this.labelx);
             this.Controls.Add(this.moviesView);
             this.Controls.Add(this.searchBox);
             this.Name = "MainView";
@@ -136,12 +169,15 @@
 
         private System.Windows.Forms.TextBox searchBox;
         private System.Windows.Forms.DataGridView moviesView;
-        private System.Windows.Forms.Label loggedUser;
+        private System.Windows.Forms.Label labelx;
         private System.Windows.Forms.TextBox loginBox;
         private System.Windows.Forms.TextBox passwordBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button login;
+        private System.Windows.Forms.Button register;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label loggedUser;
     }
 }
 

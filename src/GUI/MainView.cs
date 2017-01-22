@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Windows.Forms;
 using Database;
 using Database.DAO;
@@ -11,11 +12,13 @@ namespace GUI
     {
         private readonly NpgsqlConnection _connection = DatabaseConnectionFactory.Create();
         private readonly MovieDao _movieDao;
+        private readonly Authorization _authorization;
 
         public MainView()
         {
             InitializeComponent();
             _movieDao = new MovieDao(_connection);
+            _authorization = new Authorization(_connection);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -41,6 +44,27 @@ namespace GUI
             var id = (int)s.Cells[0].Value;
             var movieView = new MovieView(id, _connection);
             movieView.Show();
+        }
+
+        private void register_Click(object sender, EventArgs e)
+        {
+            var registrationView = new RegistrationView(_connection);
+            registrationView.Show();
+        }
+
+        private void login_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _authorization.LoginUser(loginBox.Text, passwordBox.Text);
+                loggedUser.Text = loginBox.Text;
+                loginBox.Text = "";
+                passwordBox.Text = "";
+            }
+            catch (UnauthorizedAccessException)
+            {
+                MessageBox.Show("Błędne hasło");
+            }
         }
     }
 }
