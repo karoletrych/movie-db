@@ -16,6 +16,7 @@ namespace DataRetriever
         private readonly MovieDao _movieDao;
         private readonly CastDao _castDao;
         private readonly Dao _dao;
+        private CrewDao _crewDao;
         private readonly NpgsqlConnection _databaseConnection = DatabaseConnectionFactory.Create();
 
         public DataRetriever()
@@ -25,6 +26,7 @@ namespace DataRetriever
             _countriesDao = new CountriesDao(_databaseConnection);
             _httpRetriever = new HttpRetriever();
             _movieDao = new MovieDao(_databaseConnection);
+            _crewDao = new CrewDao(_databaseConnection);
             _dao = new Dao(_databaseConnection);
         }
 
@@ -54,7 +56,7 @@ namespace DataRetriever
                     {
                         var person = RetrievePerson(_httpRetriever, c.PersonId);
                         _dao.InsertPerson(person);
-                        _dao.InsertCrew(c);
+                        _crewDao.InsertCrew(c);
                     }
                 }
                 catch (KeyNotFoundException)

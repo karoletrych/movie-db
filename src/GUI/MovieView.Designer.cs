@@ -44,6 +44,8 @@
             this.genres = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.cast = new System.Windows.Forms.ListView();
+            this.crew = new System.Windows.Forms.ListView();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.poster)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,8 +90,8 @@
             // 
             this.poster.Location = new System.Drawing.Point(19, 47);
             this.poster.Name = "poster";
-            this.poster.Size = new System.Drawing.Size(185, 123);
-            this.poster.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.poster.Size = new System.Drawing.Size(185, 280);
+            this.poster.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.poster.TabIndex = 4;
             this.poster.TabStop = false;
             // 
@@ -182,21 +184,39 @@
             this.label7.Size = new System.Drawing.Size(47, 13);
             this.label7.TabIndex = 14;
             this.label7.Text = "Obsada:";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // cast
             // 
             this.cast.Location = new System.Drawing.Point(216, 200);
             this.cast.Name = "cast";
-            this.cast.Size = new System.Drawing.Size(353, 108);
+            this.cast.Size = new System.Drawing.Size(385, 127);
             this.cast.TabIndex = 15;
             this.cast.UseCompatibleStateImageBehavior = false;
+            // 
+            // crew
+            // 
+            this.crew.Location = new System.Drawing.Point(216, 352);
+            this.crew.Name = "crew";
+            this.crew.Size = new System.Drawing.Size(385, 150);
+            this.crew.TabIndex = 16;
+            this.crew.UseCompatibleStateImageBehavior = false;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(216, 333);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(37, 13);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "Ekipa:";
             // 
             // MovieView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(776, 634);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.crew);
             this.Controls.Add(this.cast);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.genres);
@@ -240,5 +260,7 @@
         private System.Windows.Forms.Label genres;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ListView cast;
+        private System.Windows.Forms.ListView crew;
+        private System.Windows.Forms.Label label8;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Linq;
 using System.Windows.Forms;
 using Database.DAO;
 using Database.Model;
@@ -12,10 +13,11 @@ namespace GUI
     {
         private const string ImagePath = @"http://image.tmdb.org/t/p/{0}//{1}";
         private const string ImageSize = "w185";
-        private readonly Movie _movie;
-        private readonly CountriesDao _countriesDao;
-        private readonly GenresDao _genresDao;
         private readonly CastDao _castDao;
+        private readonly CountriesDao _countriesDao;
+        private readonly CrewDao _crewDao;
+        private readonly GenresDao _genresDao;
+        private readonly Movie _movie;
 
         public MovieView(int movieId, NpgsqlConnection connection)
         {
@@ -23,6 +25,7 @@ namespace GUI
             _genresDao = new GenresDao(connection);
             _movie = new MovieDao(connection).GetMovieById(movieId);
             _castDao = new CastDao(connection);
+            _crewDao = new CrewDao(connection);
             InitializeComponent();
         }
 
@@ -32,7 +35,7 @@ namespace GUI
             ShowCountries();
             ShowGenres();
             ShowCast();
-//            ShowCrew();
+            ShowCrew();
 //            ShowUserReviews();
         }
 
@@ -43,7 +46,29 @@ namespace GUI
 
         private void ShowCrew()
         {
-            throw new NotImplementedException();
+            crew.Columns.Add("Zadanie");
+            crew.Columns.Add("Osoba");
+            crew.View = View.Details;
+            var crewData = _crewDao.GetCrewFromMovie(_movie.MovieId).ToList();
+            var departmentGroupedCrew = crewData.GroupBy(x => x.Item1);
+            foreach (var department in departmentGroupedCrew)
+            {
+                var listViewGroup = new ListViewGroup(department.Key, HorizontalAlignment.Left)
+                {
+                    Name = department.Key
+                };
+                crew.Groups.Add(listViewGroup);
+                foreach (var job in department)
+                {
+                    var listView = new ListViewItem(new[] {job.Item2, job.Item3})
+                    {
+                        Group = crew.Groups[department.Key]
+                    };
+                    crew.Items.Add(listView);
+                }
+            }
+            crew.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            crew.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
         private void ShowCast()
@@ -53,9 +78,7 @@ namespace GUI
             cast.View = View.Details;
             var castData = _castDao.GetCastOfMovie(_movie.MovieId);
             foreach (var tuple in castData)
-            {
-                cast.Items.Add(new ListViewItem(new[] { tuple.Item1, tuple.Item2}));
-            }
+                cast.Items.Add(new ListViewItem(new[] {tuple.Item1, tuple.Item2}));
             cast.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             cast.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
@@ -84,11 +107,6 @@ namespace GUI
             status.Text = _movie.Status;
             var currentMovieImagePath = Format(ImagePath, ImageSize, _movie.PosterUrl);
             poster.ImageLocation = currentMovieImagePath;
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

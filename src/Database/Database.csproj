@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\CrewDAO.cs" />
     <Compile Include="DatabaseConnectionFactory.cs" />
     <Compile Include="DAO\CastDAO.cs" />
     <Compile Include="DAO\CountriesDAO.cs" />

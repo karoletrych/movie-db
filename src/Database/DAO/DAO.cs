@@ -54,16 +54,6 @@ values(:job_name, :department_id) on conflict do nothing";
             }
         }
 
-        public void InsertCrew(Crew crew)
-        {
-            var command = Connection.CreateCommand();
-            command.CommandText =
-                @"insert into crew (person_id, movie_id, job_name)
-values(:person_id, :movie_id, :job_name) on conflict do nothing";
-            command.Parameters.Add(new NpgsqlParameter("person_id", crew.PersonId));
-            command.Parameters.Add(new NpgsqlParameter("movie_id", crew.MovieId));
-            command.Parameters.Add(new NpgsqlParameter("job_name", crew.JobName));
-            command.ExecuteNonQuery();
-        }
+     
     }
 }
