@@ -62,7 +62,7 @@ namespace GUI
                 {
                     var listView = new ListViewItem(new[] {job.Item2, job.Item3})
                     {
-                        Group = crew.Groups[department.Key]
+                        Group = listViewGroup
                     };
                     crew.Items.Add(listView);
                 }
