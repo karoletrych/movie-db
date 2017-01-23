@@ -51,6 +51,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddReview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddReview.Designer.cs">
+      <DependentUpon>AddReview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoggedUser.cs" />
     <Compile Include="MainView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +78,9 @@
     <Compile Include="RegistrationView.Designer.cs">
       <DependentUpon>RegistrationView.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddReview.resx">
+      <DependentUpon>AddReview.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
     </EmbeddedResource>
@@ -85,6 +95,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="RegistrationView.resx">
       <DependentUpon>RegistrationView.cs</DependentUpon>

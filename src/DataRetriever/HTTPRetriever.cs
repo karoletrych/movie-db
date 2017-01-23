@@ -146,10 +146,10 @@ namespace DataRetriever
                 name: response["name"],
                 personId: personId,
                 birthDay: TryParse(response["birthday"]),
-                deathDay: response["deathday"],
+                deathDay: TryParse(response["deathday"]),
                 biography: response["biography"],
                 gender: response["gender"],
-                placeOfBirth: TryParse(response["place_of_birth"])
+                placeOfBirth: response["place_of_birth"]
             );
             return person;
         }

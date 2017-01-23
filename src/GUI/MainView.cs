@@ -4,6 +4,7 @@ using System.Linq.Expressions;
 using System.Windows.Forms;
 using Database;
 using Database.DAO;
+using GUI.Properties;
 using Npgsql;
 
 namespace GUI
@@ -56,14 +57,16 @@ namespace GUI
         {
             try
             {
-                _authorization.LoginUser(loginBox.Text, passwordBox.Text);
-                loggedUser.Text = loginBox.Text;
+                var enteredLogin = loginBox.Text;
+                _authorization.LoginUser(enteredLogin, passwordBox.Text);
+                LoggedUser.Login = enteredLogin;
+                loggedUser.Text = enteredLogin;
                 loginBox.Text = "";
                 passwordBox.Text = "";
             }
             catch (UnauthorizedAccessException)
             {
-                MessageBox.Show("Błędne hasło");
+                MessageBox.Show(Resources.MainView_login_Click_WrongPassword);
             }
         }
     }

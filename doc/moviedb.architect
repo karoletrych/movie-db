@@ -187,7 +187,7 @@
   <table id="TAB48" populated="true" UUID="259f3409-53a8-4515-be07-90cabd0928d0" name="uzytkownik" objectType="TABLE" physicalName="member" >
    <remarks></remarks>
    <folder id="FOLTAB481" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL49" populated="true" UUID="20132e83-f9c5-4a81-af7c-a2ace7df12cf" autoIncrement="false" autoIncrementSequenceName="member_member_login_seq" defaultValue="" name="member_login" nullable="0" physicalName="member_login" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL49" populated="true" UUID="20132e83-f9c5-4a81-af7c-a2ace7df12cf" autoIncrement="false" autoIncrementSequenceName="member_member_login_seq_1" defaultValue="" name="użytkownik_login" nullable="0" physicalName="member_login" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
     <column id="COL50" populated="true" UUID="05301f8e-808f-4576-9b26-8ee7260f557d" autoIncrement="false" autoIncrementSequenceName="member_email_seq" defaultValue="" name="email" nullable="0" physicalName="email" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
@@ -203,7 +203,7 @@
     </folder>
     <folder id="FOLTAB484" populated="true" name="Indices" physicalName="Indices" type="4">
     <index id="IDX52" populated="true" UUID="838cb1ed-e6ab-4e7b-b8f0-71c009015c93" clustered="false" name="member_pk" physicalName="member_pk" primaryKeyIndex="true" unique="false" >
-     <index-column id="IDC53" populated="true" UUID="ea19bae8-1134-4784-bb2c-b1d403bb67a1" ascendingOrDescending="UNSPECIFIED" column-ref="COL49" name="member_login" physicalName="member_login" />
+     <index-column id="IDC53" populated="true" UUID="ea19bae8-1134-4784-bb2c-b1d403bb67a1" ascendingOrDescending="UNSPECIFIED" column-ref="COL49" name="użytkownik_login" physicalName="member_login" />
     </index>
    </folder>
   </table>

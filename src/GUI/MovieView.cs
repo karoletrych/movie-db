@@ -116,5 +116,11 @@ namespace GUI
             var currentMovieImagePath = Format(ImagePath, ImageSize, _movie.PosterUrl);
             poster.ImageLocation = currentMovieImagePath;
         }
+
+        private void addReview_Click(object sender, EventArgs e)
+        {
+            var addReviewView = new AddReview(_reviewsDao, _movie.MovieId);
+            addReviewView.Show();
+        }
     }
 }
