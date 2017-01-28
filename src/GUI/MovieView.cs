@@ -44,10 +44,13 @@ namespace GUI
         private void ShowUserReviews()
         {
             reviews.View = View.Details;
+            reviews.Columns.Add("ocena");
+            reviews.Columns.Add("recenzja");
+            reviews.Columns.Add("recenzent");
             var reviewsData = _reviewsDao.GetReviewsOfMovie(_movie.MovieId);
             foreach (var tuple in reviewsData)
                 reviews.Items.Add(
-                    new ListViewItem(new[] {tuple.Item1.ToString(CultureInfo.CurrentCulture), tuple.Item2, tuple.Item3}));
+                    new ListViewItem(new[] {tuple.Item1.ToString(CultureInfo.CurrentCulture), tuple.Item2.TruncateLongString(180), tuple.Item3}));
             reviews.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             reviews.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
@@ -122,7 +125,5 @@ namespace GUI
             var addReviewView = new AddReview(_reviewsDao, _movie.MovieId, this);
             addReviewView.Show();
         }
-
-      
     }
 }

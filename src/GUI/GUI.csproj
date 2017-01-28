@@ -57,6 +57,7 @@
     <Compile Include="AddReview.Designer.cs">
       <DependentUpon>AddReview.cs</DependentUpon>
     </Compile>
+    <Compile Include="Extensions.cs" />
     <Compile Include="LoggedUser.cs" />
     <Compile Include="MainView.cs">
       <SubType>Form</SubType>
