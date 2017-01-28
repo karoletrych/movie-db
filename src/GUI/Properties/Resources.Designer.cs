@@ -61,7 +61,16 @@ namespace GUI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Błędne hasło.
+        ///   Looks up a localized string similar to Haslo nie moze byc puste..
+        /// </summary>
+        internal static string MainView_login_Click_passwordCannotBeEmpty {
+            get {
+                return ResourceManager.GetString("MainView_login_Click_passwordCannotBeEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Błędne hasło lub nazwa użytkownika.
         /// </summary>
         internal static string MainView_login_Click_WrongPassword {
             get {

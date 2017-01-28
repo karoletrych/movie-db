@@ -31,7 +31,7 @@ namespace GUI
             InitializeComponent();
         }
 
-        private void MovieView_Load(object sender, EventArgs e)
+        public void MovieView_Load(object sender, EventArgs e)
         {
             ShowBasicInfo();
             ShowCountries();
@@ -119,8 +119,10 @@ namespace GUI
 
         private void addReview_Click(object sender, EventArgs e)
         {
-            var addReviewView = new AddReview(_reviewsDao, _movie.MovieId);
+            var addReviewView = new AddReview(_reviewsDao, _movie.MovieId, this);
             addReviewView.Show();
         }
+
+      
     }
 }

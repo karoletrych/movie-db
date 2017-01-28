@@ -16,9 +16,9 @@ namespace Database.DAO
             var command = Connection.CreateCommand();
             command.CommandText =
                 @"insert into movie (movie_id, release_date,
-status, revenue, poster_url, title)
+status, revenue, poster_url, title, vote_average)
 values(:movie_id, :release_date, :status,
-:revenue, :poster_url, :title) on conflict(movie_id) DO NOTHING;";
+:revenue, :poster_url, :title, :vote_average) on conflict(movie_id) DO NOTHING;";
             command.Parameters.AddRange(
                 new[]
                 {
@@ -27,7 +27,8 @@ values(:movie_id, :release_date, :status,
                     new NpgsqlParameter("poster_url", (object) movie.PosterUrl ?? DBNull.Value),
                     new NpgsqlParameter("title", movie.Title),
                     new NpgsqlParameter("revenue", movie.Revenue),
-                    new NpgsqlParameter("movie_id", movie.MovieId)
+                    new NpgsqlParameter("movie_id", movie.MovieId),
+                    new NpgsqlParameter("vote_average", movie.AverageVote),
                 });
             command.ExecuteNonQuery();
         }

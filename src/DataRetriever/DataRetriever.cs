@@ -30,7 +30,7 @@ namespace DataRetriever
             _dao = new Dao(_databaseConnection);
         }
 
-        public void Retrieve()
+        public void Retrieve(int count)
         {
             var departments = _httpRetriever.RetrieveDepartments();
             _dao.InsertDepartments(departments);
@@ -38,7 +38,7 @@ namespace DataRetriever
             var genres = _httpRetriever.RetrieveGenres();
             _genresDao.InsertGenres(genres);
 
-            for (var id = 1; id < 900; id++)
+            for (var id = 1; id < count; id++)
             {
                 Console.WriteLine(id);
                 try

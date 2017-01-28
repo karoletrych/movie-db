@@ -31,6 +31,8 @@ values(:member_login, :email, :password_hash)";
 member_login = @member_login";
             command.Parameters.Add(new NpgsqlParameter("@member_login", login));
             var passwordHash = (string)command.ExecuteScalar();
+            if(passwordHash == null)
+                throw new UnauthorizedAccessException();
             VerifyHash(password, passwordHash);
         }
 

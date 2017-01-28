@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Database.DAO;
-using Database.Model;
 
 namespace DataRetriever
 {
@@ -11,7 +7,15 @@ namespace DataRetriever
         private static void Main(string[] args)
         {
             var retriever = new DataRetriever();
-            retriever.Retrieve();
+            int count;
+            if(!int.TryParse(args[0], out count))
+            {
+                Console.WriteLine("Podaj liczbe filmow");
+            }
+            else
+            {
+                retriever.Retrieve(count);
+            }
         }
     }
 }

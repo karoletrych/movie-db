@@ -39,8 +39,14 @@ namespace DataRetriever
                 revenue: response["revenue"],
                 posterUrl: response["poster_path"],
                 title: response["title"],
-                averageVote: 0
+                averageVote: TryParse(response["vote_average"])
             );
+        }
+
+        private static float? TryParse(dynamic averageVote)
+        {
+            var f = (float) averageVote;
+            return f;
         }
 
         public IEnumerable<Country> RetrieveMovieProductionCountries(int id)
