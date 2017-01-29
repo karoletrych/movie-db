@@ -6,10 +6,6 @@ namespace Database.DAO
 {
     public class CountriesDao : Dao
     {
-        public CountriesDao(NpgsqlConnection connection) : base(connection)
-        {
-        }
-
         public void InsertCountries(ICollection<Country> countrys)
         {
             var command = Connection.CreateCommand();

@@ -39,6 +39,14 @@
             this.register = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.loggedUser = new System.Windows.Forms.Label();
+            this.genres = new System.Windows.Forms.ListBox();
+            this.selectedGenres = new System.Windows.Forms.ListBox();
+            this.genresSelect = new System.Windows.Forms.Button();
+            this.genresUnselect = new System.Windows.Forms.Button();
+            this.countries = new System.Windows.Forms.ListBox();
+            this.selectedCountries = new System.Windows.Forms.ListBox();
+            this.selectCountry = new System.Windows.Forms.Button();
+            this.unselectCountry = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.moviesView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,10 +64,10 @@
             this.moviesView.AllowUserToDeleteRows = false;
             this.moviesView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.moviesView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.moviesView.Location = new System.Drawing.Point(124, 75);
+            this.moviesView.Location = new System.Drawing.Point(124, 192);
             this.moviesView.Name = "moviesView";
             this.moviesView.ReadOnly = true;
-            this.moviesView.Size = new System.Drawing.Size(884, 497);
+            this.moviesView.Size = new System.Drawing.Size(884, 440);
             this.moviesView.TabIndex = 1;
             this.moviesView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.filmsView_CellContentClick);
             // 
@@ -140,11 +148,87 @@
             this.loggedUser.Size = new System.Drawing.Size(0, 13);
             this.loggedUser.TabIndex = 10;
             // 
+            // genres
+            // 
+            this.genres.FormattingEnabled = true;
+            this.genres.Location = new System.Drawing.Point(230, 9);
+            this.genres.Name = "genres";
+            this.genres.Size = new System.Drawing.Size(88, 160);
+            this.genres.TabIndex = 13;
+            // 
+            // selectedGenres
+            // 
+            this.selectedGenres.FormattingEnabled = true;
+            this.selectedGenres.Location = new System.Drawing.Point(375, 9);
+            this.selectedGenres.Name = "selectedGenres";
+            this.selectedGenres.Size = new System.Drawing.Size(87, 160);
+            this.selectedGenres.TabIndex = 14;
+            // 
+            // genresSelect
+            // 
+            this.genresSelect.Location = new System.Drawing.Point(325, 33);
+            this.genresSelect.Name = "genresSelect";
+            this.genresSelect.Size = new System.Drawing.Size(44, 23);
+            this.genresSelect.TabIndex = 15;
+            this.genresSelect.Text = ">>";
+            this.genresSelect.UseVisualStyleBackColor = true;
+            // 
+            // genresUnselect
+            // 
+            this.genresUnselect.Location = new System.Drawing.Point(325, 75);
+            this.genresUnselect.Name = "genresUnselect";
+            this.genresUnselect.Size = new System.Drawing.Size(44, 23);
+            this.genresUnselect.TabIndex = 16;
+            this.genresUnselect.Text = "<<";
+            this.genresUnselect.UseVisualStyleBackColor = true;
+            // 
+            // countries
+            // 
+            this.countries.FormattingEnabled = true;
+            this.countries.Location = new System.Drawing.Point(468, 9);
+            this.countries.Name = "countries";
+            this.countries.Size = new System.Drawing.Size(82, 160);
+            this.countries.TabIndex = 17;
+            // 
+            // selectedCountries
+            // 
+            this.selectedCountries.FormattingEnabled = true;
+            this.selectedCountries.Location = new System.Drawing.Point(606, 9);
+            this.selectedCountries.Name = "selectedCountries";
+            this.selectedCountries.Size = new System.Drawing.Size(80, 160);
+            this.selectedCountries.TabIndex = 18;
+            // 
+            // selectCountry
+            // 
+            this.selectCountry.Location = new System.Drawing.Point(556, 33);
+            this.selectCountry.Name = "selectCountry";
+            this.selectCountry.Size = new System.Drawing.Size(44, 23);
+            this.selectCountry.TabIndex = 19;
+            this.selectCountry.Text = ">>";
+            this.selectCountry.UseVisualStyleBackColor = true;
+            // 
+            // unselectCountry
+            // 
+            this.unselectCountry.Location = new System.Drawing.Point(556, 75);
+            this.unselectCountry.Name = "unselectCountry";
+            this.unselectCountry.Size = new System.Drawing.Size(44, 23);
+            this.unselectCountry.TabIndex = 20;
+            this.unselectCountry.Text = "<<";
+            this.unselectCountry.UseVisualStyleBackColor = true;
+            // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1079, 644);
+            this.Controls.Add(this.unselectCountry);
+            this.Controls.Add(this.selectCountry);
+            this.Controls.Add(this.selectedCountries);
+            this.Controls.Add(this.countries);
+            this.Controls.Add(this.genresUnselect);
+            this.Controls.Add(this.genresSelect);
+            this.Controls.Add(this.selectedGenres);
+            this.Controls.Add(this.genres);
             this.Controls.Add(this.loggedUser);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.register);
@@ -178,6 +262,14 @@
         private System.Windows.Forms.Button register;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label loggedUser;
+        private System.Windows.Forms.ListBox genres;
+        private System.Windows.Forms.ListBox selectedGenres;
+        private System.Windows.Forms.Button genresSelect;
+        private System.Windows.Forms.Button genresUnselect;
+        private System.Windows.Forms.ListBox countries;
+        private System.Windows.Forms.ListBox selectedCountries;
+        private System.Windows.Forms.Button selectCountry;
+        private System.Windows.Forms.Button unselectCountry;
     }
 }
 

@@ -234,7 +234,7 @@
             this.cast.Location = new System.Drawing.Point(216, 200);
             this.cast.Name = "cast";
             this.cast.ReadOnly = true;
-            this.cast.Size = new System.Drawing.Size(353, 149);
+            this.cast.Size = new System.Drawing.Size(483, 149);
             this.cast.TabIndex = 21;
             this.cast.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.cast_CellContentClick);
             // 
@@ -243,7 +243,7 @@
             this.crew.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.crew.Location = new System.Drawing.Point(216, 368);
             this.crew.Name = "crew";
-            this.crew.Size = new System.Drawing.Size(353, 140);
+            this.crew.Size = new System.Drawing.Size(483, 140);
             this.crew.TabIndex = 22;
             this.crew.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.crew_CellContentClick);
             // 

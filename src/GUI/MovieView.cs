@@ -26,13 +26,13 @@ namespace GUI
         public MovieView(int movieId, NpgsqlConnection connection)
         {
             _connection = connection;
-            _countriesDao = new CountriesDao(connection);
-            _genresDao = new GenresDao(connection);
-            _movie = new MovieDao(connection).GetMovieById(movieId);
-            _castDao = new CastDao(connection);
-            _crewDao = new CrewDao(connection);
-            _reviewsDao = new ReviewsDao(connection);
-            _personDao = new PersonDao(connection);
+            _countriesDao = new CountriesDao();
+            _genresDao = new GenresDao();
+            _movie = new MovieDao().GetMovieById(movieId);
+            _castDao = new CastDao();
+            _crewDao = new CrewDao();
+            _reviewsDao = new ReviewsDao();
+            _personDao = new PersonDao();
             InitializeComponent();
         }
 
@@ -140,6 +140,7 @@ namespace GUI
                 var personId = (int)cast[2, e.RowIndex].Value;
                 var personView = new PersonView(personId, _personDao, _crewDao,_castDao, _connection);
                 personView.Show();
+                Close();
             }
         }
 
@@ -150,6 +151,7 @@ namespace GUI
                 var personId = (int)crew[3, e.RowIndex].Value;
                 var personView = new PersonView(personId, _personDao, _crewDao, _castDao, _connection);
                 personView.Show();
+                Close();
             }
         }
     }

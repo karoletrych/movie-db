@@ -7,10 +7,6 @@ namespace Database.DAO
 {
     public class CrewDao : Dao
     {
-        public CrewDao(NpgsqlConnection connection) : base(connection)
-        {
-        }
-
         public void InsertCrew(Crew crew)
         {
             var command = Connection.CreateCommand();

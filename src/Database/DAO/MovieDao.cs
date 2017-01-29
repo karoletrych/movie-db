@@ -7,10 +7,6 @@ namespace Database.DAO
 {
     public class MovieDao : Dao
     {
-        public MovieDao(NpgsqlConnection connection) : base(connection)
-        {
-        }
-
         public void InsertMovie(Movie movie)
         {
             var command = Connection.CreateCommand();

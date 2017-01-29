@@ -6,10 +6,6 @@ namespace Database.DAO
 {
     public class PersonDao : Dao
     {
-        public PersonDao(NpgsqlConnection connection) : base(connection)
-        {
-        }
-
         public void InsertPerson(Person person)
         {
             var command = Connection.CreateCommand();

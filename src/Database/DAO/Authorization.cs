@@ -6,10 +6,6 @@ namespace Database.DAO
 {
     public class Authorization : Dao
     {
-        public Authorization(NpgsqlConnection connection) : base(connection)
-        {
-        }
-
         public void RegisterUser(string login, string email, string password)
         {
             var command = Connection.CreateCommand();

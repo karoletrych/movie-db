@@ -6,10 +6,6 @@ namespace Database.DAO
 {
     public class GenresDao : Dao
     {
-        public GenresDao(NpgsqlConnection connection) : base(connection)
-        {
-        }
-
         public void InsertGenres(IEnumerable<Genre> genres)
         {
             foreach (var genre in genres)
@@ -52,6 +48,17 @@ WHERE
             var reader = command.ExecuteReader();
             while (reader.Read())
                 yield return reader.GetString(0);
+            reader.Close();
+        }
+
+        public IEnumerable<Genre> GetAllGenres()
+        {
+            var command = Connection.CreateCommand();
+            command.CommandText =
+                @"SELECT * FROM genre";
+            var reader = command.ExecuteReader();
+            while (reader.Read())
+                yield return new Genre(reader.GetInt32(0), reader.GetString(1));
             reader.Close();
         }
     }

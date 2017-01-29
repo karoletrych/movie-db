@@ -7,10 +7,6 @@ namespace Database.DAO
 {
     public class CastDao : Dao
     {
-        public CastDao(NpgsqlConnection connection) : base(connection)
-        {
-        }
-
         public void InsertCast(Cast cast)
         {
             var command = Connection.CreateCommand();

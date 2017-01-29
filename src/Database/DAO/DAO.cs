@@ -6,9 +6,9 @@ namespace Database.DAO
     {
         protected readonly NpgsqlConnection Connection;
 
-        protected Dao(NpgsqlConnection connection)
+        protected Dao()
         {
-            Connection = connection;
+            Connection = DatabaseConnectionFactory.Create();
         }
     }
 }

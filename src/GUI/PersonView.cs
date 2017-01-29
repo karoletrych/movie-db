@@ -92,6 +92,7 @@ namespace GUI
                 var movieId = (int) cast[2, e.RowIndex].Value;
                 var movieView = new MovieView(movieId, _connection);
                 movieView.Show();
+                Close();
             }
         }
 
@@ -102,6 +103,7 @@ namespace GUI
                 var movieId = (int) crew[3, e.RowIndex].Value;
                 var movieView = new MovieView(movieId, _connection);
                 movieView.Show();
+                Close();
             }
         }
     }

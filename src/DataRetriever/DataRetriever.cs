@@ -21,13 +21,13 @@ namespace DataRetriever
 
         public DataRetriever()
         {
-            _castDao = new CastDao(_databaseConnection);
-            _genresDao = new GenresDao(_databaseConnection);
-            _countriesDao = new CountriesDao(_databaseConnection);
+            _castDao = new CastDao();
+            _genresDao = new GenresDao();
+            _countriesDao = new CountriesDao();
             _httpRetriever = new HttpRetriever();
-            _movieDao = new MovieDao(_databaseConnection);
-            _crewDao = new CrewDao(_databaseConnection);
-            _personDao = new PersonDao(_databaseConnection);
+            _movieDao = new MovieDao();
+            _crewDao = new CrewDao();
+            _personDao = new PersonDao();
         }
 
         public void Retrieve(int count)

@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Windows.Forms;
 using Database.DAO;
-using Npgsql;
 
 namespace GUI
 {
     public partial class RegistrationView : Form
     {
         private readonly Authorization _authorization;
-        public RegistrationView(NpgsqlConnection connection)
+        public RegistrationView()
         {
             InitializeComponent();
-            _authorization = new Authorization(connection);
+            _authorization = new Authorization();
         }
 
         private void RegistrationView_Load(object sender, EventArgs e)

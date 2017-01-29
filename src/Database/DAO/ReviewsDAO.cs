@@ -6,10 +6,6 @@ namespace Database.DAO
 {
     public class ReviewsDao : Dao
     {
-        public ReviewsDao(NpgsqlConnection connection) : base(connection)
-        {
-        }
-
         public IEnumerable<Tuple<float, string, string>> GetReviewsOfMovie(int movieId)
         {
             var command = Connection.CreateCommand();

@@ -14,17 +14,25 @@ namespace GUI
         private readonly NpgsqlConnection _connection = DatabaseConnectionFactory.Create();
         private readonly MovieDao _movieDao;
         private readonly Authorization _authorization;
+        private readonly GenresDao _genresDao;
+        private readonly CountriesDao _countriesDao;
 
         public MainView()
         {
             InitializeComponent();
-            _movieDao = new MovieDao(_connection);
-            _authorization = new Authorization(_connection);
+            _movieDao = new MovieDao();
+            _authorization = new Authorization();
+            _genresDao = new GenresDao();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             passwordBox.UseSystemPasswordChar = true;
+            var genresData = _genresDao.GetAllGenres();
+            foreach (var genre in genresData)
+            {
+                genres.Items.Add(genre.Name);
+            }
         }
 
         private void searchBox_TextChanged(object sender, EventArgs e)
@@ -44,7 +52,7 @@ namespace GUI
 
         private void register_Click(object sender, EventArgs e)
         {
-            var registrationView = new RegistrationView(_connection);
+            var registrationView = new RegistrationView();
             registrationView.Show();
         }
 
