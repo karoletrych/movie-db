@@ -131,5 +131,14 @@ namespace GUI.Properties {
                 return ResourceManager.GetString("MovieView_ShowCrew_Person", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Film.
+        /// </summary>
+        internal static string PersonView_ShowCrew_Movie {
+            get {
+                return ResourceManager.GetString("PersonView_ShowCrew_Movie", resourceCulture);
+            }
+        }
     }
 }

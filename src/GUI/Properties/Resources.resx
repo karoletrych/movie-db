@@ -141,4 +141,7 @@
   <data name="MovieView_ShowCrew_Category" xml:space="preserve">
     <value>Kategoria</value>
   </data>
+  <data name="PersonView_ShowCrew_Movie" xml:space="preserve">
+    <value>Film</value>
+  </data>
 </root>

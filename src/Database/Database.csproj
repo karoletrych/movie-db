@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="DAO\Authorization.cs" />
     <Compile Include="DAO\CrewDAO.cs" />
+    <Compile Include="DAO\PersonDAO.cs" />
     <Compile Include="DAO\ReviewsDAO.cs" />
     <Compile Include="DatabaseConnectionFactory.cs" />
     <Compile Include="DAO\CastDAO.cs" />

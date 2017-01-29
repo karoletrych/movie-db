@@ -12,6 +12,7 @@ namespace GUI
 {
     public partial class MovieView : Form
     {
+        private readonly NpgsqlConnection _connection;
         private const string ImagePath = @"http://image.tmdb.org/t/p/{0}//{1}";
         private const string ImageSize = "w185";
         private readonly CastDao _castDao;
@@ -20,15 +21,18 @@ namespace GUI
         private readonly GenresDao _genresDao;
         private readonly Movie _movie;
         private readonly ReviewsDao _reviewsDao;
+        private readonly PersonDao _personDao;
 
         public MovieView(int movieId, NpgsqlConnection connection)
         {
+            _connection = connection;
             _countriesDao = new CountriesDao(connection);
             _genresDao = new GenresDao(connection);
             _movie = new MovieDao(connection).GetMovieById(movieId);
             _castDao = new CastDao(connection);
             _crewDao = new CrewDao(connection);
             _reviewsDao = new ReviewsDao(connection);
+            _personDao = new PersonDao(connection);
             InitializeComponent();
         }
 
@@ -76,6 +80,7 @@ namespace GUI
             crew.Columns[0].HeaderText = Resources.MovieView_ShowCrew_Category;
             crew.Columns[1].HeaderText = Resources.MovieView_ShowCrew_Job;
             crew.Columns[2].HeaderText = Resources.MovieView_ShowCrew_Person;
+            crew.Columns[3].Visible = false;
         }
 
         private void ShowCast()
@@ -93,6 +98,7 @@ namespace GUI
             }
             cast.Columns[0].HeaderText = Resources.MovieView_ShowCast_Actor;
             cast.Columns[1].HeaderText = Resources.MovieView_ShowCast_Character;
+            cast.Columns[2].Visible = false;
         }
 
         private void ShowGenres()
@@ -131,7 +137,8 @@ namespace GUI
         {
             if (cast[e.ColumnIndex, e.RowIndex] is DataGridViewLinkCell)
             {
-                var personView = new PersonView();
+                var personId = (int)cast[2, e.RowIndex].Value;
+                var personView = new PersonView(personId, _personDao, _crewDao,_castDao, _connection);
                 personView.Show();
             }
         }
@@ -140,7 +147,8 @@ namespace GUI
         {
             if (crew[e.ColumnIndex, e.RowIndex] is DataGridViewLinkCell)
             {
-                var personView = new PersonView();
+                var personId = (int)crew[3, e.RowIndex].Value;
+                var personView = new PersonView(personId, _personDao, _crewDao, _castDao, _connection);
                 personView.Show();
             }
         }

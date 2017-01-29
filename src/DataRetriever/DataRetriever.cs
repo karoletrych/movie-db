@@ -15,8 +15,8 @@ namespace DataRetriever
         private readonly HttpRetriever _httpRetriever;
         private readonly MovieDao _movieDao;
         private readonly CastDao _castDao;
-        private readonly Dao _dao;
-        private CrewDao _crewDao;
+        private readonly CrewDao _crewDao;
+        private readonly PersonDao _personDao;
         private readonly NpgsqlConnection _databaseConnection = DatabaseConnectionFactory.Create();
 
         public DataRetriever()
@@ -27,13 +27,13 @@ namespace DataRetriever
             _httpRetriever = new HttpRetriever();
             _movieDao = new MovieDao(_databaseConnection);
             _crewDao = new CrewDao(_databaseConnection);
-            _dao = new Dao(_databaseConnection);
+            _personDao = new PersonDao(_databaseConnection);
         }
 
         public void Retrieve(int count)
         {
             var departments = _httpRetriever.RetrieveDepartments();
-            _dao.InsertDepartments(departments);
+            _crewDao.InsertDepartments(departments);
 
             var genres = _httpRetriever.RetrieveGenres();
             _genresDao.InsertGenres(genres);
@@ -48,14 +48,14 @@ namespace DataRetriever
                     foreach (var c in cast)
                     {
                         var person = RetrievePerson(_httpRetriever, c.PersonId);
-                        _dao.InsertPerson(person);
+                        _personDao.InsertPerson(person);
                         _castDao.InsertCast(c);
                     }
                     var crew = _httpRetriever.RetrieveCrewFromFilm(id);
                     foreach (var c in crew)
                     {
                         var person = RetrievePerson(_httpRetriever, c.PersonId);
-                        _dao.InsertPerson(person);
+                        _personDao.InsertPerson(person);
                         _crewDao.InsertCrew(c);
                     }
                 }
