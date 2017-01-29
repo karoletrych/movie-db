@@ -57,6 +57,15 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.search = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.moviesView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.voteFrom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.voteTo)).BeginInit();
@@ -67,7 +76,7 @@
             // 
             // searchBox
             // 
-            this.searchBox.Location = new System.Drawing.Point(124, 49);
+            this.searchBox.Location = new System.Drawing.Point(124, 25);
             this.searchBox.Name = "searchBox";
             this.searchBox.Size = new System.Drawing.Size(100, 20);
             this.searchBox.TabIndex = 0;
@@ -79,10 +88,10 @@
             this.moviesView.AllowUserToDeleteRows = false;
             this.moviesView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.moviesView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.moviesView.Location = new System.Drawing.Point(124, 227);
+            this.moviesView.Location = new System.Drawing.Point(5, 177);
             this.moviesView.Name = "moviesView";
             this.moviesView.ReadOnly = true;
-            this.moviesView.Size = new System.Drawing.Size(884, 405);
+            this.moviesView.Size = new System.Drawing.Size(888, 455);
             this.moviesView.TabIndex = 1;
             this.moviesView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.filmsView_CellContentClick);
             // 
@@ -166,17 +175,17 @@
             // genres
             // 
             this.genres.FormattingEnabled = true;
-            this.genres.Location = new System.Drawing.Point(230, 9);
+            this.genres.Location = new System.Drawing.Point(230, 35);
             this.genres.Name = "genres";
-            this.genres.Size = new System.Drawing.Size(88, 160);
+            this.genres.Size = new System.Drawing.Size(88, 134);
             this.genres.TabIndex = 13;
             // 
             // selectedGenres
             // 
             this.selectedGenres.FormattingEnabled = true;
-            this.selectedGenres.Location = new System.Drawing.Point(375, 9);
+            this.selectedGenres.Location = new System.Drawing.Point(375, 35);
             this.selectedGenres.Name = "selectedGenres";
-            this.selectedGenres.Size = new System.Drawing.Size(87, 160);
+            this.selectedGenres.Size = new System.Drawing.Size(87, 134);
             this.selectedGenres.TabIndex = 14;
             // 
             // genresSelect
@@ -187,6 +196,7 @@
             this.genresSelect.TabIndex = 15;
             this.genresSelect.Text = ">>";
             this.genresSelect.UseVisualStyleBackColor = true;
+            this.genresSelect.Click += new System.EventHandler(this.genresSelect_Click);
             // 
             // genresUnselect
             // 
@@ -196,21 +206,22 @@
             this.genresUnselect.TabIndex = 16;
             this.genresUnselect.Text = "<<";
             this.genresUnselect.UseVisualStyleBackColor = true;
+            this.genresUnselect.Click += new System.EventHandler(this.genresUnselect_Click);
             // 
             // countries
             // 
             this.countries.FormattingEnabled = true;
-            this.countries.Location = new System.Drawing.Point(468, 9);
+            this.countries.Location = new System.Drawing.Point(468, 35);
             this.countries.Name = "countries";
-            this.countries.Size = new System.Drawing.Size(82, 160);
+            this.countries.Size = new System.Drawing.Size(82, 134);
             this.countries.TabIndex = 17;
             // 
             // selectedCountries
             // 
             this.selectedCountries.FormattingEnabled = true;
-            this.selectedCountries.Location = new System.Drawing.Point(606, 9);
+            this.selectedCountries.Location = new System.Drawing.Point(606, 35);
             this.selectedCountries.Name = "selectedCountries";
-            this.selectedCountries.Size = new System.Drawing.Size(80, 160);
+            this.selectedCountries.Size = new System.Drawing.Size(80, 134);
             this.selectedCountries.TabIndex = 18;
             // 
             // selectCountry
@@ -221,6 +232,7 @@
             this.selectCountry.TabIndex = 19;
             this.selectCountry.Text = ">>";
             this.selectCountry.UseVisualStyleBackColor = true;
+            this.selectCountry.Click += new System.EventHandler(this.selectCountry_Click);
             // 
             // unselectCountry
             // 
@@ -230,52 +242,100 @@
             this.unselectCountry.TabIndex = 20;
             this.unselectCountry.Text = "<<";
             this.unselectCountry.UseVisualStyleBackColor = true;
+            this.unselectCountry.Click += new System.EventHandler(this.unselectCountry_Click);
             // 
             // dateFrom
             // 
-            this.dateFrom.Location = new System.Drawing.Point(693, 13);
+            this.dateFrom.Location = new System.Drawing.Point(692, 35);
             this.dateFrom.Name = "dateFrom";
             this.dateFrom.Size = new System.Drawing.Size(200, 20);
             this.dateFrom.TabIndex = 21;
+            this.dateFrom.Value = new System.DateTime(1900, 1, 29, 15, 50, 0, 0);
             // 
             // dateTo
             // 
-            this.dateTo.Location = new System.Drawing.Point(693, 48);
+            this.dateTo.Location = new System.Drawing.Point(693, 61);
             this.dateTo.Name = "dateTo";
             this.dateTo.Size = new System.Drawing.Size(200, 20);
             this.dateTo.TabIndex = 22;
             // 
             // voteFrom
             // 
-            this.voteFrom.Location = new System.Drawing.Point(693, 118);
+            this.voteFrom.Location = new System.Drawing.Point(760, 87);
+            this.voteFrom.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             this.voteFrom.Name = "voteFrom";
-            this.voteFrom.Size = new System.Drawing.Size(52, 20);
+            this.voteFrom.Size = new System.Drawing.Size(48, 20);
             this.voteFrom.TabIndex = 23;
+            this.voteFrom.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // voteTo
             // 
-            this.voteTo.Location = new System.Drawing.Point(693, 148);
+            this.voteTo.Location = new System.Drawing.Point(828, 87);
+            this.voteTo.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.voteTo.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.voteTo.Name = "voteTo";
-            this.voteTo.Size = new System.Drawing.Size(52, 20);
+            this.voteTo.Size = new System.Drawing.Size(64, 20);
             this.voteTo.TabIndex = 24;
+            this.voteTo.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             // 
             // voteCountFrom
             // 
-            this.voteCountFrom.Location = new System.Drawing.Point(751, 118);
+            this.voteCountFrom.Location = new System.Drawing.Point(760, 118);
+            this.voteCountFrom.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
             this.voteCountFrom.Name = "voteCountFrom";
             this.voteCountFrom.Size = new System.Drawing.Size(48, 20);
             this.voteCountFrom.TabIndex = 25;
             // 
             // voteCountTo
             // 
-            this.voteCountTo.Location = new System.Drawing.Point(751, 148);
+            this.voteCountTo.Location = new System.Drawing.Point(828, 118);
+            this.voteCountTo.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.voteCountTo.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.voteCountTo.Name = "voteCountTo";
-            this.voteCountTo.Size = new System.Drawing.Size(48, 20);
+            this.voteCountTo.Size = new System.Drawing.Size(64, 20);
             this.voteCountTo.TabIndex = 26;
+            this.voteCountTo.Value = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
             // 
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
+            this.radioButton1.Checked = true;
             this.radioButton1.Location = new System.Drawing.Point(6, 19);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(90, 17);
@@ -287,7 +347,7 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(102, 19);
+            this.radioButton2.Location = new System.Drawing.Point(6, 42);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(55, 17);
             this.radioButton2.TabIndex = 28;
@@ -298,7 +358,7 @@
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(163, 19);
+            this.radioButton3.Location = new System.Drawing.Point(6, 65);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(88, 17);
             this.radioButton3.TabIndex = 29;
@@ -311,18 +371,109 @@
             this.groupBox1.Controls.Add(this.radioButton1);
             this.groupBox1.Controls.Add(this.radioButton3);
             this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Location = new System.Drawing.Point(124, 175);
+            this.groupBox1.Location = new System.Drawing.Point(124, 62);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(254, 46);
+            this.groupBox1.Size = new System.Drawing.Size(100, 109);
             this.groupBox1.TabIndex = 30;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sortowanie:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(121, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 31;
+            this.label4.Text = "Tytuł:";
+            // 
+            // search
+            // 
+            this.search.Location = new System.Drawing.Point(805, 148);
+            this.search.Name = "search";
+            this.search.Size = new System.Drawing.Size(88, 20);
+            this.search.TabIndex = 32;
+            this.search.Text = "Wyszukaj";
+            this.search.UseVisualStyleBackColor = true;
+            this.search.Click += new System.EventHandler(this.search_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(230, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(51, 13);
+            this.label5.TabIndex = 33;
+            this.label5.Text = "Gatunek:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(468, 9);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(74, 13);
+            this.label6.TabIndex = 34;
+            this.label6.Text = "Kraj produkcji:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(690, 9);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(76, 13);
+            this.label7.TabIndex = 35;
+            this.label7.Text = "Data Premiery:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(690, 87);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(42, 13);
+            this.label8.TabIndex = 36;
+            this.label8.Text = "Ocena:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(690, 118);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(68, 13);
+            this.label9.TabIndex = 37;
+            this.label9.Text = "Liczba ocen:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(814, 89);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(10, 13);
+            this.label10.TabIndex = 38;
+            this.label10.Text = "-";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(814, 120);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(10, 13);
+            this.label11.TabIndex = 39;
+            this.label11.Text = "-";
             // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1079, 644);
+            this.ClientSize = new System.Drawing.Size(905, 644);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.search);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.voteCountTo);
             this.Controls.Add(this.voteCountFrom);
@@ -395,6 +546,15 @@
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button search;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
     }
 }
 

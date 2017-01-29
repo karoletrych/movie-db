@@ -1,6 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Windows.Forms;
 using Database;
 using Database.DAO;
@@ -11,11 +11,11 @@ namespace GUI
 {
     public partial class MainView : Form
     {
-        private readonly NpgsqlConnection _connection = DatabaseConnectionFactory.Create();
-        private readonly MovieDao _movieDao;
         private readonly Authorization _authorization;
-        private readonly GenresDao _genresDao;
+        private readonly NpgsqlConnection _connection = DatabaseConnectionFactory.Create();
         private readonly CountriesDao _countriesDao;
+        private readonly GenresDao _genresDao;
+        private readonly MovieDao _movieDao;
 
         public MainView()
         {
@@ -31,21 +31,17 @@ namespace GUI
             passwordBox.UseSystemPasswordChar = true;
             var genresData = _genresDao.GetAllGenres();
             foreach (var genre in genresData)
-            {
                 genres.Items.Add(genre.Name);
-            }
 
             var countriesData = _countriesDao.GetAllCountries();
             foreach (var country in countriesData)
-            {
                 countries.Items.Add(country.Name);
-            }
         }
 
         private void searchBox_TextChanged(object sender, EventArgs e)
         {
             var films = _movieDao.GetMoviesByTitleLike(searchBox.Text).ToList();
-            moviesView.DataSource = films.Select(x => new {x.MovieId, x.Title, x.ReleaseDate}).ToList();
+            moviesView.DataSource = films.Select(x => new {x.MovieId, x.Title, x.ReleaseDate, x.AverageVote}).ToList();
             moviesView.Columns[0].Visible = false;
         }
 
@@ -84,6 +80,65 @@ namespace GUI
             {
                 MessageBox.Show(Resources.MainView_login_Click_WrongPassword);
             }
+        }
+
+        private void genresSelect_Click(object sender, EventArgs e)
+        {
+            MoveFromTo(genres, selectedGenres);
+        }
+
+        private void genresUnselect_Click(object sender, EventArgs e)
+        {
+            MoveFromTo(selectedGenres, genres);
+        }
+
+        private void selectCountry_Click(object sender, EventArgs e)
+        {
+            MoveFromTo(countries, selectedCountries);
+        }
+
+        private void unselectCountry_Click(object sender, EventArgs e)
+        {
+            MoveFromTo(selectedCountries, countries);
+        }
+
+        private void MoveFromTo(ListBox from, ListBox to)
+        {
+            var selected = from.SelectedItem;
+            if (selected == null)
+                return;
+            to.Items.Add(selected);
+            from.Items.Remove(selected);
+        }
+
+        private void search_Click(object sender, EventArgs e)
+        {
+            var genresList = new List<string>();
+            foreach (var selectedGenresItem in selectedGenres.Items)
+                genresList.Add(selectedGenresItem.ToString());
+
+            var countriesList = new List<string>();
+            foreach (var selectedCountriesItem in selectedCountries.Items)
+                countriesList.Add(selectedCountriesItem.ToString());
+
+            var films =
+                _movieDao.GetMoviesByCriteria(releaseDateFrom: dateFrom.Value,
+                    releaseDateTo: dateTo.Value,
+                    voteAverageFrom: (int) voteFrom.Value,
+                    voteAverageTo: (int) voteTo.Value,
+                    genres: genresList,
+                    countries: countriesList,
+                    title: searchBox.Text,
+                    voteCountFrom: (int) voteCountFrom.Value,
+                    voteCountTo: (int) voteCountTo.Value);
+            moviesView.DataSource = films.Select(movie => new
+            {
+                movie.MovieId,
+                movie.Title,
+                movie.ReleaseDate,
+                movie.AverageVote
+            }).ToList();
+            moviesView.Columns[0].Visible = false;
         }
     }
 }

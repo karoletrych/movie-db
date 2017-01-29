@@ -10,12 +10,15 @@ namespace Database.DAO
         {
             var command = Connection.CreateCommand();
             command.CommandText =
-                @"SELECT r.vote, r.content, mb.member_login
-FROM 
-  member mb JOIN review r on mb.member_login = r.member_login
-  JOIN movie m ON m.movie_id = r.movie_id
-WHERE 
-  m.movie_id = @movie_id";
+                @"SELECT r.vote,
+       r.content,
+       mb.member_login
+FROM   member mb
+       JOIN review r
+         ON mb.member_login = r.member_login
+       JOIN movie m
+         ON m.movie_id = r.movie_id
+WHERE  m.movie_id = @movie_id";
             command.Parameters.Add(new NpgsqlParameter("movie_id", movieId));
             var reader = command.ExecuteReader();
             while (reader.Read())

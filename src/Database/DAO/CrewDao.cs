@@ -23,18 +23,20 @@ values(:person_id, :movie_id, :job_name) on conflict do nothing";
         {
             var command = Connection.CreateCommand();
             command.CommandText =
-                @"SELECT d.name as department_name, c.job_name, p.name AS person_name, p.person_id
-FROM person  p
-JOIN crew c
-ON p.person_id = c.person_id
-JOIN movie m
-ON m.movie_id= c.movie_id
-JOIN job j
-ON j.job_name = c.job_name
-JOIN department d
-ON d.department_id = j.department_id
-WHERE 
-  m.movie_id = @movie_id";
+                @"SELECT d.NAME AS department_name,
+       c.job_name,
+       p.NAME AS person_name,
+       p.person_id
+FROM   person p
+       JOIN crew c
+         ON p.person_id = c.person_id
+       JOIN movie m
+         ON m.movie_id = c.movie_id
+       JOIN job j
+         ON j.job_name = c.job_name
+       JOIN department d
+         ON d.department_id = j.department_id
+WHERE  m.movie_id = @movie_id";
             command.Parameters.Add(new NpgsqlParameter("movie_id", movieId));
             var reader = command.ExecuteReader();
             while (reader.Read())
@@ -47,18 +49,20 @@ WHERE
         {
             var command = Connection.CreateCommand();
             command.CommandText =
-                @"SELECT d.name as department_name, c.job_name, m.title AS person_name, m.movie_id
-FROM person  p
-JOIN crew c
-ON p.person_id = c.person_id
-JOIN movie m
-ON m.movie_id= c.movie_id
-JOIN job j
-ON j.job_name = c.job_name
-JOIN department d
-ON d.department_id = j.department_id
-WHERE 
-  p.person_id = @person_id";
+                @"SELECT d.NAME  AS department_name,
+       c.job_name,
+       m.title AS person_name,
+       m.movie_id
+FROM   person p
+       JOIN crew c
+         ON p.person_id = c.person_id
+       JOIN movie m
+         ON m.movie_id = c.movie_id
+       JOIN job j
+         ON j.job_name = c.job_name
+       JOIN department d
+         ON d.department_id = j.department_id
+WHERE  p.person_id = @person_id  ";
             command.Parameters.Add(new NpgsqlParameter("person_id", personId));
             var reader = command.ExecuteReader();
             while (reader.Read())

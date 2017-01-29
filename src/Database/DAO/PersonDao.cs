@@ -10,8 +10,27 @@ namespace Database.DAO
         {
             var command = Connection.CreateCommand();
             command.CommandText =
-                @"insert into person (person_id, birthday, deathday, biography, gender, place_of_birth, name)
-values(:person_id, :birthday, :deathday, :biography, :gender, :place_of_birth, :name) ON CONFLICT DO NOTHING";
+                @" INSERT INTO person
+            (
+                        person_id,
+                        birthday,
+                        deathday,
+                        biography,
+                        gender,
+                        place_of_birth,
+                        NAME
+            )
+            VALUES
+            (
+                        :person_id,
+                        :birthday,
+                        :deathday,
+                        :biography,
+                        :gender,
+                        :place_of_birth,
+                        :name
+            )
+on conflict do nothing ";
             command.Parameters.Add(new NpgsqlParameter("person_id", person.PersonId));
             command.Parameters.Add(new NpgsqlParameter("birthday", (object) person.BirthDay ?? DBNull.Value));
             command.Parameters.Add(new NpgsqlParameter("deathday", (object) person.DeathDay ?? DBNull.Value));
