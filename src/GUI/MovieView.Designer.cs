@@ -43,13 +43,15 @@
             this.label6 = new System.Windows.Forms.Label();
             this.genres = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.cast = new System.Windows.Forms.ListView();
-            this.crew = new System.Windows.Forms.ListView();
             this.label8 = new System.Windows.Forms.Label();
             this.reviews = new System.Windows.Forms.ListView();
             this.label9 = new System.Windows.Forms.Label();
             this.addReview = new System.Windows.Forms.Button();
+            this.cast = new System.Windows.Forms.DataGridView();
+            this.crew = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.poster)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cast)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.crew)).BeginInit();
             this.SuspendLayout();
             // 
             // movieTitle
@@ -188,26 +190,10 @@
             this.label7.TabIndex = 14;
             this.label7.Text = "Obsada:";
             // 
-            // cast
-            // 
-            this.cast.Location = new System.Drawing.Point(216, 200);
-            this.cast.Name = "cast";
-            this.cast.Size = new System.Drawing.Size(385, 127);
-            this.cast.TabIndex = 15;
-            this.cast.UseCompatibleStateImageBehavior = false;
-            // 
-            // crew
-            // 
-            this.crew.Location = new System.Drawing.Point(216, 352);
-            this.crew.Name = "crew";
-            this.crew.Size = new System.Drawing.Size(385, 150);
-            this.crew.TabIndex = 16;
-            this.crew.UseCompatibleStateImageBehavior = false;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(216, 333);
+            this.label8.Location = new System.Drawing.Point(213, 352);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(37, 13);
             this.label8.TabIndex = 17;
@@ -240,17 +226,38 @@
             this.addReview.UseVisualStyleBackColor = true;
             this.addReview.Click += new System.EventHandler(this.addReview_Click);
             // 
+            // cast
+            // 
+            this.cast.AllowUserToAddRows = false;
+            this.cast.AllowUserToDeleteRows = false;
+            this.cast.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.cast.Location = new System.Drawing.Point(216, 200);
+            this.cast.Name = "cast";
+            this.cast.ReadOnly = true;
+            this.cast.Size = new System.Drawing.Size(353, 149);
+            this.cast.TabIndex = 21;
+            this.cast.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.cast_CellContentClick);
+            // 
+            // crew
+            // 
+            this.crew.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.crew.Location = new System.Drawing.Point(216, 368);
+            this.crew.Name = "crew";
+            this.crew.Size = new System.Drawing.Size(353, 140);
+            this.crew.TabIndex = 22;
+            this.crew.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.crew_CellContentClick);
+            // 
             // MovieView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(711, 737);
+            this.Controls.Add(this.crew);
+            this.Controls.Add(this.cast);
             this.Controls.Add(this.addReview);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.reviews);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.crew);
-            this.Controls.Add(this.cast);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.genres);
             this.Controls.Add(this.label6);
@@ -270,6 +277,8 @@
             this.Text = "Film";
             this.Load += new System.EventHandler(this.MovieView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.poster)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cast)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.crew)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -292,11 +301,11 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label genres;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ListView cast;
-        private System.Windows.Forms.ListView crew;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ListView reviews;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button addReview;
+        private System.Windows.Forms.DataGridView cast;
+        private System.Windows.Forms.DataGridView crew;
     }
 }

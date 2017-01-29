@@ -117,28 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="MainView_login_Click_passwordCannotBeEmpty" xml:space="preserve">
-    <value>Haslo nie moze byc puste.</value>
-  </data>
-  <data name="MainView_login_Click_WrongPassword" xml:space="preserve">
-    <value>Błędne hasło lub nazwa użytkownika</value>
-  </data>
-  <data name="MovieView_ShowCast_Actor" xml:space="preserve">
-    <value>Aktor</value>
-  </data>
-  <data name="MovieView_ShowCast_Character" xml:space="preserve">
-    <value>Postać</value>
-  </data>
-  <data name="MovieView_ShowCrew_Person" xml:space="preserve">
-    <value>Osoba</value>
-  </data>
-  <data name="MovieView_ShowCrew_Job" xml:space="preserve">
-    <value>Zadanie</value>
-  </data>
-  <data name="MovieView_ShowCast_Category" xml:space="preserve">
-    <value>Kategoria</value>
-  </data>
-  <data name="MovieView_ShowCrew_Category" xml:space="preserve">
-    <value>Kategoria</value>
-  </data>
 </root>

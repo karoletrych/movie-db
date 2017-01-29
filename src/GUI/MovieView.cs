@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Database.DAO;
 using Database.Model;
+using GUI.Properties;
 using Npgsql;
 using static System.String;
 
@@ -50,48 +51,48 @@ namespace GUI
             var reviewsData = _reviewsDao.GetReviewsOfMovie(_movie.MovieId);
             foreach (var tuple in reviewsData)
                 reviews.Items.Add(
-                    new ListViewItem(new[] {tuple.Item1.ToString(CultureInfo.CurrentCulture), tuple.Item2.TruncateLongString(180), tuple.Item3}));
+                    new ListViewItem(new[]
+                    {
+                        tuple.Item1.ToString(CultureInfo.CurrentCulture), tuple.Item2.TruncateLongString(180),
+                        tuple.Item3
+                    }));
             reviews.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             reviews.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
         private void ShowCrew()
         {
-            crew.Columns.Add("Zadanie");
-            crew.Columns.Add("Osoba");
-            crew.View = View.Details;
             var crewData = _crewDao.GetCrewFromMovie(_movie.MovieId).ToList();
-            var departmentGroupedCrew = crewData.GroupBy(x => x.Item1);
-            foreach (var department in departmentGroupedCrew)
+            crew.DataSource = crewData;
+
+            foreach (DataGridViewRow row in crew.Rows)
             {
-                var listViewGroup = new ListViewGroup(department.Key, HorizontalAlignment.Left)
+                var linkCell = new DataGridViewLinkCell
                 {
-                    Name = department.Key
+                    Value = row.Cells[2].Value
                 };
-                crew.Groups.Add(listViewGroup);
-                foreach (var job in department)
-                {
-                    var listView = new ListViewItem(new[] {job.Item2, job.Item3})
-                    {
-                        Group = listViewGroup
-                    };
-                    crew.Items.Add(listView);
-                }
+                row.Cells[2] = linkCell;
             }
-            crew.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-            crew.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            crew.Columns[0].HeaderText = Resources.MovieView_ShowCrew_Category;
+            crew.Columns[1].HeaderText = Resources.MovieView_ShowCrew_Job;
+            crew.Columns[2].HeaderText = Resources.MovieView_ShowCrew_Person;
         }
 
         private void ShowCast()
         {
-            cast.Columns.Add("Aktor");
-            cast.Columns.Add("Postać");
-            cast.View = View.Details;
-            var castData = _castDao.GetCastOfMovie(_movie.MovieId);
-            foreach (var tuple in castData)
-                cast.Items.Add(new ListViewItem(new[] {tuple.Item1, tuple.Item2}));
-            cast.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-            cast.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            var castData = _castDao.GetCastOfMovie(_movie.MovieId).ToList();
+            cast.DataSource = castData;
+
+            foreach (DataGridViewRow row in cast.Rows)
+            {
+                var linkCell = new DataGridViewLinkCell
+                {
+                    Value = row.Cells[0].Value
+                };
+                row.Cells[0] = linkCell;
+            }
+            cast.Columns[0].HeaderText = Resources.MovieView_ShowCast_Actor;
+            cast.Columns[1].HeaderText = Resources.MovieView_ShowCast_Character;
         }
 
         private void ShowGenres()
@@ -124,6 +125,24 @@ namespace GUI
         {
             var addReviewView = new AddReview(_reviewsDao, _movie.MovieId, this);
             addReviewView.Show();
+        }
+
+        private void cast_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (cast[e.ColumnIndex, e.RowIndex] is DataGridViewLinkCell)
+            {
+                var personView = new PersonView();
+                personView.Show();
+            }
+        }
+
+        private void crew_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (crew[e.ColumnIndex, e.RowIndex] is DataGridViewLinkCell)
+            {
+                var personView = new PersonView();
+                personView.Show();
+            }
         }
     }
 }

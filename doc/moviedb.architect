@@ -313,75 +313,46 @@
     </index>
    </folder>
   </table>
-  <table id="TAB83" populated="true" UUID="d69ff8e5-2b4c-4f8f-8b83-13f7e988df9f" name="kraj_pochodzenia" objectType="TABLE" physicalName="country_of_origin" >
-   <remarks></remarks>
-   <folder id="FOLTAB831" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL84" populated="true" UUID="da3eb53b-c4d1-487d-a101-ef1d27214705" autoIncrement="true" autoIncrementSequenceName="country_of_origin_country_of_origin_id_seq" defaultValue="" name="kraj_pochodzenia_id" nullable="0" physicalName="country_of_origin_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
-     <remarks></remarks>
-    </column>
-    <column id="COL85" populated="true" UUID="aa7f3f7e-49ae-4df8-a4b9-3cfadd77939d" autoIncrement="false" autoIncrementSequenceName="country_of_origin_person_id_seq" defaultValue="" name="czlowiek_id" nullable="0" physicalName="person_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
-     <remarks></remarks>
-    </column>
-    <column id="COL86" populated="true" UUID="938e4dc6-50f3-40a2-8414-fb24cb65eeed" autoIncrement="false" autoIncrementSequenceName="country_of_origin_country_id_seq" defaultValue="" name="kraj_id" nullable="0" physicalName="country_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
-     <remarks></remarks>
-    </column>
-    </folder>
-    <folder id="FOLTAB833" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
-    </folder>
-    <folder id="FOLTAB832" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
-    </folder>
-    <folder id="FOLTAB834" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX87" populated="true" UUID="41dfd35d-68f8-4eb2-900d-854c3a526d08" clustered="false" name="country_of_origin_pk" physicalName="country_of_origin_pk" primaryKeyIndex="true" unique="false" >
-     <index-column id="IDC88" populated="true" UUID="34cdcdd6-b376-4d15-bce8-235224248846" ascendingOrDescending="UNSPECIFIED" column-ref="COL84" name="kraj_pochodzenia_id" physicalName="country_of_origin_id" />
-    </index>
-   </folder>
-  </table>
   <relationships>
-   <relationship id="REL89" populated="true" UUID="313a3cee-9e49-4261-aa6c-44b9c9ff6010" deferrability="7" deleteRule="3" fk-table-ref="TAB16" fkCardinality="7" identifying="false" name="kraj_film_krajprodukcji_fk" physicalName="kraj_film_krajprodukcji_fk" pk-table-ref="TAB1" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP90" populated="true" UUID="e61818d1-a26d-41b3-83a0-afbaef4b54be" fk-column-ref="COL18" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL2" />
+   <relationship id="REL83" populated="true" UUID="313a3cee-9e49-4261-aa6c-44b9c9ff6010" deferrability="7" deleteRule="3" fk-table-ref="TAB16" fkCardinality="7" identifying="false" name="kraj_film_krajprodukcji_fk" physicalName="kraj_film_krajprodukcji_fk" pk-table-ref="TAB1" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP84" populated="true" UUID="e61818d1-a26d-41b3-83a0-afbaef4b54be" fk-column-ref="COL18" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL2" />
    </relationship>
-   <relationship id="REL91" populated="true" UUID="603028e2-be44-42e4-9a37-8e40cd6b6968" deferrability="7" deleteRule="3" fk-table-ref="TAB83" fkCardinality="7" identifying="false" name="kraj_kraj_pochodzenia_fk" physicalName="kraj_kraj_pochodzenia_fk" pk-table-ref="TAB1" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP92" populated="true" UUID="6423c1b8-4da5-43f0-8d34-32eb6593e63c" fk-column-ref="COL86" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL2" />
+   <relationship id="REL85" populated="true" UUID="dabad6b3-2b24-441e-97e8-cf21f554c2bf" deferrability="7" deleteRule="3" fk-table-ref="TAB16" fkCardinality="7" identifying="false" name="film_film_krajprodukcji_fk" physicalName="film_film_krajprodukcji_fk" pk-table-ref="TAB6" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP86" populated="true" UUID="383fa570-64c9-45e9-a842-86beb8d1928c" fk-column-ref="COL19" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL7" />
    </relationship>
-   <relationship id="REL93" populated="true" UUID="dabad6b3-2b24-441e-97e8-cf21f554c2bf" deferrability="7" deleteRule="3" fk-table-ref="TAB16" fkCardinality="7" identifying="false" name="film_film_krajprodukcji_fk" physicalName="film_film_krajprodukcji_fk" pk-table-ref="TAB6" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP94" populated="true" UUID="383fa570-64c9-45e9-a842-86beb8d1928c" fk-column-ref="COL19" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL7" />
+   <relationship id="REL87" populated="true" UUID="863906eb-3652-4bc8-beb0-dc2735aac67d" deferrability="7" deleteRule="3" fk-table-ref="TAB22" fkCardinality="7" identifying="false" name="film_obsada_fk" physicalName="film_obsada_fk" pk-table-ref="TAB6" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP88" populated="true" UUID="7cd6e19b-dcaa-47b8-89e2-2a941875a34e" fk-column-ref="COL25" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL7" />
    </relationship>
-   <relationship id="REL95" populated="true" UUID="863906eb-3652-4bc8-beb0-dc2735aac67d" deferrability="7" deleteRule="3" fk-table-ref="TAB22" fkCardinality="7" identifying="false" name="film_obsada_fk" physicalName="film_obsada_fk" pk-table-ref="TAB6" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP96" populated="true" UUID="7cd6e19b-dcaa-47b8-89e2-2a941875a34e" fk-column-ref="COL25" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL7" />
+   <relationship id="REL89" populated="true" UUID="e6335d63-ea46-4642-b366-d18d59049bd1" deferrability="7" deleteRule="3" fk-table-ref="TAB40" fkCardinality="7" identifying="true" name="film_recenzja_fk" physicalName="film_recenzja_fk" pk-table-ref="TAB6" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP90" populated="true" UUID="05b50c9e-7755-41bb-9655-940ef5d484cb" fk-column-ref="COL41" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL7" />
    </relationship>
-   <relationship id="REL97" populated="true" UUID="e6335d63-ea46-4642-b366-d18d59049bd1" deferrability="7" deleteRule="3" fk-table-ref="TAB40" fkCardinality="7" identifying="true" name="film_recenzja_fk" physicalName="film_recenzja_fk" pk-table-ref="TAB6" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP98" populated="true" UUID="05b50c9e-7755-41bb-9655-940ef5d484cb" fk-column-ref="COL41" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL7" />
+   <relationship id="REL91" populated="true" UUID="5ae69853-ce9d-4c6c-95d8-feb2421aa94c" deferrability="7" deleteRule="3" fk-table-ref="TAB59" fkCardinality="7" identifying="false" name="film_film_gatunek_fk" physicalName="film_film_gatunek_fk" pk-table-ref="TAB6" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP92" populated="true" UUID="cc1934e4-4052-4fdb-8749-8b72c4567ce1" fk-column-ref="COL60" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL7" />
    </relationship>
-   <relationship id="REL99" populated="true" UUID="5ae69853-ce9d-4c6c-95d8-feb2421aa94c" deferrability="7" deleteRule="3" fk-table-ref="TAB59" fkCardinality="7" identifying="false" name="film_film_gatunek_fk" physicalName="film_film_gatunek_fk" pk-table-ref="TAB6" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP100" populated="true" UUID="cc1934e4-4052-4fdb-8749-8b72c4567ce1" fk-column-ref="COL60" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL7" />
+   <relationship id="REL93" populated="true" UUID="884a8d6a-cd54-4cb7-a7e6-1201dccf3e5c" deferrability="7" deleteRule="3" fk-table-ref="TAB65" fkCardinality="7" identifying="false" name="film_ekipa_fk" physicalName="film_ekipa_fk" pk-table-ref="TAB6" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP94" populated="true" UUID="87e0d02a-bc58-49c4-affd-ab1c39688bce" fk-column-ref="COL67" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL7" />
    </relationship>
-   <relationship id="REL101" populated="true" UUID="884a8d6a-cd54-4cb7-a7e6-1201dccf3e5c" deferrability="7" deleteRule="3" fk-table-ref="TAB65" fkCardinality="7" identifying="false" name="film_ekipa_fk" physicalName="film_ekipa_fk" pk-table-ref="TAB6" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP102" populated="true" UUID="87e0d02a-bc58-49c4-affd-ab1c39688bce" fk-column-ref="COL67" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL7" />
+   <relationship id="REL95" populated="true" UUID="3987d897-20da-4ebb-b2e8-e718f1cff5ec" deferrability="7" deleteRule="3" fk-table-ref="TAB22" fkCardinality="7" identifying="false" name="czlowiek_obsada_fk" physicalName="czlowiek_obsada_fk" pk-table-ref="TAB30" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP96" populated="true" UUID="a132dc7d-e469-4273-a94f-bc518f906210" fk-column-ref="COL24" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL31" />
    </relationship>
-   <relationship id="REL103" populated="true" UUID="3987d897-20da-4ebb-b2e8-e718f1cff5ec" deferrability="7" deleteRule="3" fk-table-ref="TAB22" fkCardinality="7" identifying="false" name="czlowiek_obsada_fk" physicalName="czlowiek_obsada_fk" pk-table-ref="TAB30" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP104" populated="true" UUID="a132dc7d-e469-4273-a94f-bc518f906210" fk-column-ref="COL24" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL31" />
+   <relationship id="REL97" populated="true" UUID="e4db2c78-d57f-443f-85ae-265147e717c9" deferrability="7" deleteRule="3" fk-table-ref="TAB65" fkCardinality="7" identifying="false" name="czlowiek_ekipa_fk" physicalName="czlowiek_ekipa_fk" pk-table-ref="TAB30" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP98" populated="true" UUID="a1a41bce-fc8f-4f8e-8696-8a249be2c5cd" fk-column-ref="COL66" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL31" />
    </relationship>
-   <relationship id="REL105" populated="true" UUID="e4db2c78-d57f-443f-85ae-265147e717c9" deferrability="7" deleteRule="3" fk-table-ref="TAB65" fkCardinality="7" identifying="false" name="czlowiek_ekipa_fk" physicalName="czlowiek_ekipa_fk" pk-table-ref="TAB30" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP106" populated="true" UUID="a1a41bce-fc8f-4f8e-8696-8a249be2c5cd" fk-column-ref="COL66" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL31" />
+   <relationship id="REL99" populated="true" UUID="3e81e6f0-deba-4444-85ee-0c7909c06ea3" deferrability="7" deleteRule="3" fk-table-ref="TAB40" fkCardinality="7" identifying="true" name="uzytkownik_recenzja_fk" physicalName="uzytkownik_recenzja_fk" pk-table-ref="TAB48" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP100" populated="true" UUID="50cc2ba4-6377-484f-968e-01d99add3cdf" fk-column-ref="COL42" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL49" />
    </relationship>
-   <relationship id="REL107" populated="true" UUID="b640ff18-b41e-44b9-961f-712689a73556" deferrability="7" deleteRule="3" fk-table-ref="TAB83" fkCardinality="7" identifying="false" name="czlowiek_kraj_pochodzenia_fk" physicalName="czlowiek_kraj_pochodzenia_fk" pk-table-ref="TAB30" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP108" populated="true" UUID="e732ef24-0b21-4654-b7d7-5c9fa0ffcaea" fk-column-ref="COL85" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL31" />
+   <relationship id="REL101" populated="true" UUID="2449ee7a-ac08-4f3c-87ea-a40657ab61d8" deferrability="7" deleteRule="3" fk-table-ref="TAB59" fkCardinality="7" identifying="false" name="gatunek_film_gatunek_fk" physicalName="gatunek_film_gatunek_fk" pk-table-ref="TAB54" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP102" populated="true" UUID="7d8d1d6c-6f28-4a79-8462-241d119d3b0e" fk-column-ref="COL61" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL55" />
    </relationship>
-   <relationship id="REL109" populated="true" UUID="3e81e6f0-deba-4444-85ee-0c7909c06ea3" deferrability="7" deleteRule="3" fk-table-ref="TAB40" fkCardinality="7" identifying="true" name="uzytkownik_recenzja_fk" physicalName="uzytkownik_recenzja_fk" pk-table-ref="TAB48" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP110" populated="true" UUID="50cc2ba4-6377-484f-968e-01d99add3cdf" fk-column-ref="COL42" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL49" />
+   <relationship id="REL103" populated="true" UUID="12650ffa-78d1-435b-880b-5ba731e15d2f" deferrability="7" deleteRule="3" fk-table-ref="TAB65" fkCardinality="7" identifying="false" name="praca_ekipa_fk" physicalName="praca_ekipa_fk" pk-table-ref="TAB73" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP104" populated="true" UUID="4cfa6114-4493-4737-a696-41b44dfde622" fk-column-ref="COL68" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL74" />
    </relationship>
-   <relationship id="REL111" populated="true" UUID="2449ee7a-ac08-4f3c-87ea-a40657ab61d8" deferrability="7" deleteRule="3" fk-table-ref="TAB59" fkCardinality="7" identifying="false" name="gatunek_film_gatunek_fk" physicalName="gatunek_film_gatunek_fk" pk-table-ref="TAB54" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP112" populated="true" UUID="7d8d1d6c-6f28-4a79-8462-241d119d3b0e" fk-column-ref="COL61" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL55" />
-   </relationship>
-   <relationship id="REL113" populated="true" UUID="12650ffa-78d1-435b-880b-5ba731e15d2f" deferrability="7" deleteRule="3" fk-table-ref="TAB65" fkCardinality="7" identifying="false" name="praca_ekipa_fk" physicalName="praca_ekipa_fk" pk-table-ref="TAB73" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP114" populated="true" UUID="4cfa6114-4493-4737-a696-41b44dfde622" fk-column-ref="COL68" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL74" />
-   </relationship>
-   <relationship id="REL115" populated="true" UUID="f240adaf-892c-417c-a383-835901ae3789" deferrability="7" deleteRule="3" fk-table-ref="TAB73" fkCardinality="7" identifying="false" name="dzial_praca_fk" physicalName="dzial_praca_fk" pk-table-ref="TAB78" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP116" populated="true" UUID="910ec09e-f754-4776-adc2-16cc295b0c8a" fk-column-ref="COL75" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL79" />
+   <relationship id="REL105" populated="true" UUID="f240adaf-892c-417c-a383-835901ae3789" deferrability="7" deleteRule="3" fk-table-ref="TAB73" fkCardinality="7" identifying="false" name="dzial_praca_fk" physicalName="dzial_praca_fk" pk-table-ref="TAB78" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP106" populated="true" UUID="910ec09e-f754-4776-adc2-16cc295b0c8a" fk-column-ref="COL75" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL79" />
    </relationship>
   </relationships>
  </target-database>
- <ddl-generator type="ca.sqlpower.architect.ddl.PostgresDDLGenerator" allow-connection="false" target-schema="moviedb"> </ddl-generator>
+ <ddl-generator type="ca.sqlpower.architect.ddl.PostgresDDLGenerator" allow-connection="true" target-schema="moviedb"> </ddl-generator>
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
  <play-pen zoom="1.0" viewportX="0" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
@@ -397,21 +368,18 @@
   <table-pane table-ref="TAB65" x="265" y="522" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB73" x="254" y="655" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB78" x="527" y="669" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB83" x="261" y="342" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-link relationship-ref="REL89" pkConnection="0.6114285714285714" fkConnection="0.6875" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
-  <table-link relationship-ref="REL93" pkConnection="0.5895953757225434" fkConnection="0.37142857142857144" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
-  <table-link relationship-ref="REL103" pkConnection="0.2743362831858407" fkConnection="0.7746478873239436" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
-  <table-link relationship-ref="REL95" pkConnection="0.336283185840708" fkConnection="0.5352112676056338" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
-  <table-link relationship-ref="REL109" pkConnection="0.5523809523809524" fkConnection="0.4444444444444444" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
-  <table-link relationship-ref="REL97" pkConnection="0.7079646017699115" fkConnection="0.12941176470588237" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
-  <table-link relationship-ref="REL99" pkConnection="0.12389380530973451" fkConnection="0.8771929824561403" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
-  <table-link relationship-ref="REL111" pkConnection="0.17543859649122806" fkConnection="0.8245614035087719" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
-  <table-link relationship-ref="REL105" pkConnection="0.7876106194690266" fkConnection="0.14084507042253522" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
-  <table-link relationship-ref="REL101" pkConnection="0.7345132743362832" fkConnection="0.5774647887323944" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
-  <table-link relationship-ref="REL115" pkConnection="0.17543859649122806" fkConnection="0.8591549295774648" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
-  <table-link relationship-ref="REL113" pkConnection="0.4673913043478261" fkConnection="0.5255102040816326" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
-  <table-link relationship-ref="REL107" pkConnection="0.3088235294117647" fkConnection="0.7894736842105263" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="40"/>
-  <table-link relationship-ref="REL91" pkConnection="0.32571428571428573" fkConnection="0.6473029045643154" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
+  <table-link relationship-ref="REL83" pkConnection="0.6114285714285714" fkConnection="0.6875" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
+  <table-link relationship-ref="REL85" pkConnection="0.5895953757225434" fkConnection="0.37142857142857144" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
+  <table-link relationship-ref="REL95" pkConnection="0.2743362831858407" fkConnection="0.7746478873239436" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
+  <table-link relationship-ref="REL87" pkConnection="0.336283185840708" fkConnection="0.5352112676056338" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
+  <table-link relationship-ref="REL99" pkConnection="0.5523809523809524" fkConnection="0.4444444444444444" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
+  <table-link relationship-ref="REL89" pkConnection="0.7079646017699115" fkConnection="0.12941176470588237" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
+  <table-link relationship-ref="REL91" pkConnection="0.12389380530973451" fkConnection="0.8771929824561403" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
+  <table-link relationship-ref="REL101" pkConnection="0.17543859649122806" fkConnection="0.8245614035087719" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
+  <table-link relationship-ref="REL97" pkConnection="0.7876106194690266" fkConnection="0.14084507042253522" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
+  <table-link relationship-ref="REL93" pkConnection="0.7345132743362832" fkConnection="0.5774647887323944" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
+  <table-link relationship-ref="REL105" pkConnection="0.17543859649122806" fkConnection="0.8591549295774648" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
+  <table-link relationship-ref="REL103" pkConnection="0.4673913043478261" fkConnection="0.5255102040816326" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
  </play-pen>
  <critic-manager>
   <critic-grouping platformType="Generic" enabled="true">

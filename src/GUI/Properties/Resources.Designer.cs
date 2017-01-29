@@ -77,5 +77,59 @@ namespace GUI.Properties {
                 return ResourceManager.GetString("MainView_login_Click_WrongPassword", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Aktor.
+        /// </summary>
+        internal static string MovieView_ShowCast_Actor {
+            get {
+                return ResourceManager.GetString("MovieView_ShowCast_Actor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kategoria.
+        /// </summary>
+        internal static string MovieView_ShowCast_Category {
+            get {
+                return ResourceManager.GetString("MovieView_ShowCast_Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Postać.
+        /// </summary>
+        internal static string MovieView_ShowCast_Character {
+            get {
+                return ResourceManager.GetString("MovieView_ShowCast_Character", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kategoria.
+        /// </summary>
+        internal static string MovieView_ShowCrew_Category {
+            get {
+                return ResourceManager.GetString("MovieView_ShowCrew_Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zadanie.
+        /// </summary>
+        internal static string MovieView_ShowCrew_Job {
+            get {
+                return ResourceManager.GetString("MovieView_ShowCrew_Job", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Osoba.
+        /// </summary>
+        internal static string MovieView_ShowCrew_Person {
+            get {
+                return ResourceManager.GetString("MovieView_ShowCrew_Person", resourceCulture);
+            }
+        }
     }
 }
