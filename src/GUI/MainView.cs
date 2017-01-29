@@ -140,5 +140,18 @@ namespace GUI
             }).ToList();
             moviesView.Columns[0].Visible = false;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var films = _movieDao.GetTop100();
+            moviesView.DataSource = films.Select(movie => new
+            {
+                movie.MovieId,
+                movie.Title,
+                movie.ReleaseDate,
+                movie.AverageVote
+            }).ToList();
+            moviesView.Columns[0].Visible = false;
+        }
     }
 }

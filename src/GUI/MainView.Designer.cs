@@ -66,6 +66,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.moviesView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.voteFrom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.voteTo)).BeginInit();
@@ -178,6 +179,7 @@
             this.genres.Location = new System.Drawing.Point(230, 35);
             this.genres.Name = "genres";
             this.genres.Size = new System.Drawing.Size(88, 134);
+            this.genres.Sorted = true;
             this.genres.TabIndex = 13;
             // 
             // selectedGenres
@@ -186,6 +188,7 @@
             this.selectedGenres.Location = new System.Drawing.Point(375, 35);
             this.selectedGenres.Name = "selectedGenres";
             this.selectedGenres.Size = new System.Drawing.Size(87, 134);
+            this.selectedGenres.Sorted = true;
             this.selectedGenres.TabIndex = 14;
             // 
             // genresSelect
@@ -214,6 +217,7 @@
             this.countries.Location = new System.Drawing.Point(468, 35);
             this.countries.Name = "countries";
             this.countries.Size = new System.Drawing.Size(82, 134);
+            this.countries.Sorted = true;
             this.countries.TabIndex = 17;
             // 
             // selectedCountries
@@ -222,6 +226,7 @@
             this.selectedCountries.Location = new System.Drawing.Point(606, 35);
             this.selectedCountries.Name = "selectedCountries";
             this.selectedCountries.Size = new System.Drawing.Size(80, 134);
+            this.selectedCountries.Sorted = true;
             this.selectedCountries.TabIndex = 18;
             // 
             // selectCountry
@@ -460,11 +465,22 @@
             this.label11.TabIndex = 39;
             this.label11.Text = "-";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(693, 148);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(106, 20);
+            this.button1.TabIndex = 40;
+            this.button1.Text = "TOP100";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(905, 644);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -555,6 +571,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button button1;
     }
 }
 

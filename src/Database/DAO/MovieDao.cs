@@ -163,5 +163,27 @@ HAVING Count(*) >= @vote_count_from
             }
             reader.Close();
         }
+
+        public IEnumerable<Movie> GetTop100()
+        {
+            var command = Connection.CreateCommand();
+            command.CommandText = "SELECT * FROM top100";
+            var reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                var movie = new Movie
+                (
+                    reader.GetDateTime(1),
+                    reader.GetInt32(0),
+                    reader.GetString(2),
+                    reader.GetDecimal(3),
+                    reader.GetValue(4) != DBNull.Value ? reader.GetString(4) : null,
+                    reader.GetString(5),
+                    reader.GetValue(6) != DBNull.Value ? reader.GetFloat(6) : (float?)null
+                );
+                yield return movie;
+            }
+            reader.Close();
+        }
     }
 }

@@ -17,6 +17,8 @@ namespace DataRetriever
         private readonly CastDao _castDao;
         private readonly CrewDao _crewDao;
         private readonly PersonDao _personDao;
+        private readonly Authorization _authorization;
+        private readonly ReviewsDao _reviewsDao;
         private readonly NpgsqlConnection _databaseConnection = DatabaseConnectionFactory.Create();
 
         public DataRetriever()
@@ -28,6 +30,17 @@ namespace DataRetriever
             _movieDao = new MovieDao();
             _crewDao = new CrewDao();
             _personDao = new PersonDao();
+            _authorization = new Authorization();
+            _reviewsDao = new ReviewsDao();
+        }
+
+        private static readonly Random Random = new Random();
+
+        public static string RandomString(int length)
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, length)
+              .Select(s => s[Random.Next(s.Length)]).ToArray());
         }
 
         public void Retrieve(int count)
@@ -37,6 +50,8 @@ namespace DataRetriever
 
             var genres = _httpRetriever.RetrieveGenres();
             _genresDao.InsertGenres(genres);
+
+            var logins = InsertMembers();
 
             for (var id = 1; id < count; id++)
             {
@@ -58,12 +73,28 @@ namespace DataRetriever
                         _personDao.InsertPerson(person);
                         _crewDao.InsertCrew(c);
                     }
+                    foreach (var login in logins)
+                    {
+                        _reviewsDao.AddReview(login, RandomString(100), Random.Next(1,10),id);
+                    }
                 }
                 catch (KeyNotFoundException)
                 {
                 }
             }
             _databaseConnection.Close();
+        }
+
+        private IList<string> InsertMembers()
+        {
+            var logins = new List<string>();
+            for (var i = 0; i < 50; i++)
+            {
+                var login = RandomString(10);
+                _authorization.RegisterUser(login, RandomString(10), RandomString(10));
+                logins.Add(login);
+            }
+            return logins;
         }
 
         private void RetrieveAndInsertFilm(int id)

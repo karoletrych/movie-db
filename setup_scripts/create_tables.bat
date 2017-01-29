@@ -1,1 +1,0 @@
-psql -h localhost -U postgres -f create.sql postgres
