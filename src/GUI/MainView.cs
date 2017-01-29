@@ -23,6 +23,7 @@ namespace GUI
             _movieDao = new MovieDao();
             _authorization = new Authorization();
             _genresDao = new GenresDao();
+            _countriesDao = new CountriesDao();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -32,6 +33,12 @@ namespace GUI
             foreach (var genre in genresData)
             {
                 genres.Items.Add(genre.Name);
+            }
+
+            var countriesData = _countriesDao.GetAllCountries();
+            foreach (var country in countriesData)
+            {
+                countries.Items.Add(country.Name);
             }
         }
 

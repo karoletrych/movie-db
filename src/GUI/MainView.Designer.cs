@@ -47,7 +47,22 @@
             this.selectedCountries = new System.Windows.Forms.ListBox();
             this.selectCountry = new System.Windows.Forms.Button();
             this.unselectCountry = new System.Windows.Forms.Button();
+            this.dateFrom = new System.Windows.Forms.DateTimePicker();
+            this.dateTo = new System.Windows.Forms.DateTimePicker();
+            this.voteFrom = new System.Windows.Forms.NumericUpDown();
+            this.voteTo = new System.Windows.Forms.NumericUpDown();
+            this.voteCountFrom = new System.Windows.Forms.NumericUpDown();
+            this.voteCountTo = new System.Windows.Forms.NumericUpDown();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.moviesView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.voteFrom)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.voteTo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.voteCountFrom)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.voteCountTo)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // searchBox
@@ -64,10 +79,10 @@
             this.moviesView.AllowUserToDeleteRows = false;
             this.moviesView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.moviesView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.moviesView.Location = new System.Drawing.Point(124, 192);
+            this.moviesView.Location = new System.Drawing.Point(124, 227);
             this.moviesView.Name = "moviesView";
             this.moviesView.ReadOnly = true;
-            this.moviesView.Size = new System.Drawing.Size(884, 440);
+            this.moviesView.Size = new System.Drawing.Size(884, 405);
             this.moviesView.TabIndex = 1;
             this.moviesView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.filmsView_CellContentClick);
             // 
@@ -216,11 +231,105 @@
             this.unselectCountry.Text = "<<";
             this.unselectCountry.UseVisualStyleBackColor = true;
             // 
+            // dateFrom
+            // 
+            this.dateFrom.Location = new System.Drawing.Point(693, 13);
+            this.dateFrom.Name = "dateFrom";
+            this.dateFrom.Size = new System.Drawing.Size(200, 20);
+            this.dateFrom.TabIndex = 21;
+            // 
+            // dateTo
+            // 
+            this.dateTo.Location = new System.Drawing.Point(693, 48);
+            this.dateTo.Name = "dateTo";
+            this.dateTo.Size = new System.Drawing.Size(200, 20);
+            this.dateTo.TabIndex = 22;
+            // 
+            // voteFrom
+            // 
+            this.voteFrom.Location = new System.Drawing.Point(693, 118);
+            this.voteFrom.Name = "voteFrom";
+            this.voteFrom.Size = new System.Drawing.Size(52, 20);
+            this.voteFrom.TabIndex = 23;
+            // 
+            // voteTo
+            // 
+            this.voteTo.Location = new System.Drawing.Point(693, 148);
+            this.voteTo.Name = "voteTo";
+            this.voteTo.Size = new System.Drawing.Size(52, 20);
+            this.voteTo.TabIndex = 24;
+            // 
+            // voteCountFrom
+            // 
+            this.voteCountFrom.Location = new System.Drawing.Point(751, 118);
+            this.voteCountFrom.Name = "voteCountFrom";
+            this.voteCountFrom.Size = new System.Drawing.Size(48, 20);
+            this.voteCountFrom.TabIndex = 25;
+            // 
+            // voteCountTo
+            // 
+            this.voteCountTo.Location = new System.Drawing.Point(751, 148);
+            this.voteCountTo.Name = "voteCountTo";
+            this.voteCountTo.Size = new System.Drawing.Size(48, 20);
+            this.voteCountTo.TabIndex = 26;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(6, 19);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(90, 17);
+            this.radioButton1.TabIndex = 27;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "liczba głosów";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(102, 19);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(55, 17);
+            this.radioButton2.TabIndex = 28;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "ocena";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(163, 19);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(88, 17);
+            this.radioButton3.TabIndex = 29;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "data premiery";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Controls.Add(this.radioButton3);
+            this.groupBox1.Controls.Add(this.radioButton2);
+            this.groupBox1.Location = new System.Drawing.Point(124, 175);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(254, 46);
+            this.groupBox1.TabIndex = 30;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Sortowanie:";
+            // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1079, 644);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.voteCountTo);
+            this.Controls.Add(this.voteCountFrom);
+            this.Controls.Add(this.voteTo);
+            this.Controls.Add(this.voteFrom);
+            this.Controls.Add(this.dateTo);
+            this.Controls.Add(this.dateFrom);
             this.Controls.Add(this.unselectCountry);
             this.Controls.Add(this.selectCountry);
             this.Controls.Add(this.selectedCountries);
@@ -244,6 +353,12 @@
             this.Text = "MovieDb";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.moviesView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.voteFrom)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.voteTo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.voteCountFrom)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.voteCountTo)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -270,6 +385,16 @@
         private System.Windows.Forms.ListBox selectedCountries;
         private System.Windows.Forms.Button selectCountry;
         private System.Windows.Forms.Button unselectCountry;
+        private System.Windows.Forms.DateTimePicker dateFrom;
+        private System.Windows.Forms.DateTimePicker dateTo;
+        private System.Windows.Forms.NumericUpDown voteFrom;
+        private System.Windows.Forms.NumericUpDown voteTo;
+        private System.Windows.Forms.NumericUpDown voteCountFrom;
+        private System.Windows.Forms.NumericUpDown voteCountTo;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
 

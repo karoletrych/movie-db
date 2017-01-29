@@ -50,5 +50,16 @@ WHERE
                 yield return reader.GetString(0);
             reader.Close();
         }
+
+        public IEnumerable<Country> GetAllCountries()
+        {
+            var command = Connection.CreateCommand();
+            command.CommandText =
+                @"SELECT * FROM country";
+            var reader = command.ExecuteReader();
+            while (reader.Read())
+                yield return new Country(reader.GetString(0), reader.GetString(1));
+            reader.Close();
+        }
     }
 }

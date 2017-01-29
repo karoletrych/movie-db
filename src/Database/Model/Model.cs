@@ -168,16 +168,4 @@ namespace Database.Model
         public string PlaceOfBirth { get; private set; }
         public string Name { get; private set; }
     }
-
-    public class CountryOfOrigin
-    {
-        public CountryOfOrigin(int personId, int countryId)
-        {
-            PersonId = personId;
-            CountryId = countryId;
-        }
-
-        public int PersonId { get; private set; }
-        public int CountryId { get; private set; }
-    }
 }
