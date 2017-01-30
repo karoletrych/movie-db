@@ -130,7 +130,9 @@ WHERE  vote_average >= @vote_average_from
        AND m.title ilike @title
 GROUP  BY r.movie_id
 HAVING Count(*) >= @vote_count_from
-       AND Count(*) <= @vote_count_to)";
+       AND Count(*) <= @vote_count_to)
+       ORDER BY @sort
+       DESC";
             var genresString = string.Join(",", genres);
             var countriesString = string.Join(",", countries);
             command.Parameters.AddRange(
@@ -144,7 +146,7 @@ HAVING Count(*) >= @vote_count_from
                     new NpgsqlParameter("release_date_to", releaseDateTo),
                     new NpgsqlParameter("title", "%" + title + "%"),
                     new NpgsqlParameter("vote_count_from", voteCountFrom),
-                    new NpgsqlParameter("vote_count_to", voteCountTo)
+                    new NpgsqlParameter("vote_count_to", voteCountTo),
                 });
             var reader = command.ExecuteReader();
             while (reader.Read())

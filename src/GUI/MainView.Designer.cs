@@ -53,10 +53,6 @@
             this.voteTo = new System.Windows.Forms.NumericUpDown();
             this.voteCountFrom = new System.Windows.Forms.NumericUpDown();
             this.voteCountTo = new System.Windows.Forms.NumericUpDown();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.search = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -72,7 +68,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.voteTo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.voteCountFrom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.voteCountTo)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // searchBox
@@ -337,52 +332,6 @@
             0,
             0});
             // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(6, 19);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(90, 17);
-            this.radioButton1.TabIndex = 27;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "liczba głosów";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(6, 42);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(55, 17);
-            this.radioButton2.TabIndex = 28;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "ocena";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(6, 65);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(88, 17);
-            this.radioButton3.TabIndex = 29;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "data premiery";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Controls.Add(this.radioButton3);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Location = new System.Drawing.Point(124, 62);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(100, 109);
-            this.groupBox1.TabIndex = 30;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Sortowanie:";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -490,7 +439,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.search);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.voteCountTo);
             this.Controls.Add(this.voteCountFrom);
             this.Controls.Add(this.voteTo);
@@ -524,8 +472,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.voteTo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.voteCountFrom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.voteCountTo)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -558,10 +504,6 @@
         private System.Windows.Forms.NumericUpDown voteTo;
         private System.Windows.Forms.NumericUpDown voteCountFrom;
         private System.Windows.Forms.NumericUpDown voteCountTo;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button search;
         private System.Windows.Forms.Label label5;
