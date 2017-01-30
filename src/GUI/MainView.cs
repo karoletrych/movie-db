@@ -16,10 +16,12 @@ namespace GUI
         private readonly CountriesDao _countriesDao;
         private readonly GenresDao _genresDao;
         private readonly MovieDao _movieDao;
+        private readonly PersonDao _personDao;
 
         public MainView()
         {
             InitializeComponent();
+            _personDao = new PersonDao();
             _movieDao = new MovieDao();
             _authorization = new Authorization();
             _genresDao = new GenresDao();
@@ -42,16 +44,15 @@ namespace GUI
         {
             var films = _movieDao.GetMoviesByTitleLike(searchBox.Text).ToList();
             moviesView.DataSource = films.Select(x => new {x.MovieId, x.Title, x.ReleaseDate, x.AverageVote}).ToList();
-            moviesView.Columns[0].Visible = false;
         }
 
         private void filmsView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex == -1)
+            if (e.RowIndex == -1)
                 return;
             var s = moviesView.Rows[e.RowIndex];
             var id = (int) s.Cells[0].Value;
-            var movieView = new MovieView(id, _connection);
+            var movieView = new MovieView(id);
             movieView.Show();
         }
 
@@ -125,15 +126,15 @@ namespace GUI
 
             var films =
                 _movieDao.GetMoviesByCriteria(
-                    releaseDateFrom: dateFrom.Value,
-                    releaseDateTo: dateTo.Value,
-                    voteAverageFrom: (int) voteFrom.Value,
-                    voteAverageTo: (int) voteTo.Value,
-                    genres: genresList,
-                    countries: countriesList,
-                    title: searchBox.Text,
-                    voteCountFrom: (int) voteCountFrom.Value,
-                    voteCountTo: (int) voteCountTo.Value);
+                    dateFrom.Value,
+                    dateTo.Value,
+                    (int) voteFrom.Value,
+                    (int) voteTo.Value,
+                    genresList,
+                    countriesList,
+                    searchBox.Text,
+                    (int) voteCountFrom.Value,
+                    (int) voteCountTo.Value);
             moviesView.DataSource = films.Select(movie => new
             {
                 movie.MovieId,
@@ -144,7 +145,7 @@ namespace GUI
             moviesView.Columns[0].Visible = false;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void top100_Click(object sender, EventArgs e)
         {
             var films = _movieDao.GetTop100();
             moviesView.DataSource = films.Select(movie => new
@@ -154,7 +155,22 @@ namespace GUI
                 movie.ReleaseDate,
                 movie.AverageVote
             }).ToList();
-            moviesView.Columns[0].Visible = false;
+        }
+
+        private void top100director_Click(object sender, EventArgs e)
+        {
+            var persons = _personDao.GetTop100Directors();
+            personView.DataSource = persons.Select(x=> new {x.Id, x.Name, x.VoteAverage}).ToList();
+        }
+
+        private void personView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1)
+                return;
+            var s = personView.Rows[e.RowIndex];
+            var id = (int)s.Cells[0].Value;
+            var person = new PersonView(id);
+            person.Show();
         }
     }
 }

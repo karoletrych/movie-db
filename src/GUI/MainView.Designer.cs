@@ -62,12 +62,15 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.top100 = new System.Windows.Forms.Button();
+            this.top100director = new System.Windows.Forms.Button();
+            this.personView = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.moviesView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.voteFrom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.voteTo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.voteCountFrom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.voteCountTo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personView)).BeginInit();
             this.SuspendLayout();
             // 
             // searchBox
@@ -82,12 +85,12 @@
             // 
             this.moviesView.AllowUserToAddRows = false;
             this.moviesView.AllowUserToDeleteRows = false;
-            this.moviesView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.moviesView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.moviesView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.moviesView.Location = new System.Drawing.Point(5, 177);
+            this.moviesView.Location = new System.Drawing.Point(5, 200);
             this.moviesView.Name = "moviesView";
             this.moviesView.ReadOnly = true;
-            this.moviesView.Size = new System.Drawing.Size(888, 455);
+            this.moviesView.Size = new System.Drawing.Size(457, 432);
             this.moviesView.TabIndex = 1;
             this.moviesView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.filmsView_CellContentClick);
             // 
@@ -173,7 +176,7 @@
             this.genres.FormattingEnabled = true;
             this.genres.Location = new System.Drawing.Point(230, 35);
             this.genres.Name = "genres";
-            this.genres.Size = new System.Drawing.Size(88, 134);
+            this.genres.Size = new System.Drawing.Size(88, 160);
             this.genres.Sorted = true;
             this.genres.TabIndex = 13;
             // 
@@ -182,13 +185,13 @@
             this.selectedGenres.FormattingEnabled = true;
             this.selectedGenres.Location = new System.Drawing.Point(375, 35);
             this.selectedGenres.Name = "selectedGenres";
-            this.selectedGenres.Size = new System.Drawing.Size(87, 134);
+            this.selectedGenres.Size = new System.Drawing.Size(87, 160);
             this.selectedGenres.Sorted = true;
             this.selectedGenres.TabIndex = 14;
             // 
             // genresSelect
             // 
-            this.genresSelect.Location = new System.Drawing.Point(325, 33);
+            this.genresSelect.Location = new System.Drawing.Point(325, 75);
             this.genresSelect.Name = "genresSelect";
             this.genresSelect.Size = new System.Drawing.Size(44, 23);
             this.genresSelect.TabIndex = 15;
@@ -198,7 +201,7 @@
             // 
             // genresUnselect
             // 
-            this.genresUnselect.Location = new System.Drawing.Point(325, 75);
+            this.genresUnselect.Location = new System.Drawing.Point(325, 120);
             this.genresUnselect.Name = "genresUnselect";
             this.genresUnselect.Size = new System.Drawing.Size(44, 23);
             this.genresUnselect.TabIndex = 16;
@@ -211,7 +214,7 @@
             this.countries.FormattingEnabled = true;
             this.countries.Location = new System.Drawing.Point(468, 35);
             this.countries.Name = "countries";
-            this.countries.Size = new System.Drawing.Size(82, 134);
+            this.countries.Size = new System.Drawing.Size(82, 160);
             this.countries.Sorted = true;
             this.countries.TabIndex = 17;
             // 
@@ -220,13 +223,13 @@
             this.selectedCountries.FormattingEnabled = true;
             this.selectedCountries.Location = new System.Drawing.Point(606, 35);
             this.selectedCountries.Name = "selectedCountries";
-            this.selectedCountries.Size = new System.Drawing.Size(80, 134);
+            this.selectedCountries.Size = new System.Drawing.Size(80, 160);
             this.selectedCountries.Sorted = true;
             this.selectedCountries.TabIndex = 18;
             // 
             // selectCountry
             // 
-            this.selectCountry.Location = new System.Drawing.Point(556, 33);
+            this.selectCountry.Location = new System.Drawing.Point(556, 75);
             this.selectCountry.Name = "selectCountry";
             this.selectCountry.Size = new System.Drawing.Size(44, 23);
             this.selectCountry.TabIndex = 19;
@@ -236,7 +239,7 @@
             // 
             // unselectCountry
             // 
-            this.unselectCountry.Location = new System.Drawing.Point(556, 75);
+            this.unselectCountry.Location = new System.Drawing.Point(556, 120);
             this.unselectCountry.Name = "unselectCountry";
             this.unselectCountry.Size = new System.Drawing.Size(44, 23);
             this.unselectCountry.TabIndex = 20;
@@ -343,9 +346,9 @@
             // 
             // search
             // 
-            this.search.Location = new System.Drawing.Point(805, 148);
+            this.search.Location = new System.Drawing.Point(817, 148);
             this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(88, 20);
+            this.search.Size = new System.Drawing.Size(76, 49);
             this.search.TabIndex = 32;
             this.search.Text = "Wyszukaj";
             this.search.UseVisualStyleBackColor = true;
@@ -414,22 +417,46 @@
             this.label11.TabIndex = 39;
             this.label11.Text = "-";
             // 
-            // button1
+            // top100
             // 
-            this.button1.Location = new System.Drawing.Point(693, 148);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(106, 20);
-            this.button1.TabIndex = 40;
-            this.button1.Text = "TOP100";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.top100.Location = new System.Drawing.Point(693, 148);
+            this.top100.Name = "top100";
+            this.top100.Size = new System.Drawing.Size(115, 20);
+            this.top100.TabIndex = 40;
+            this.top100.Text = "TOP100 Filmów";
+            this.top100.UseVisualStyleBackColor = true;
+            this.top100.Click += new System.EventHandler(this.top100_Click);
+            // 
+            // top100director
+            // 
+            this.top100director.Location = new System.Drawing.Point(693, 174);
+            this.top100director.Name = "top100director";
+            this.top100director.Size = new System.Drawing.Size(115, 23);
+            this.top100director.TabIndex = 41;
+            this.top100director.Text = "TOP100 Reżyserów";
+            this.top100director.UseVisualStyleBackColor = true;
+            this.top100director.Click += new System.EventHandler(this.top100director_Click);
+            // 
+            // personView
+            // 
+            this.personView.AllowUserToAddRows = false;
+            this.personView.AllowUserToDeleteRows = false;
+            this.personView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.personView.Location = new System.Drawing.Point(469, 202);
+            this.personView.Name = "personView";
+            this.personView.ReadOnly = true;
+            this.personView.Size = new System.Drawing.Size(475, 430);
+            this.personView.TabIndex = 42;
+            this.personView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.personView_CellClick);
             // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(905, 644);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(956, 644);
+            this.Controls.Add(this.personView);
+            this.Controls.Add(this.top100director);
+            this.Controls.Add(this.top100);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -472,6 +499,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.voteTo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.voteCountFrom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.voteCountTo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -513,7 +541,9 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button top100;
+        private System.Windows.Forms.Button top100director;
+        private System.Windows.Forms.DataGridView personView;
     }
 }
 

@@ -11,19 +11,17 @@ namespace GUI
     public partial class PersonView : Form
     {
         private readonly CastDao _castDao;
-        private readonly NpgsqlConnection _connection;
         private readonly CrewDao _crewDao;
         private readonly PersonDao _personDao;
         private readonly int _personId;
 
-        public PersonView(int personId, PersonDao personDao, CrewDao crewDao, CastDao castDao, NpgsqlConnection connection)
+        public PersonView(int personId)
         {
             InitializeComponent();
             _personId = personId;
-            _personDao = personDao;
-            _crewDao = crewDao;
-            _castDao = castDao;
-            _connection = connection;
+            _personDao = new PersonDao();
+            _crewDao = new CrewDao();
+            _castDao = new CastDao();
         }
 
         private void PersonView_Load(object sender, EventArgs e)
@@ -92,7 +90,7 @@ namespace GUI
             if (cast[e.ColumnIndex, e.RowIndex] is DataGridViewLinkCell)
             {
                 var movieId = (int) cast[2, e.RowIndex].Value;
-                var movieView = new MovieView(movieId, _connection);
+                var movieView = new MovieView(movieId);
                 movieView.Show();
                 Close();
             }
@@ -105,7 +103,7 @@ namespace GUI
             if (crew[e.ColumnIndex, e.RowIndex] is DataGridViewLinkCell)
             {
                 var movieId = (int) crew[3, e.RowIndex].Value;
-                var movieView = new MovieView(movieId, _connection);
+                var movieView = new MovieView(movieId);
                 movieView.Show();
                 Close();
             }

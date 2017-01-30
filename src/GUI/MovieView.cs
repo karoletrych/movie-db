@@ -23,9 +23,8 @@ namespace GUI
         private readonly PersonDao _personDao;
         private readonly ReviewsDao _reviewsDao;
 
-        public MovieView(int movieId, NpgsqlConnection connection)
+        public MovieView(int movieId)
         {
-            _connection = connection;
             _countriesDao = new CountriesDao();
             _genresDao = new GenresDao();
             _movie = new MovieDao().GetMovieById(movieId);
@@ -57,7 +56,7 @@ namespace GUI
                 reviews.Items.Add(
                     new ListViewItem(new[]
                     {
-                        tuple.Item1.ToString(CultureInfo.CurrentCulture), tuple.Item2.TruncateLongString(180),
+                        tuple.Item1.ToString(CultureInfo.CurrentCulture), tuple.Item2.TruncateLongString(50),
                         tuple.Item3
                     }));
             reviews.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
@@ -140,7 +139,7 @@ namespace GUI
             if (cast[e.ColumnIndex, e.RowIndex] is DataGridViewLinkCell)
             {
                 var personId = (int) cast[2, e.RowIndex].Value;
-                var personView = new PersonView(personId, _personDao, _crewDao, _castDao, _connection);
+                var personView = new PersonView(personId);
                 personView.Show();
                 Close();
             }
@@ -153,7 +152,7 @@ namespace GUI
             if (crew[e.ColumnIndex, e.RowIndex] is DataGridViewLinkCell)
             {
                 var personId = (int) crew[3, e.RowIndex].Value;
-                var personView = new PersonView(personId, _personDao, _crewDao, _castDao, _connection);
+                var personView = new PersonView(personId);
                 personView.Show();
                 Close();
             }

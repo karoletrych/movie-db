@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Database.Model;
 using Npgsql;
 
@@ -61,6 +62,37 @@ on conflict do nothing ";
             );
             reader.Close();
             return person;
+        }
+
+        public class Director
+        {
+            public string Name { get; }
+            public double VoteAverage { get; }
+            public int Id { get; }
+
+            public Director(int id, string name, double voteAverage)
+            {
+                Name = name;
+                VoteAverage = voteAverage;
+                Id = id;
+            }
+        }
+
+        public IEnumerable<Director> GetTop100Directors()
+        {
+            var command = Connection.CreateCommand();
+            command.CommandText = "SELECT * FROM top100director";
+            var reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                var person = new Director(
+                    reader.GetInt32(0),
+                    reader.GetString(1),
+                    reader.GetDouble(2)
+                );
+                yield return person;
+            }
+            reader.Close();
         }
     }
 }
