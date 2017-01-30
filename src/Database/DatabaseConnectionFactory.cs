@@ -1,4 +1,5 @@
-﻿using Npgsql;
+﻿using Database.Properties;
+using Npgsql;
 
 namespace Database
 {
@@ -8,21 +9,12 @@ namespace Database
 
         public static NpgsqlConnection Create()
         {
-            if (_connection == null)
-            {
-                var connectionStringBuilder = new NpgsqlConnectionStringBuilder
-                {
-                    Port = 5432,
-                    Database = "postgres",
-                    Username = "postgres",
-                    Password = "q",
-                    SearchPath = "moviedb",
-                    Host = "localhost"
-                };
-                var connection = new NpgsqlConnection(connectionStringBuilder);
-                connection.Open();
-                _connection = connection;
-            }
+            if (_connection != null)
+                return _connection;
+            var connectionString = Resources.ConnectionString;
+            var connection = new NpgsqlConnection(connectionString);
+            connection.Open();
+            _connection = connection;
             return _connection;
         }
     }
