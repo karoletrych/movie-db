@@ -87,6 +87,8 @@ namespace GUI
 
         private void cast_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex == -1)
+                return;
             if (cast[e.ColumnIndex, e.RowIndex] is DataGridViewLinkCell)
             {
                 var movieId = (int) cast[2, e.RowIndex].Value;
@@ -98,6 +100,8 @@ namespace GUI
 
         private void crew_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex == -1)
+                return;
             if (crew[e.ColumnIndex, e.RowIndex] is DataGridViewLinkCell)
             {
                 var movieId = (int) crew[3, e.RowIndex].Value;

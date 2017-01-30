@@ -47,6 +47,8 @@ namespace GUI
 
         private void filmsView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if(e.RowIndex == -1)
+                return;
             var s = moviesView.Rows[e.RowIndex];
             var id = (int) s.Cells[0].Value;
             var movieView = new MovieView(id, _connection);
@@ -122,7 +124,8 @@ namespace GUI
                 countriesList.Add(selectedCountriesItem.ToString());
 
             var films =
-                _movieDao.GetMoviesByCriteria(releaseDateFrom: dateFrom.Value,
+                _movieDao.GetMoviesByCriteria(
+                    releaseDateFrom: dateFrom.Value,
                     releaseDateTo: dateTo.Value,
                     voteAverageFrom: (int) voteFrom.Value,
                     voteAverageTo: (int) voteTo.Value,

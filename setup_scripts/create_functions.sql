@@ -23,20 +23,20 @@ $$ LANGUAGE 'plpgsql';
 CREATE OR replace FUNCTION moviedb.create_member (new_login varchar, email varchar, password varchar) RETURNS void AS
  $$ 
 	BEGIN 
-		IF length (new_login) < 5 OR length (new_login) > 20 THEN raise 'Incorrect login length.';
+		IF length (new_login) < 5 OR length (new_login) > 20 THEN raise 'Incorrect login length. Should be 5-20 characters long.';
 		END IF;
-		IF length (password) < 5 OR length (password) > 20 THEN raise 'Incorrect password length.';
+		IF length (password) < 5 OR length (password) > 20 THEN raise 'Incorrect password length. Should be 5-20 characters long.';
 		END IF;
 		IF new_login NOT SIMILAR TO '[a-z0-9A-Z]*' THEN raise 'Incorrect login value.';
 		END IF;
 		IF password NOT SIMILAR TO '[a-z0-9A-Z]*' THEN raise 'Incorrect password value.';
 		END IF;
-		IF email NOT SIMILAR TO '\S+@\S+' THEN raise 'Incorrect email value.';
+		IF email NOT SIMILAR TO '\S+@\S+' THEN raise 'Incorrect email value. Should contain @ character.';
 		END IF;
 
 		INSERT INTO moviedb.member(member_login,email, password_hash) VALUES(new_login, email, MD5(password));
 		EXCEPTION
-		WHEN unique_violation THEN raise 'User already exists';
+		WHEN unique_violation THEN raise 'User already exists.';
 	END;
 $$ LANGUAGE plpgsql;
 

@@ -43,6 +43,15 @@ namespace DataRetriever
               .Select(s => s[Random.Next(s.Length)]).ToArray());
         }
 
+        public static string RandomEmail(int length)
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            var str = new string(Enumerable.Repeat(chars, length)
+              .Select(s => s[Random.Next(s.Length)]).ToArray()).ToCharArray();
+            str[length/2]= '@';
+            return new string(str);
+        }
+
         public void Retrieve(int count)
         {
             var departments = _httpRetriever.RetrieveDepartments();
@@ -59,6 +68,10 @@ namespace DataRetriever
                 try
                 {
                     RetrieveAndInsertFilm(id);
+                    foreach (var login in logins)
+                    {
+                        _reviewsDao.AddReview(login, RandomString(100), Random.Next(1,10),id);
+                    }
                     var cast = _httpRetriever.RetrieveCastFromFilm(id);
                     foreach (var c in cast)
                     {
@@ -73,10 +86,6 @@ namespace DataRetriever
                         _personDao.InsertPerson(person);
                         _crewDao.InsertCrew(c);
                     }
-                    foreach (var login in logins)
-                    {
-                        _reviewsDao.AddReview(login, RandomString(100), Random.Next(1,10),id);
-                    }
                 }
                 catch (KeyNotFoundException)
                 {
@@ -88,10 +97,10 @@ namespace DataRetriever
         private IList<string> InsertMembers()
         {
             var logins = new List<string>();
-            for (var i = 0; i < 50; i++)
+            for (var i = 0; i < 20; i++)
             {
                 var login = RandomString(10);
-                _authorization.RegisterUser(login, RandomString(10), RandomString(10));
+                _authorization.RegisterUser(login, RandomEmail(10), RandomString(10));
                 logins.Add(login);
             }
             return logins;

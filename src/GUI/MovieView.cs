@@ -12,16 +12,16 @@ namespace GUI
 {
     public partial class MovieView : Form
     {
-        private readonly NpgsqlConnection _connection;
         private const string ImagePath = @"http://image.tmdb.org/t/p/{0}//{1}";
         private const string ImageSize = "w185";
         private readonly CastDao _castDao;
+        private readonly NpgsqlConnection _connection;
         private readonly CountriesDao _countriesDao;
         private readonly CrewDao _crewDao;
         private readonly GenresDao _genresDao;
         private readonly Movie _movie;
-        private readonly ReviewsDao _reviewsDao;
         private readonly PersonDao _personDao;
+        private readonly ReviewsDao _reviewsDao;
 
         public MovieView(int movieId, NpgsqlConnection connection)
         {
@@ -118,7 +118,7 @@ namespace GUI
             movieTitle.Text = _movie.Title;
             if (_movie.ReleaseDate != null)
                 releaseDate.Text = _movie.ReleaseDate.Value.ToString("yyyy-MM-dd");
-            revenue.Text = _movie.Revenue.ToString(CultureInfo.CurrentCulture);
+            revenue.Text = _movie.Revenue != 0 ? _movie.Revenue.ToString(CultureInfo.CurrentCulture) + " USD" : "nieznany";
             if (_movie.AverageVote != null)
                 averageVote.Text = _movie.AverageVote.Value.ToString(CultureInfo.CurrentCulture);
 
@@ -135,10 +135,12 @@ namespace GUI
 
         private void cast_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex == -1)
+                return;
             if (cast[e.ColumnIndex, e.RowIndex] is DataGridViewLinkCell)
             {
-                var personId = (int)cast[2, e.RowIndex].Value;
-                var personView = new PersonView(personId, _personDao, _crewDao,_castDao, _connection);
+                var personId = (int) cast[2, e.RowIndex].Value;
+                var personView = new PersonView(personId, _personDao, _crewDao, _castDao, _connection);
                 personView.Show();
                 Close();
             }
@@ -146,9 +148,11 @@ namespace GUI
 
         private void crew_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex == -1)
+                return;
             if (crew[e.ColumnIndex, e.RowIndex] is DataGridViewLinkCell)
             {
-                var personId = (int)crew[3, e.RowIndex].Value;
+                var personId = (int) crew[3, e.RowIndex].Value;
                 var personView = new PersonView(personId, _personDao, _crewDao, _castDao, _connection);
                 personView.Show();
                 Close();

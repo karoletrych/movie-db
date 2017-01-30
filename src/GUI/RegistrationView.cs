@@ -20,7 +20,14 @@ namespace GUI
 
         private void register_Click(object sender, EventArgs e)
         {
-            _authorization.RegisterUser(login.Text, email.Text, password.Text);
+            try
+            {
+                _authorization.RegisterUser(login.Text, email.Text, password.Text);
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
             Close();
         }
     }

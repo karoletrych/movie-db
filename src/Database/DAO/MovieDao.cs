@@ -130,9 +130,7 @@ WHERE  vote_average >= @vote_average_from
        AND m.title ilike @title
 GROUP  BY r.movie_id
 HAVING Count(*) >= @vote_count_from
-       AND Count(*) <= @vote_count_to)
-       ORDER BY @sort
-       DESC";
+       AND Count(*) <= @vote_count_to);";
             var genresString = string.Join(",", genres);
             var countriesString = string.Join(",", countries);
             command.Parameters.AddRange(
