@@ -65,6 +65,11 @@
             this.top100 = new System.Windows.Forms.Button();
             this.top100director = new System.Windows.Forms.Button();
             this.personView = new System.Windows.Forms.DataGridView();
+            this.addMovie = new System.Windows.Forms.Button();
+            this.deleteMovie = new System.Windows.Forms.Button();
+            this.addPerson = new System.Windows.Forms.Button();
+            this.deletePerson = new System.Windows.Forms.Button();
+            this.allPerson = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.moviesView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.voteFrom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.voteTo)).BeginInit();
@@ -251,7 +256,7 @@
             // 
             this.dateFrom.Location = new System.Drawing.Point(692, 35);
             this.dateFrom.Name = "dateFrom";
-            this.dateFrom.Size = new System.Drawing.Size(200, 20);
+            this.dateFrom.Size = new System.Drawing.Size(252, 20);
             this.dateFrom.TabIndex = 21;
             this.dateFrom.Value = new System.DateTime(1900, 1, 29, 15, 50, 0, 0);
             // 
@@ -259,12 +264,12 @@
             // 
             this.dateTo.Location = new System.Drawing.Point(693, 61);
             this.dateTo.Name = "dateTo";
-            this.dateTo.Size = new System.Drawing.Size(200, 20);
+            this.dateTo.Size = new System.Drawing.Size(251, 20);
             this.dateTo.TabIndex = 22;
             // 
             // voteFrom
             // 
-            this.voteFrom.Location = new System.Drawing.Point(760, 87);
+            this.voteFrom.Location = new System.Drawing.Point(788, 87);
             this.voteFrom.Maximum = new decimal(new int[] {
             10,
             0,
@@ -281,7 +286,7 @@
             // 
             // voteTo
             // 
-            this.voteTo.Location = new System.Drawing.Point(828, 87);
+            this.voteTo.Location = new System.Drawing.Point(880, 87);
             this.voteTo.Maximum = new decimal(new int[] {
             10,
             0,
@@ -303,7 +308,7 @@
             // 
             // voteCountFrom
             // 
-            this.voteCountFrom.Location = new System.Drawing.Point(760, 118);
+            this.voteCountFrom.Location = new System.Drawing.Point(788, 118);
             this.voteCountFrom.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -315,7 +320,7 @@
             // 
             // voteCountTo
             // 
-            this.voteCountTo.Location = new System.Drawing.Point(828, 118);
+            this.voteCountTo.Location = new System.Drawing.Point(880, 118);
             this.voteCountTo.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -348,7 +353,7 @@
             // 
             this.search.Location = new System.Drawing.Point(817, 148);
             this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(76, 49);
+            this.search.Size = new System.Drawing.Size(127, 49);
             this.search.TabIndex = 32;
             this.search.Text = "Wyszukaj";
             this.search.UseVisualStyleBackColor = true;
@@ -402,7 +407,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(814, 89);
+            this.label10.Location = new System.Drawing.Point(853, 91);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(10, 13);
             this.label10.TabIndex = 38;
@@ -411,7 +416,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(814, 120);
+            this.label11.Location = new System.Drawing.Point(853, 118);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(10, 13);
             this.label11.TabIndex = 39;
@@ -442,18 +447,69 @@
             this.personView.AllowUserToAddRows = false;
             this.personView.AllowUserToDeleteRows = false;
             this.personView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.personView.Location = new System.Drawing.Point(469, 202);
+            this.personView.Location = new System.Drawing.Point(469, 200);
             this.personView.Name = "personView";
             this.personView.ReadOnly = true;
-            this.personView.Size = new System.Drawing.Size(475, 430);
+            this.personView.Size = new System.Drawing.Size(475, 432);
             this.personView.TabIndex = 42;
             this.personView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.personView_CellClick);
+            // 
+            // addMovie
+            // 
+            this.addMovie.Location = new System.Drawing.Point(5, 633);
+            this.addMovie.Name = "addMovie";
+            this.addMovie.Size = new System.Drawing.Size(75, 23);
+            this.addMovie.TabIndex = 43;
+            this.addMovie.Text = "Dodaj film";
+            this.addMovie.UseVisualStyleBackColor = true;
+            // 
+            // deleteMovie
+            // 
+            this.deleteMovie.Location = new System.Drawing.Point(87, 633);
+            this.deleteMovie.Name = "deleteMovie";
+            this.deleteMovie.Size = new System.Drawing.Size(75, 23);
+            this.deleteMovie.TabIndex = 44;
+            this.deleteMovie.Text = "Usuń film";
+            this.deleteMovie.UseVisualStyleBackColor = true;
+            // 
+            // addPerson
+            // 
+            this.addPerson.Location = new System.Drawing.Point(788, 638);
+            this.addPerson.Name = "addPerson";
+            this.addPerson.Size = new System.Drawing.Size(75, 23);
+            this.addPerson.TabIndex = 45;
+            this.addPerson.Text = "Dodaj osobę";
+            this.addPerson.UseVisualStyleBackColor = true;
+            // 
+            // deletePerson
+            // 
+            this.deletePerson.Location = new System.Drawing.Point(869, 638);
+            this.deletePerson.Name = "deletePerson";
+            this.deletePerson.Size = new System.Drawing.Size(75, 23);
+            this.deletePerson.TabIndex = 46;
+            this.deletePerson.Text = "Usuń osobę";
+            this.deletePerson.UseVisualStyleBackColor = true;
+            // 
+            // allPerson
+            // 
+            this.allPerson.Location = new System.Drawing.Point(685, 638);
+            this.allPerson.Name = "allPerson";
+            this.allPerson.Size = new System.Drawing.Size(94, 23);
+            this.allPerson.TabIndex = 47;
+            this.allPerson.Text = "Wszystkie osoby";
+            this.allPerson.UseVisualStyleBackColor = true;
+            this.allPerson.Click += new System.EventHandler(this.allPerson_Click);
             // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(956, 644);
+            this.ClientSize = new System.Drawing.Size(956, 668);
+            this.Controls.Add(this.allPerson);
+            this.Controls.Add(this.deletePerson);
+            this.Controls.Add(this.addPerson);
+            this.Controls.Add(this.deleteMovie);
+            this.Controls.Add(this.addMovie);
             this.Controls.Add(this.personView);
             this.Controls.Add(this.top100director);
             this.Controls.Add(this.top100);
@@ -544,6 +600,11 @@
         private System.Windows.Forms.Button top100;
         private System.Windows.Forms.Button top100director;
         private System.Windows.Forms.DataGridView personView;
+        private System.Windows.Forms.Button addMovie;
+        private System.Windows.Forms.Button deleteMovie;
+        private System.Windows.Forms.Button addPerson;
+        private System.Windows.Forms.Button deletePerson;
+        private System.Windows.Forms.Button allPerson;
     }
 }
 

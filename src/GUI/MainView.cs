@@ -172,5 +172,11 @@ namespace GUI
             var person = new PersonView(id);
             person.Show();
         }
+
+        private void allPerson_Click(object sender, EventArgs e)
+        {
+            var persons = _personDao.GetAllPersons();
+            personView.DataSource = persons.Select(x => new { x.Id, x.Name }).ToList();
+        }
     }
 }

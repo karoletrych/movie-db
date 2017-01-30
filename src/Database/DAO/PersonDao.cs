@@ -78,6 +78,18 @@ on conflict do nothing ";
             }
         }
 
+        public class PersonDto
+        {
+            public string Name { get; }
+            public int Id { get; }
+
+            public PersonDto(int id, string name)
+            {
+                Name = name;
+                Id = id;
+            }
+        }
+
         public IEnumerable<Director> GetTop100Directors()
         {
             var command = Connection.CreateCommand();
@@ -89,6 +101,22 @@ on conflict do nothing ";
                     reader.GetInt32(0),
                     reader.GetString(1),
                     reader.GetDouble(2)
+                );
+                yield return person;
+            }
+            reader.Close();
+        }
+
+        public IEnumerable<PersonDto> GetAllPersons()
+        {
+            var command = Connection.CreateCommand();
+            command.CommandText = "SELECT person_id, name FROM person ORDER BY person_id ASC";
+            var reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                var person = new PersonDto(
+                    reader.GetInt32(0),
+                    reader.GetString(1)
                 );
                 yield return person;
             }
