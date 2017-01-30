@@ -462,6 +462,7 @@
             this.addMovie.TabIndex = 43;
             this.addMovie.Text = "Dodaj film";
             this.addMovie.UseVisualStyleBackColor = true;
+            this.addMovie.Click += new System.EventHandler(this.addMovie_Click);
             // 
             // deleteMovie
             // 

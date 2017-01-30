@@ -178,5 +178,10 @@ namespace GUI
             var persons = _personDao.GetAllPersons();
             personView.DataSource = persons.Select(x => new { x.Id, x.Name }).ToList();
         }
+
+        private void addMovie_Click(object sender, EventArgs e)
+        {
+            var addMovieView = new AddMovieView();
+        }
     }
 }
