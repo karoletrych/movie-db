@@ -63,11 +63,11 @@
     <Compile Include="AddReview.Designer.cs">
       <DependentUpon>AddReview.cs</DependentUpon>
     </Compile>
-    <Compile Include="DeleteMovieView.cs">
+    <Compile Include="DeleteView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DeleteMovieView.Designer.cs">
-      <DependentUpon>DeleteMovieView.cs</DependentUpon>
+    <Compile Include="DeleteView.Designer.cs">
+      <DependentUpon>DeleteView.cs</DependentUpon>
     </Compile>
     <Compile Include="Extensions.cs" />
     <Compile Include="LoggedUser.cs" />
@@ -103,8 +103,8 @@
     <EmbeddedResource Include="AddReview.resx">
       <DependentUpon>AddReview.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DeleteMovieView.resx">
-      <DependentUpon>DeleteMovieView.cs</DependentUpon>
+    <EmbeddedResource Include="DeleteView.resx">
+      <DependentUpon>DeleteView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>

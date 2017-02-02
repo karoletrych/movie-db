@@ -187,7 +187,8 @@ namespace GUI
 
         private void deleteMovie_Click(object sender, EventArgs e)
         {
-
+            var deleteView = new DeleteView();
+            deleteView.Show();
         }
     }
 }

@@ -465,11 +465,11 @@
             // 
             // deleteMovie
             // 
-            this.deleteMovie.Location = new System.Drawing.Point(87, 633);
+            this.deleteMovie.Location = new System.Drawing.Point(408, 638);
             this.deleteMovie.Name = "deleteMovie";
-            this.deleteMovie.Size = new System.Drawing.Size(75, 23);
+            this.deleteMovie.Size = new System.Drawing.Size(119, 23);
             this.deleteMovie.TabIndex = 44;
-            this.deleteMovie.Text = "Usuń film";
+            this.deleteMovie.Text = "Usuń film lub osobę";
             this.deleteMovie.UseVisualStyleBackColor = true;
             this.deleteMovie.Click += new System.EventHandler(this.deleteMovie_Click);
             // 

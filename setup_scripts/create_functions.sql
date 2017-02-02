@@ -51,6 +51,30 @@ $$
 $$ 
 LANGUAGE plpgsql;
 
+CREATE OR REPLACE FUNCTION moviedb.delete_movie(movie_id_to_delete int) RETURNS void AS 
+$$
+    BEGIN
+        DELETE FROM crew WHERE movie_id = movie_id_to_delete;
+        DELETE FROM _cast WHERE movie_id = movie_id_to_delete;
+        DELETE FROM review WHERE movie_id = movie_id_to_delete;
+        DELETE FROM movie_genre WHERE movie_id = movie_id_to_delete;       
+        DELETE FROM movie_productioncountry WHERE movie_id = movie_id_to_delete;
+        DELETE FROM movie WHERE movie_id = movie_id_to_delete;
+    END;
+$$ 
+LANGUAGE plpgsql;
+
+
+CREATE OR REPLACE FUNCTION moviedb.delete_person(person_to_delete int) RETURNS void AS 
+$$
+    BEGIN
+        DELETE FROM crew WHERE person_id = person_to_delete;
+        DELETE FROM _cast WHERE person_id = person_to_delete;
+        DELETE FROM person WHERE person_id = person_to_delete;
+    END;
+$$ 
+LANGUAGE plpgsql;
+
 
 -- triggers
 

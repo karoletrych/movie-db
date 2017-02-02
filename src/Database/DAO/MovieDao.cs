@@ -175,17 +175,54 @@ HAVING Count(*) >= @vote_count_from
             {
                 var movie = new Movie
                 (
-                    reader.GetDateTime(1),
-                    reader.GetInt32(0),
-                    reader.GetString(2),
-                    reader.GetDecimal(3),
-                    reader.GetValue(4) != DBNull.Value ? reader.GetString(4) : null,
-                    reader.GetString(5),
-                    reader.GetValue(6) != DBNull.Value ? reader.GetFloat(6) : (float?)null
+                    releaseDate: reader.GetDateTime(1),
+                    movieId: reader.GetInt32(0),
+                    status: reader.GetString(2),
+                    revenue: reader.GetDecimal(3),
+                    posterUrl: reader.GetValue(4) != DBNull.Value ? reader.GetString(4) : null,
+                    title: reader.GetString(5),
+                    averageVote: reader.GetValue(6) != DBNull.Value ? reader.GetFloat(6) : (float?)null
                 );
                 yield return movie;
             }
             reader.Close();
+        }
+
+        public IEnumerable<MovieDto> GetAllMovies()
+        {
+
+            using (var command = Connection.CreateCommand())
+            {
+                command.CommandText = "SELECT movie_id, title FROM movie";
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    yield return new MovieDto(reader.GetInt32(0), reader.GetString(1));
+                }
+                reader.Close();
+            }
+        }
+
+        public void DeleteMovie(int movieIdInt)
+        {
+            using (var command = Connection.CreateCommand())
+            {
+                command.CommandText = "SELECT delete_movie(@movie_id)"; 
+                command.Parameters.Add(new NpgsqlParameter("movie_id", movieIdInt));
+                command.ExecuteNonQuery();
+            }
+        }
+    }
+
+    public class MovieDto
+    {
+        public int Id { get; }
+        public string Title { get; }
+
+        public MovieDto(int id, string title)
+        {
+            Id = id;
+            Title = title;
         }
     }
 }

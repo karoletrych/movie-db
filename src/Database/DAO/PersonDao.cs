@@ -124,5 +124,15 @@ on conflict do nothing ";
             }
             reader.Close();
         }
+
+        public void DeletePerson(int personIdInt)
+        {
+            using (var command = Connection.CreateCommand())
+            {
+                command.CommandText = "SELECT delete_person(@person_id)";
+                command.Parameters.Add(new NpgsqlParameter("person_id", personIdInt));
+                command.ExecuteNonQuery();
+            }
+        }
     }
 }

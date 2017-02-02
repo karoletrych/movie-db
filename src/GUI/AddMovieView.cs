@@ -26,25 +26,7 @@ namespace GUI
             _crewDao = new CrewDao();
             _movieDao = new MovieDao();
 
-            var persons =
-                _personDao
-                    .GetAllPersons()
-                    .Select(personDto => $"{personDto.Name}/{personDto.Id}")
-                    .OrderBy(s => s);
-
-            castPerson.DataSource = persons.ToList();
-            crewPerson.DataSource = persons.ToList();
-
-            var genresData = _genresDao.GetAllGenres();
-            foreach (var genre in genresData)
-                genres.Items.Add($"{genre.Name}/{genre.GenreId}");
-
-            var countriesData = _countriesDao.GetAllCountries();
-            foreach (var country in countriesData)
-                countries.Items.Add($"{country.Name}/{country.CountryId}");
-
-            var jobsData = _crewDao.GetAllJobs().OrderBy(x => x);
-            crewJob.DataSource = jobsData.ToList();
+            
         }
 
         private void genresSelect_Click(object sender, EventArgs e)
@@ -114,7 +96,7 @@ namespace GUI
             {
                 _movieDao.InsertMovie(movie);
                 var countriesList =
-                    (from object country in selectedCountries.Items select SplitInto2Vars(country.ToString()).Item2)
+                    (from object country in selectedCountries.Items select country.ToString().SplitInto2Vars().Item2)
                     .ToList();
                 var movieId = int.Parse(id.Text);
                 _countriesDao.InsertMovieCountries(movieId, countriesList);
@@ -123,20 +105,20 @@ namespace GUI
                 genresList.AddRange(from object genre in selectedGenres.Items select genre.ToString());
                 _genresDao.InsertMovieGenres(genresList.Select(x =>
                 {
-                    var genreId = int.Parse(SplitInto2Vars(x).Item2);
+                    var genreId = int.Parse(x.SplitInto2Vars().Item2);
                     return new MovieGenre(movieId, genreId);
                 }));
 
                 foreach (var crewItem in crewListbox.Items)
                 {
-                    var separated = SplitInto3Vars(crewItem.ToString());
+                    var separated = crewItem.ToString().SplitInto3Vars();
                     var crewPersonId = int.Parse(separated.Item3);
                     var crew = new Crew(crewPersonId, movieId, crewJob.Text);
                     _crewDao.InsertCrew(crew);
                 }
                 foreach (var castItem in castListbox.Items)
                 {
-                    var separate = SplitInto3Vars(castItem.ToString());
+                    var separate = castItem.ToString().SplitInto3Vars();
                     var castPersonId = int.Parse(separate.Item3);
                     var cast = new Cast(castPersonId, movieId, castCharacter.Text);
                     _castDao.InsertCast(cast);
@@ -149,16 +131,29 @@ namespace GUI
             }
         }
 
-        public Tuple<string, string> SplitInto2Vars(string toSplit)
-        {
-            var split = toSplit.Split('/');
-            return Tuple.Create(split[0], split[1]);
-        }
+        
 
-        public Tuple<string, string, string> SplitInto3Vars(string toSplit)
+        private void AddMovieView_Load(object sender, EventArgs e)
         {
-            var split = toSplit.Split('/');
-            return Tuple.Create(split[0], split[1], split[2]);
+            var persons =
+                _personDao
+                    .GetAllPersons()
+                    .Select(personDto => $"{personDto.Name}/{personDto.Id}")
+                    .OrderBy(s => s);
+
+            castPerson.DataSource = persons.ToList();
+            crewPerson.DataSource = persons.ToList();
+
+            var genresData = _genresDao.GetAllGenres();
+            foreach (var genre in genresData)
+                genres.Items.Add($"{genre.Name}/{genre.GenreId}");
+
+            var countriesData = _countriesDao.GetAllCountries();
+            foreach (var country in countriesData)
+                countries.Items.Add($"{country.Name}/{country.CountryId}");
+
+            var jobsData = _crewDao.GetAllJobs().OrderBy(x => x);
+            crewJob.DataSource = jobsData.ToList();
         }
     }
 }

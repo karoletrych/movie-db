@@ -458,6 +458,7 @@
             this.Controls.Add(this.genres);
             this.Name = "AddMovieView";
             this.Text = "AddMovieView";
+            this.Load += new System.EventHandler(this.AddMovieView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.revenue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.id)).EndInit();
             this.ResumeLayout(false);
