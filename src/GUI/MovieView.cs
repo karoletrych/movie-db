@@ -47,6 +47,7 @@ namespace GUI
 
         private void ShowUserReviews()
         {
+            reviews.Clear();
             reviews.View = View.Details;
             reviews.Columns.Add("ocena");
             reviews.Columns.Add("recenzja");

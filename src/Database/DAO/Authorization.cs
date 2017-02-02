@@ -30,7 +30,3 @@ namespace Database.DAO
         }
     }
 }
-
-
-//SELECT create_member( 'ssdasds', 'dsasdas@gmail.com', 'asdasd');
-//SELECT login_member('ssdasds', 'asdasd');

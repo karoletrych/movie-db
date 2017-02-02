@@ -61,6 +61,15 @@ namespace GUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tylko użytkownik: admin może zmieniać te dane..
+        /// </summary>
+        internal static string MainView_addMovie_Click_Not_authorized {
+            get {
+                return ResourceManager.GetString("MainView_addMovie_Click_Not_authorized", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Haslo nie moze byc puste..
         /// </summary>
         internal static string MainView_login_Click_passwordCannotBeEmpty {

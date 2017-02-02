@@ -181,18 +181,31 @@ namespace GUI
 
         private void addMovie_Click(object sender, EventArgs e)
         {
+            if (CheckIfNotAdmin()) return;
             var addMovieView = new AddMovieView();
             addMovieView.Show();
         }
 
+        private static bool CheckIfNotAdmin()
+        {
+            if (LoggedUser.Login != "admin")
+            {
+                MessageBox.Show(Resources.MainView_addMovie_Click_Not_authorized);
+                return true;
+            }
+            return false;
+        }
+
         private void deleteMovie_Click(object sender, EventArgs e)
         {
+            if (CheckIfNotAdmin()) return;
             var deleteView = new DeleteView();
             deleteView.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (CheckIfNotAdmin()) return;
             var addPersonView = new AddPersonView();
             addPersonView.Show();
         }

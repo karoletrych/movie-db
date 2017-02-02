@@ -144,4 +144,7 @@
   <data name="PersonView_ShowCrew_Movie" xml:space="preserve">
     <value>Film</value>
   </data>
+  <data name="MainView_addMovie_Click_Not_authorized" xml:space="preserve">
+    <value>Tylko użytkownik: admin może zmieniać te dane.</value>
+  </data>
 </root>

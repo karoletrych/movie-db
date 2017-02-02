@@ -44,7 +44,7 @@ values(:country_id, :movie_id)";
         {
             var command = Connection.CreateCommand();
             command.CommandText =
-                @"SELECT c.country_id
+                @"SELECT c.name
 FROM 
   country c JOIN movie_productioncountry mc on c.country_id = mc.country_id
   JOIN movie m ON m.movie_id = mc.movie_id
