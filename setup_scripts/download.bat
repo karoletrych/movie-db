@@ -1,1 +1,1 @@
-..\src\DataRetriever\bin\Debug\DataRetriever.exe 1000
+..\src\DataRetriever\bin\Debug\DataRetriever.exe 3000

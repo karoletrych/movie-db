@@ -87,13 +87,15 @@ values(:department_id, :name) on conflict do nothing";
                     insertDepartmentCommand.ExecuteNonQuery();
                     foreach (var job in department.Jobs)
                     {
-                        var insertJobCommand = Connection.CreateCommand();
-                        insertJobCommand.CommandText =
-                            @"insert into job (job_name, department_id)
+                        using (var insertJobCommand = Connection.CreateCommand())
+                        {
+                            insertJobCommand.CommandText =
+                                @"insert into job (job_name, department_id)
 values(:job_name, :department_id) on conflict do nothing";
-                        insertJobCommand.Parameters.Add(new NpgsqlParameter("department_id", department.Id));
-                        insertJobCommand.Parameters.Add(new NpgsqlParameter("job_name", job.Name));
-                        insertJobCommand.ExecuteNonQuery();
+                            insertJobCommand.Parameters.Add(new NpgsqlParameter("department_id", department.Id));
+                            insertJobCommand.Parameters.Add(new NpgsqlParameter("job_name", job.Name));
+                            insertJobCommand.ExecuteNonQuery();
+                        }
                     }
                 }
             }
