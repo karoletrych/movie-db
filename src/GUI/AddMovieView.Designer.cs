@@ -38,17 +38,33 @@
             this.genresSelect = new System.Windows.Forms.Button();
             this.selectedGenres = new System.Windows.Forms.ListBox();
             this.genres = new System.Windows.Forms.ListBox();
-            this.dateFrom = new System.Windows.Forms.DateTimePicker();
+            this.releaseDate = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.title = new System.Windows.Forms.TextBox();
+            this.status = new System.Windows.Forms.TextBox();
+            this.posterUrl = new System.Windows.Forms.TextBox();
+            this.addMovie = new System.Windows.Forms.Button();
+            this.crewJob = new System.Windows.Forms.ComboBox();
+            this.castCharacter = new System.Windows.Forms.TextBox();
+            this.crewPerson = new System.Windows.Forms.ComboBox();
+            this.castPerson = new System.Windows.Forms.ComboBox();
+            this.crewListbox = new System.Windows.Forms.ListBox();
+            this.castListbox = new System.Windows.Forms.ListBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.addCrew = new System.Windows.Forms.Button();
+            this.addCast = new System.Windows.Forms.Button();
+            this.removeCrew = new System.Windows.Forms.Button();
+            this.removeCast = new System.Windows.Forms.Button();
+            this.revenue = new System.Windows.Forms.NumericUpDown();
+            this.label10 = new System.Windows.Forms.Label();
+            this.id = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.revenue)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.id)).BeginInit();
             this.SuspendLayout();
             // 
             // label6
@@ -77,6 +93,7 @@
             this.unselectCountry.TabIndex = 42;
             this.unselectCountry.Text = "<<";
             this.unselectCountry.UseVisualStyleBackColor = true;
+            this.unselectCountry.Click += new System.EventHandler(this.unselectCountry_Click);
             // 
             // selectCountry
             // 
@@ -86,6 +103,7 @@
             this.selectCountry.TabIndex = 41;
             this.selectCountry.Text = ">>";
             this.selectCountry.UseVisualStyleBackColor = true;
+            this.selectCountry.Click += new System.EventHandler(this.selectCountry_Click);
             // 
             // selectedCountries
             // 
@@ -113,6 +131,7 @@
             this.genresUnselect.TabIndex = 38;
             this.genresUnselect.Text = "<<";
             this.genresUnselect.UseVisualStyleBackColor = true;
+            this.genresUnselect.Click += new System.EventHandler(this.genresUnselect_Click);
             // 
             // genresSelect
             // 
@@ -122,6 +141,7 @@
             this.genresSelect.TabIndex = 37;
             this.genresSelect.Text = ">>";
             this.genresSelect.UseVisualStyleBackColor = true;
+            this.genresSelect.Click += new System.EventHandler(this.genresSelect_Click);
             // 
             // selectedGenres
             // 
@@ -141,18 +161,18 @@
             this.genres.Sorted = true;
             this.genres.TabIndex = 35;
             // 
-            // dateFrom
+            // releaseDate
             // 
-            this.dateFrom.Location = new System.Drawing.Point(12, 233);
-            this.dateFrom.Name = "dateFrom";
-            this.dateFrom.Size = new System.Drawing.Size(232, 20);
-            this.dateFrom.TabIndex = 45;
-            this.dateFrom.Value = new System.DateTime(1900, 1, 29, 15, 50, 0, 0);
+            this.releaseDate.Location = new System.Drawing.Point(15, 222);
+            this.releaseDate.Name = "releaseDate";
+            this.releaseDate.Size = new System.Drawing.Size(161, 20);
+            this.releaseDate.TabIndex = 45;
+            this.releaseDate.Value = new System.DateTime(1900, 1, 29, 15, 50, 0, 0);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 214);
+            this.label1.Location = new System.Drawing.Point(12, 206);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 13);
             this.label1.TabIndex = 46;
@@ -161,7 +181,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 280);
+            this.label2.Location = new System.Drawing.Point(12, 340);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(32, 13);
             this.label2.TabIndex = 47;
@@ -170,7 +190,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 302);
+            this.label3.Location = new System.Drawing.Point(12, 362);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 13);
             this.label3.TabIndex = 48;
@@ -179,7 +199,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 325);
+            this.label4.Location = new System.Drawing.Point(12, 385);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 13);
             this.label4.TabIndex = 49;
@@ -188,65 +208,211 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 346);
+            this.label7.Location = new System.Drawing.Point(12, 406);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(61, 13);
             this.label7.TabIndex = 50;
             this.label7.Text = "Url plakatu:";
             // 
-            // textBox1
+            // title
             // 
-            this.textBox1.Location = new System.Drawing.Point(73, 277);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 51;
+            this.title.Location = new System.Drawing.Point(73, 337);
+            this.title.Name = "title";
+            this.title.Size = new System.Drawing.Size(100, 20);
+            this.title.TabIndex = 51;
             // 
-            // textBox2
+            // status
             // 
-            this.textBox2.Location = new System.Drawing.Point(73, 299);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 52;
+            this.status.Location = new System.Drawing.Point(73, 382);
+            this.status.Name = "status";
+            this.status.Size = new System.Drawing.Size(100, 20);
+            this.status.TabIndex = 53;
             // 
-            // textBox3
+            // posterUrl
             // 
-            this.textBox3.Location = new System.Drawing.Point(73, 322);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 53;
+            this.posterUrl.Location = new System.Drawing.Point(73, 403);
+            this.posterUrl.Name = "posterUrl";
+            this.posterUrl.Size = new System.Drawing.Size(100, 20);
+            this.posterUrl.TabIndex = 54;
             // 
-            // textBox4
+            // addMovie
             // 
-            this.textBox4.Location = new System.Drawing.Point(73, 343);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 54;
+            this.addMovie.Location = new System.Drawing.Point(418, 379);
+            this.addMovie.Name = "addMovie";
+            this.addMovie.Size = new System.Drawing.Size(82, 46);
+            this.addMovie.TabIndex = 55;
+            this.addMovie.Text = "Dodaj film";
+            this.addMovie.UseVisualStyleBackColor = true;
+            this.addMovie.Click += new System.EventHandler(this.addMovie_Click);
             // 
-            // button1
+            // crewJob
             // 
-            this.button1.Location = new System.Drawing.Point(436, 346);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(82, 32);
-            this.button1.TabIndex = 55;
-            this.button1.Text = "Dodaj";
-            this.button1.UseVisualStyleBackColor = true;
+            this.crewJob.FormattingEnabled = true;
+            this.crewJob.Location = new System.Drawing.Point(289, 221);
+            this.crewJob.Name = "crewJob";
+            this.crewJob.Size = new System.Drawing.Size(121, 21);
+            this.crewJob.TabIndex = 56;
+            // 
+            // castCharacter
+            // 
+            this.castCharacter.Location = new System.Drawing.Point(179, 221);
+            this.castCharacter.Name = "castCharacter";
+            this.castCharacter.Size = new System.Drawing.Size(101, 20);
+            this.castCharacter.TabIndex = 57;
+            // 
+            // crewPerson
+            // 
+            this.crewPerson.FormattingEnabled = true;
+            this.crewPerson.Location = new System.Drawing.Point(289, 248);
+            this.crewPerson.Name = "crewPerson";
+            this.crewPerson.Size = new System.Drawing.Size(121, 21);
+            this.crewPerson.TabIndex = 58;
+            // 
+            // castPerson
+            // 
+            this.castPerson.FormattingEnabled = true;
+            this.castPerson.Location = new System.Drawing.Point(179, 247);
+            this.castPerson.Name = "castPerson";
+            this.castPerson.Size = new System.Drawing.Size(101, 21);
+            this.castPerson.TabIndex = 59;
+            // 
+            // crewListbox
+            // 
+            this.crewListbox.FormattingEnabled = true;
+            this.crewListbox.Location = new System.Drawing.Point(289, 276);
+            this.crewListbox.Name = "crewListbox";
+            this.crewListbox.Size = new System.Drawing.Size(121, 95);
+            this.crewListbox.TabIndex = 60;
+            // 
+            // castListbox
+            // 
+            this.castListbox.FormattingEnabled = true;
+            this.castListbox.Location = new System.Drawing.Point(179, 276);
+            this.castListbox.Name = "castListbox";
+            this.castListbox.Size = new System.Drawing.Size(101, 95);
+            this.castListbox.TabIndex = 61;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(179, 202);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(47, 13);
+            this.label8.TabIndex = 62;
+            this.label8.Text = "Obsada:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(286, 202);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(37, 13);
+            this.label9.TabIndex = 63;
+            this.label9.Text = "Ekipa:";
+            // 
+            // addCrew
+            // 
+            this.addCrew.Location = new System.Drawing.Point(289, 378);
+            this.addCrew.Name = "addCrew";
+            this.addCrew.Size = new System.Drawing.Size(121, 23);
+            this.addCrew.TabIndex = 64;
+            this.addCrew.Text = "Dodaj";
+            this.addCrew.UseVisualStyleBackColor = true;
+            this.addCrew.Click += new System.EventHandler(this.addCrew_Click);
+            // 
+            // addCast
+            // 
+            this.addCast.Location = new System.Drawing.Point(179, 378);
+            this.addCast.Name = "addCast";
+            this.addCast.Size = new System.Drawing.Size(101, 23);
+            this.addCast.TabIndex = 65;
+            this.addCast.Text = "Dodaj";
+            this.addCast.UseVisualStyleBackColor = true;
+            this.addCast.Click += new System.EventHandler(this.addCast_Click);
+            // 
+            // removeCrew
+            // 
+            this.removeCrew.Location = new System.Drawing.Point(289, 401);
+            this.removeCrew.Name = "removeCrew";
+            this.removeCrew.Size = new System.Drawing.Size(121, 23);
+            this.removeCrew.TabIndex = 66;
+            this.removeCrew.Text = "Usuń";
+            this.removeCrew.UseVisualStyleBackColor = true;
+            this.removeCrew.Click += new System.EventHandler(this.removeCrew_Click);
+            // 
+            // removeCast
+            // 
+            this.removeCast.Location = new System.Drawing.Point(179, 401);
+            this.removeCast.Name = "removeCast";
+            this.removeCast.Size = new System.Drawing.Size(101, 23);
+            this.removeCast.TabIndex = 67;
+            this.removeCast.Text = "Usuń";
+            this.removeCast.UseVisualStyleBackColor = true;
+            this.removeCast.Click += new System.EventHandler(this.removeCast_Click);
+            // 
+            // revenue
+            // 
+            this.revenue.Location = new System.Drawing.Point(73, 360);
+            this.revenue.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+            this.revenue.Name = "revenue";
+            this.revenue.Size = new System.Drawing.Size(100, 20);
+            this.revenue.TabIndex = 68;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(12, 317);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(16, 13);
+            this.label10.TabIndex = 69;
+            this.label10.Text = "Id";
+            // 
+            // id
+            // 
+            this.id.Location = new System.Drawing.Point(73, 315);
+            this.id.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+            this.id.Name = "id";
+            this.id.Size = new System.Drawing.Size(100, 20);
+            this.id.TabIndex = 70;
             // 
             // AddMovieView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(530, 387);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(513, 442);
+            this.Controls.Add(this.id);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.revenue);
+            this.Controls.Add(this.removeCast);
+            this.Controls.Add(this.removeCrew);
+            this.Controls.Add(this.addCast);
+            this.Controls.Add(this.addCrew);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.castListbox);
+            this.Controls.Add(this.crewListbox);
+            this.Controls.Add(this.castPerson);
+            this.Controls.Add(this.crewPerson);
+            this.Controls.Add(this.castCharacter);
+            this.Controls.Add(this.crewJob);
+            this.Controls.Add(this.addMovie);
+            this.Controls.Add(this.posterUrl);
+            this.Controls.Add(this.status);
+            this.Controls.Add(this.title);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dateFrom);
+            this.Controls.Add(this.releaseDate);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.unselectCountry);
@@ -259,6 +425,8 @@
             this.Controls.Add(this.genres);
             this.Name = "AddMovieView";
             this.Text = "AddMovieView";
+            ((System.ComponentModel.ISupportInitialize)(this.revenue)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.id)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -276,16 +444,30 @@
         private System.Windows.Forms.Button genresSelect;
         private System.Windows.Forms.ListBox selectedGenres;
         private System.Windows.Forms.ListBox genres;
-        private System.Windows.Forms.DateTimePicker dateFrom;
+        private System.Windows.Forms.DateTimePicker releaseDate;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox title;
+        private System.Windows.Forms.TextBox status;
+        private System.Windows.Forms.TextBox posterUrl;
+        private System.Windows.Forms.Button addMovie;
+        private System.Windows.Forms.ComboBox crewJob;
+        private System.Windows.Forms.TextBox castCharacter;
+        private System.Windows.Forms.ComboBox crewPerson;
+        private System.Windows.Forms.ComboBox castPerson;
+        private System.Windows.Forms.ListBox crewListbox;
+        private System.Windows.Forms.ListBox castListbox;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button addCrew;
+        private System.Windows.Forms.Button addCast;
+        private System.Windows.Forms.Button removeCrew;
+        private System.Windows.Forms.Button removeCast;
+        private System.Windows.Forms.NumericUpDown revenue;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.NumericUpDown id;
     }
 }

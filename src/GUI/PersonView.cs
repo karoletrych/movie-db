@@ -42,7 +42,7 @@ namespace GUI
                 ? birthday.Text = person.BirthDay.Value.ToString("yyyy-MM-dd")
                 : "";
             place_of_birth.Text = person.PlaceOfBirth ?? "nieznane";
-            gender.Text = person.Gender.ToString();
+            gender.Text = person.Gender == 2 ? "M" : person.Gender == 1 ? "F" : "";
             biography.Text = person.Biography ?? "";
         }
 

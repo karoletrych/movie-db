@@ -94,5 +94,17 @@ values(:job_name, :department_id) on conflict do nothing";
                 }
             }
         }
+
+        public IEnumerable<string> GetAllJobs()
+        {
+            var command = Connection.CreateCommand();
+            command.CommandText = "SELECT * FROM job";
+            var reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                yield return reader.GetString(0);
+            }
+            reader.Close();
+        }
     }
 }

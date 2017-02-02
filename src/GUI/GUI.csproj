@@ -63,6 +63,12 @@
     <Compile Include="AddReview.Designer.cs">
       <DependentUpon>AddReview.cs</DependentUpon>
     </Compile>
+    <Compile Include="DeleteMovieView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteMovieView.Designer.cs">
+      <DependentUpon>DeleteMovieView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Extensions.cs" />
     <Compile Include="LoggedUser.cs" />
     <Compile Include="MainView.cs">
@@ -97,6 +103,9 @@
     <EmbeddedResource Include="AddReview.resx">
       <DependentUpon>AddReview.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DeleteMovieView.resx">
+      <DependentUpon>DeleteMovieView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,15 +129,6 @@
       <DependentUpon>RegistrationView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

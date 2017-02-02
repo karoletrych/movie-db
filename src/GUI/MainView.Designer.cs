@@ -67,7 +67,6 @@
             this.personView = new System.Windows.Forms.DataGridView();
             this.addMovie = new System.Windows.Forms.Button();
             this.deleteMovie = new System.Windows.Forms.Button();
-            this.addPerson = new System.Windows.Forms.Button();
             this.deletePerson = new System.Windows.Forms.Button();
             this.allPerson = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.moviesView)).BeginInit();
@@ -472,15 +471,7 @@
             this.deleteMovie.TabIndex = 44;
             this.deleteMovie.Text = "Usuń film";
             this.deleteMovie.UseVisualStyleBackColor = true;
-            // 
-            // addPerson
-            // 
-            this.addPerson.Location = new System.Drawing.Point(788, 638);
-            this.addPerson.Name = "addPerson";
-            this.addPerson.Size = new System.Drawing.Size(75, 23);
-            this.addPerson.TabIndex = 45;
-            this.addPerson.Text = "Dodaj osobę";
-            this.addPerson.UseVisualStyleBackColor = true;
+            this.deleteMovie.Click += new System.EventHandler(this.deleteMovie_Click);
             // 
             // deletePerson
             // 
@@ -493,7 +484,7 @@
             // 
             // allPerson
             // 
-            this.allPerson.Location = new System.Drawing.Point(685, 638);
+            this.allPerson.Location = new System.Drawing.Point(769, 638);
             this.allPerson.Name = "allPerson";
             this.allPerson.Size = new System.Drawing.Size(94, 23);
             this.allPerson.TabIndex = 47;
@@ -508,7 +499,6 @@
             this.ClientSize = new System.Drawing.Size(956, 668);
             this.Controls.Add(this.allPerson);
             this.Controls.Add(this.deletePerson);
-            this.Controls.Add(this.addPerson);
             this.Controls.Add(this.deleteMovie);
             this.Controls.Add(this.addMovie);
             this.Controls.Add(this.personView);
@@ -603,7 +593,6 @@
         private System.Windows.Forms.DataGridView personView;
         private System.Windows.Forms.Button addMovie;
         private System.Windows.Forms.Button deleteMovie;
-        private System.Windows.Forms.Button addPerson;
         private System.Windows.Forms.Button deletePerson;
         private System.Windows.Forms.Button allPerson;
     }

@@ -20,9 +20,16 @@ namespace GUI
 
         private void add_Click(object sender, EventArgs e)
         {
-            _reviewsDao.AddReview(LoggedUser.Login, content.Text, (int)vote.Value, _movieId);
-            _parent.MovieView_Load(this, new EventArgs());
-            Close();
+            try
+            {
+                _reviewsDao.AddReview(LoggedUser.Login, content.Text, (int)vote.Value, _movieId);
+                _parent.MovieView_Load(this, new EventArgs());
+                Close();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
         }
     }
 }

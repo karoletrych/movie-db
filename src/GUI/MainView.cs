@@ -182,6 +182,12 @@ namespace GUI
         private void addMovie_Click(object sender, EventArgs e)
         {
             var addMovieView = new AddMovieView();
+            addMovieView.Show();
+        }
+
+        private void deleteMovie_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
