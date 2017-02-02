@@ -1,0 +1,1 @@
+psql -U postgres -d postgres -1 -f backup.sql

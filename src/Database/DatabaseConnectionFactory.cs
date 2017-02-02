@@ -1,4 +1,4 @@
-﻿using System.Configuration;
+﻿using Database.Properties;
 using Npgsql;
 
 namespace Database
@@ -11,8 +11,8 @@ namespace Database
         {
             if (_connection != null)
                 return _connection;
-            var connectionString = ConfigurationManager.ConnectionStrings[0];
-            var connection = new NpgsqlConnection(connectionString.ConnectionString);
+            var connectionString = Settings.Default.ConnectionString;
+            var connection = new NpgsqlConnection(connectionString);
             connection.Open();
             _connection = connection;
             return _connection;
