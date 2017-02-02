@@ -9,9 +9,10 @@ namespace Database.DAO
     {
         public void InsertPerson(Person person)
         {
-            var command = Connection.CreateCommand();
-            command.CommandText =
-                @" INSERT INTO person
+            using (var command = Connection.CreateCommand())
+            {
+                command.CommandText =
+                    @" INSERT INTO person
             (
                         person_id,
                         birthday,
@@ -32,14 +33,15 @@ namespace Database.DAO
                         :name
             )
 on conflict do nothing ";
-            command.Parameters.Add(new NpgsqlParameter("person_id", person.PersonId));
-            command.Parameters.Add(new NpgsqlParameter("birthday", (object) person.BirthDay ?? DBNull.Value));
-            command.Parameters.Add(new NpgsqlParameter("deathday", (object) person.DeathDay ?? DBNull.Value));
-            command.Parameters.Add(new NpgsqlParameter("biography", person.Biography ?? ""));
-            command.Parameters.Add(new NpgsqlParameter("gender", person.Gender));
-            command.Parameters.Add(new NpgsqlParameter("place_of_birth", person.PlaceOfBirth ?? ""));
-            command.Parameters.Add(new NpgsqlParameter("name", person.Name));
-            command.ExecuteNonQuery();
+                command.Parameters.Add(new NpgsqlParameter("person_id", person.PersonId));
+                command.Parameters.Add(new NpgsqlParameter("birthday", (object) person.BirthDay ?? DBNull.Value));
+                command.Parameters.Add(new NpgsqlParameter("deathday", (object) person.DeathDay ?? DBNull.Value));
+                command.Parameters.Add(new NpgsqlParameter("biography", person.Biography ?? ""));
+                command.Parameters.Add(new NpgsqlParameter("gender", person.Gender));
+                command.Parameters.Add(new NpgsqlParameter("place_of_birth", person.PlaceOfBirth ?? ""));
+                command.Parameters.Add(new NpgsqlParameter("name", person.Name));
+                command.ExecuteNonQuery();
+            }
         }
 
         public Person GetPersonById(int personId)

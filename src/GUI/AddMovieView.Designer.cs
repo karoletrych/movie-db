@@ -63,6 +63,9 @@
             this.revenue = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
             this.id = new System.Windows.Forms.NumericUpDown();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.revenue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.id)).BeginInit();
             this.SuspendLayout();
@@ -70,7 +73,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(250, 9);
+            this.label6.Location = new System.Drawing.Point(341, 9);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(74, 13);
             this.label6.TabIndex = 44;
@@ -87,7 +90,7 @@
             // 
             // unselectCountry
             // 
-            this.unselectCountry.Location = new System.Drawing.Point(338, 120);
+            this.unselectCountry.Location = new System.Drawing.Point(429, 120);
             this.unselectCountry.Name = "unselectCountry";
             this.unselectCountry.Size = new System.Drawing.Size(44, 23);
             this.unselectCountry.TabIndex = 42;
@@ -97,7 +100,7 @@
             // 
             // selectCountry
             // 
-            this.selectCountry.Location = new System.Drawing.Point(338, 75);
+            this.selectCountry.Location = new System.Drawing.Point(429, 75);
             this.selectCountry.Name = "selectCountry";
             this.selectCountry.Size = new System.Drawing.Size(44, 23);
             this.selectCountry.TabIndex = 41;
@@ -108,24 +111,24 @@
             // selectedCountries
             // 
             this.selectedCountries.FormattingEnabled = true;
-            this.selectedCountries.Location = new System.Drawing.Point(388, 35);
+            this.selectedCountries.Location = new System.Drawing.Point(479, 35);
             this.selectedCountries.Name = "selectedCountries";
-            this.selectedCountries.Size = new System.Drawing.Size(80, 160);
+            this.selectedCountries.Size = new System.Drawing.Size(118, 160);
             this.selectedCountries.Sorted = true;
             this.selectedCountries.TabIndex = 40;
             // 
             // countries
             // 
             this.countries.FormattingEnabled = true;
-            this.countries.Location = new System.Drawing.Point(250, 35);
+            this.countries.Location = new System.Drawing.Point(300, 35);
             this.countries.Name = "countries";
-            this.countries.Size = new System.Drawing.Size(82, 160);
+            this.countries.Size = new System.Drawing.Size(123, 160);
             this.countries.Sorted = true;
             this.countries.TabIndex = 39;
             // 
             // genresUnselect
             // 
-            this.genresUnselect.Location = new System.Drawing.Point(107, 120);
+            this.genresUnselect.Location = new System.Drawing.Point(129, 120);
             this.genresUnselect.Name = "genresUnselect";
             this.genresUnselect.Size = new System.Drawing.Size(44, 23);
             this.genresUnselect.TabIndex = 38;
@@ -135,7 +138,7 @@
             // 
             // genresSelect
             // 
-            this.genresSelect.Location = new System.Drawing.Point(107, 75);
+            this.genresSelect.Location = new System.Drawing.Point(129, 75);
             this.genresSelect.Name = "genresSelect";
             this.genresSelect.Size = new System.Drawing.Size(44, 23);
             this.genresSelect.TabIndex = 37;
@@ -146,9 +149,9 @@
             // selectedGenres
             // 
             this.selectedGenres.FormattingEnabled = true;
-            this.selectedGenres.Location = new System.Drawing.Point(157, 35);
+            this.selectedGenres.Location = new System.Drawing.Point(179, 35);
             this.selectedGenres.Name = "selectedGenres";
-            this.selectedGenres.Size = new System.Drawing.Size(87, 160);
+            this.selectedGenres.Size = new System.Drawing.Size(115, 160);
             this.selectedGenres.Sorted = true;
             this.selectedGenres.TabIndex = 36;
             // 
@@ -157,22 +160,22 @@
             this.genres.FormattingEnabled = true;
             this.genres.Location = new System.Drawing.Point(12, 35);
             this.genres.Name = "genres";
-            this.genres.Size = new System.Drawing.Size(88, 160);
+            this.genres.Size = new System.Drawing.Size(111, 160);
             this.genres.Sorted = true;
             this.genres.TabIndex = 35;
             // 
             // releaseDate
             // 
-            this.releaseDate.Location = new System.Drawing.Point(15, 222);
+            this.releaseDate.Location = new System.Drawing.Point(73, 289);
             this.releaseDate.Name = "releaseDate";
-            this.releaseDate.Size = new System.Drawing.Size(161, 20);
+            this.releaseDate.Size = new System.Drawing.Size(100, 20);
             this.releaseDate.TabIndex = 45;
             this.releaseDate.Value = new System.DateTime(1900, 1, 29, 15, 50, 0, 0);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 206);
+            this.label1.Location = new System.Drawing.Point(-2, 289);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 13);
             this.label1.TabIndex = 46;
@@ -237,9 +240,9 @@
             // 
             // addMovie
             // 
-            this.addMovie.Location = new System.Drawing.Point(418, 379);
+            this.addMovie.Location = new System.Drawing.Point(547, 276);
             this.addMovie.Name = "addMovie";
-            this.addMovie.Size = new System.Drawing.Size(82, 46);
+            this.addMovie.Size = new System.Drawing.Size(63, 149);
             this.addMovie.TabIndex = 55;
             this.addMovie.Text = "Dodaj film";
             this.addMovie.UseVisualStyleBackColor = true;
@@ -248,24 +251,24 @@
             // crewJob
             // 
             this.crewJob.FormattingEnabled = true;
-            this.crewJob.Location = new System.Drawing.Point(289, 221);
+            this.crewJob.Location = new System.Drawing.Point(382, 221);
             this.crewJob.Name = "crewJob";
-            this.crewJob.Size = new System.Drawing.Size(121, 21);
+            this.crewJob.Size = new System.Drawing.Size(159, 21);
             this.crewJob.TabIndex = 56;
             // 
             // castCharacter
             // 
             this.castCharacter.Location = new System.Drawing.Point(179, 221);
             this.castCharacter.Name = "castCharacter";
-            this.castCharacter.Size = new System.Drawing.Size(101, 20);
+            this.castCharacter.Size = new System.Drawing.Size(142, 20);
             this.castCharacter.TabIndex = 57;
             // 
             // crewPerson
             // 
             this.crewPerson.FormattingEnabled = true;
-            this.crewPerson.Location = new System.Drawing.Point(289, 248);
+            this.crewPerson.Location = new System.Drawing.Point(382, 248);
             this.crewPerson.Name = "crewPerson";
-            this.crewPerson.Size = new System.Drawing.Size(121, 21);
+            this.crewPerson.Size = new System.Drawing.Size(159, 21);
             this.crewPerson.TabIndex = 58;
             // 
             // castPerson
@@ -273,15 +276,15 @@
             this.castPerson.FormattingEnabled = true;
             this.castPerson.Location = new System.Drawing.Point(179, 247);
             this.castPerson.Name = "castPerson";
-            this.castPerson.Size = new System.Drawing.Size(101, 21);
+            this.castPerson.Size = new System.Drawing.Size(142, 21);
             this.castPerson.TabIndex = 59;
             // 
             // crewListbox
             // 
             this.crewListbox.FormattingEnabled = true;
-            this.crewListbox.Location = new System.Drawing.Point(289, 276);
+            this.crewListbox.Location = new System.Drawing.Point(382, 276);
             this.crewListbox.Name = "crewListbox";
-            this.crewListbox.Size = new System.Drawing.Size(121, 95);
+            this.crewListbox.Size = new System.Drawing.Size(159, 95);
             this.crewListbox.TabIndex = 60;
             // 
             // castListbox
@@ -289,7 +292,7 @@
             this.castListbox.FormattingEnabled = true;
             this.castListbox.Location = new System.Drawing.Point(179, 276);
             this.castListbox.Name = "castListbox";
-            this.castListbox.Size = new System.Drawing.Size(101, 95);
+            this.castListbox.Size = new System.Drawing.Size(142, 95);
             this.castListbox.TabIndex = 61;
             // 
             // label8
@@ -304,7 +307,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(286, 202);
+            this.label9.Location = new System.Drawing.Point(385, 202);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(37, 13);
             this.label9.TabIndex = 63;
@@ -312,9 +315,9 @@
             // 
             // addCrew
             // 
-            this.addCrew.Location = new System.Drawing.Point(289, 378);
+            this.addCrew.Location = new System.Drawing.Point(382, 378);
             this.addCrew.Name = "addCrew";
-            this.addCrew.Size = new System.Drawing.Size(121, 23);
+            this.addCrew.Size = new System.Drawing.Size(159, 23);
             this.addCrew.TabIndex = 64;
             this.addCrew.Text = "Dodaj";
             this.addCrew.UseVisualStyleBackColor = true;
@@ -324,7 +327,7 @@
             // 
             this.addCast.Location = new System.Drawing.Point(179, 378);
             this.addCast.Name = "addCast";
-            this.addCast.Size = new System.Drawing.Size(101, 23);
+            this.addCast.Size = new System.Drawing.Size(142, 23);
             this.addCast.TabIndex = 65;
             this.addCast.Text = "Dodaj";
             this.addCast.UseVisualStyleBackColor = true;
@@ -332,9 +335,9 @@
             // 
             // removeCrew
             // 
-            this.removeCrew.Location = new System.Drawing.Point(289, 401);
+            this.removeCrew.Location = new System.Drawing.Point(382, 401);
             this.removeCrew.Name = "removeCrew";
-            this.removeCrew.Size = new System.Drawing.Size(121, 23);
+            this.removeCrew.Size = new System.Drawing.Size(159, 23);
             this.removeCrew.TabIndex = 66;
             this.removeCrew.Text = "Usuń";
             this.removeCrew.UseVisualStyleBackColor = true;
@@ -344,7 +347,7 @@
             // 
             this.removeCast.Location = new System.Drawing.Point(179, 401);
             this.removeCast.Name = "removeCast";
-            this.removeCast.Size = new System.Drawing.Size(101, 23);
+            this.removeCast.Size = new System.Drawing.Size(142, 23);
             this.removeCast.TabIndex = 67;
             this.removeCast.Text = "Usuń";
             this.removeCast.UseVisualStyleBackColor = true;
@@ -375,19 +378,49 @@
             // 
             this.id.Location = new System.Drawing.Point(73, 315);
             this.id.Maximum = new decimal(new int[] {
-            10000000,
-            0,
+            1569325055,
+            23283064,
             0,
             0});
             this.id.Name = "id";
             this.id.Size = new System.Drawing.Size(100, 20);
             this.id.TabIndex = 70;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(132, 221);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(43, 13);
+            this.label11.TabIndex = 71;
+            this.label11.Text = "Postać:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(327, 221);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(49, 13);
+            this.label12.TabIndex = 72;
+            this.label12.Text = "Zadanie:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(132, 247);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(41, 13);
+            this.label13.TabIndex = 73;
+            this.label13.Text = "Osoba:";
+            // 
             // AddMovieView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(513, 442);
+            this.ClientSize = new System.Drawing.Size(620, 437);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.id);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.revenue);
@@ -469,5 +502,8 @@
         private System.Windows.Forms.NumericUpDown revenue;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.NumericUpDown id;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
     }
 }

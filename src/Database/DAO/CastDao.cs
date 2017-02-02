@@ -9,14 +9,16 @@ namespace Database.DAO
     {
         public void InsertCast(Cast cast)
         {
-            var command = Connection.CreateCommand();
-            command.CommandText =
-                @"insert into _cast (person_id, movie_id, character)
+            using (var command = Connection.CreateCommand())
+            {
+                command.CommandText =
+                    @"insert into _cast (person_id, movie_id, character)
 values(:person_id, :movie_id, :character) on conflict do nothing";
-            command.Parameters.Add(new NpgsqlParameter("person_id", cast.PersonId));
-            command.Parameters.Add(new NpgsqlParameter("movie_id", cast.MovieId));
-            command.Parameters.Add(new NpgsqlParameter("character", cast.Character));
-            command.ExecuteNonQuery();
+                command.Parameters.Add(new NpgsqlParameter("person_id", cast.PersonId));
+                command.Parameters.Add(new NpgsqlParameter("movie_id", cast.MovieId));
+                command.Parameters.Add(new NpgsqlParameter("character", cast.Character));
+                command.ExecuteNonQuery();
+            }
         }
 
         public IEnumerable<Tuple<string,string, int>> GetCastOfMovie(int movieId)

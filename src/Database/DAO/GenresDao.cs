@@ -10,13 +10,15 @@ namespace Database.DAO
         {
             foreach (var genre in genres)
             {
-                var command = Connection.CreateCommand();
-                command.CommandText =
-                    @"insert into genre(name, genre_id)
+                using (var command = Connection.CreateCommand())
+                {
+                    command.CommandText =
+                        @"insert into genre(name, genre_id)
 values(:name, :genre_id) on conflict do nothing";
-                command.Parameters.Add(new NpgsqlParameter("name", genre.Name));
-                command.Parameters.Add(new NpgsqlParameter("genre_id", genre.GenreId));
-                command.ExecuteNonQuery();
+                    command.Parameters.Add(new NpgsqlParameter("name", genre.Name));
+                    command.Parameters.Add(new NpgsqlParameter("genre_id", genre.GenreId));
+                    command.ExecuteNonQuery();
+                }
             }
         }
 
@@ -24,13 +26,15 @@ values(:name, :genre_id) on conflict do nothing";
         {
             foreach (var movieGenre in movieGenres)
             {
-                var command = Connection.CreateCommand();
-                command.CommandText =
-                    @"insert into movie_genre(movie_id, genre_id)
+                using (var command = Connection.CreateCommand())
+                {
+                    command.CommandText =
+                        @"insert into movie_genre(movie_id, genre_id)
 values(:movie_id, :genre_id) on conflict do nothing";
-                command.Parameters.Add(new NpgsqlParameter("movie_id", movieGenre.MovieId));
-                command.Parameters.Add(new NpgsqlParameter("genre_id", movieGenre.GenreId));
-                command.ExecuteNonQuery();
+                    command.Parameters.Add(new NpgsqlParameter("movie_id", movieGenre.MovieId));
+                    command.Parameters.Add(new NpgsqlParameter("genre_id", movieGenre.GenreId));
+                    command.ExecuteNonQuery();
+                }
             }
         }
 

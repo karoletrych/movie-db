@@ -113,14 +113,11 @@ namespace GUI
             try
             {
                 _movieDao.InsertMovie(movie);
-                var countriesList = (from object country in selectedCountries.Items select country.ToString()).ToList();
+                var countriesList =
+                    (from object country in selectedCountries.Items select SplitInto2Vars(country.ToString()).Item2)
+                    .ToList();
                 var movieId = int.Parse(id.Text);
-                _countriesDao.InsertMovieCountries(movieId,
-                    countriesList.Select(x =>
-                    {
-                        var splitInto2Vars = SplitInto2Vars(x);
-                        return splitInto2Vars.Item2;
-                    }));
+                _countriesDao.InsertMovieCountries(movieId, countriesList);
 
                 var genresList = new List<string>();
                 genresList.AddRange(from object genre in selectedGenres.Items select genre.ToString());

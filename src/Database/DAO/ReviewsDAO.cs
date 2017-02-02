@@ -28,15 +28,17 @@ WHERE  m.movie_id = @movie_id";
 
         public void AddReview(string memberLogin, string content, int vote, int movieId)
         {
-            var command = Connection.CreateCommand();
-            command.CommandText =
-                @"insert into review(member_login, content, vote, movie_id)
+            using (var command = Connection.CreateCommand())
+            {
+                command.CommandText =
+                    @"insert into review(member_login, content, vote, movie_id)
 values(:member_login, :content, :vote, :movie_id)";
-            command.Parameters.Add(new NpgsqlParameter("member_login", memberLogin));
-            command.Parameters.Add(new NpgsqlParameter("content", content));
-            command.Parameters.Add(new NpgsqlParameter("vote", vote));
-            command.Parameters.Add(new NpgsqlParameter("movie_id", movieId));
-            command.ExecuteNonQuery();
+                command.Parameters.Add(new NpgsqlParameter("member_login", memberLogin));
+                command.Parameters.Add(new NpgsqlParameter("content", content));
+                command.Parameters.Add(new NpgsqlParameter("vote", vote));
+                command.Parameters.Add(new NpgsqlParameter("movie_id", movieId));
+                command.ExecuteNonQuery();
+            }
         }
     }
 }

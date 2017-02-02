@@ -10,9 +10,10 @@ namespace Database.DAO
     {
         public void InsertMovie(Movie movie)
         {
-            var command = Connection.CreateCommand();
-            command.CommandText =
-                @" INSERT INTO movie
+            using (var command = Connection.CreateCommand())
+            {
+                command.CommandText =
+                    @" INSERT INTO movie
             (
                         movie_id,
                         release_date,
@@ -37,18 +38,19 @@ on conflict
                         movie_id
             )
             do nothing;";
-            command.Parameters.AddRange(
-                new[]
-                {
-                    new NpgsqlParameter("release_date", movie.ReleaseDate),
-                    new NpgsqlParameter("status", movie.Status),
-                    new NpgsqlParameter("poster_url", (object) movie.PosterUrl ?? DBNull.Value),
-                    new NpgsqlParameter("title", movie.Title),
-                    new NpgsqlParameter("revenue", movie.Revenue),
-                    new NpgsqlParameter("movie_id", movie.MovieId),
-                    new NpgsqlParameter("vote_average", movie.AverageVote)
-                });
-            command.ExecuteNonQuery();
+                command.Parameters.AddRange(
+                    new[]
+                    {
+                        new NpgsqlParameter("release_date", movie.ReleaseDate),
+                        new NpgsqlParameter("status", movie.Status),
+                        new NpgsqlParameter("poster_url", (object) movie.PosterUrl ?? DBNull.Value),
+                        new NpgsqlParameter("title", movie.Title),
+                        new NpgsqlParameter("revenue", movie.Revenue),
+                        new NpgsqlParameter("movie_id", movie.MovieId),
+                        new NpgsqlParameter("vote_average", movie.AverageVote)
+                    });
+                command.ExecuteNonQuery();
+            }
         }
 
         public IEnumerable<Movie> GetMoviesByTitleLike(string title)

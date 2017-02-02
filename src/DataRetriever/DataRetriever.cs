@@ -116,7 +116,7 @@ namespace DataRetriever
 
             _movieDao.InsertMovie(film);
             _countriesDao.InsertCountries(countries);
-            _countriesDao.InsertMovieCountries(film.MovieId, countries.Select(x => x.CountryId));
+            _countriesDao.InsertMovieCountries(film.MovieId, countries.Select(x => x.CountryId).ToList());
             _genresDao.InsertGenres(genres);
             _genresDao.InsertMovieGenres(movieGenres);
         }

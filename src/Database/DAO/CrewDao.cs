@@ -9,14 +9,16 @@ namespace Database.DAO
     {
         public void InsertCrew(Crew crew)
         {
-            var command = Connection.CreateCommand();
-            command.CommandText =
-                @"insert into crew (person_id, movie_id, job_name)
+            using (var command = Connection.CreateCommand())
+            {
+                command.CommandText =
+                    @"insert into crew (person_id, movie_id, job_name)
 values(:person_id, :movie_id, :job_name) on conflict do nothing";
-            command.Parameters.Add(new NpgsqlParameter("person_id", crew.PersonId));
-            command.Parameters.Add(new NpgsqlParameter("movie_id", crew.MovieId));
-            command.Parameters.Add(new NpgsqlParameter("job_name", crew.JobName));
-            command.ExecuteNonQuery();
+                command.Parameters.Add(new NpgsqlParameter("person_id", crew.PersonId));
+                command.Parameters.Add(new NpgsqlParameter("movie_id", crew.MovieId));
+                command.Parameters.Add(new NpgsqlParameter("job_name", crew.JobName));
+                command.ExecuteNonQuery();
+            }
         }
 
         public IEnumerable<Tuple<string, string, string, int>> GetCrewFromMovie(int movieId)
@@ -75,22 +77,24 @@ WHERE  p.person_id = @person_id  ";
         {
             foreach (var department in departments)
             {
-                var insertDepartmentCommand = Connection.CreateCommand();
-                insertDepartmentCommand.CommandText =
-                    @"insert into department (department_id, name)
-values(:department_id, :name) on conflict do nothing";
-                insertDepartmentCommand.Parameters.Add(new NpgsqlParameter("department_id", department.Id));
-                insertDepartmentCommand.Parameters.Add(new NpgsqlParameter("name", department.Name));
-                insertDepartmentCommand.ExecuteNonQuery();
-                foreach (var job in department.Jobs)
+                using (var insertDepartmentCommand = Connection.CreateCommand())
                 {
-                    var insertJobCommand = Connection.CreateCommand();
-                    insertJobCommand.CommandText =
-                        @"insert into job (job_name, department_id)
+                    insertDepartmentCommand.CommandText =
+                        @"insert into department (department_id, name)
+values(:department_id, :name) on conflict do nothing";
+                    insertDepartmentCommand.Parameters.Add(new NpgsqlParameter("department_id", department.Id));
+                    insertDepartmentCommand.Parameters.Add(new NpgsqlParameter("name", department.Name));
+                    insertDepartmentCommand.ExecuteNonQuery();
+                    foreach (var job in department.Jobs)
+                    {
+                        var insertJobCommand = Connection.CreateCommand();
+                        insertJobCommand.CommandText =
+                            @"insert into job (job_name, department_id)
 values(:job_name, :department_id) on conflict do nothing";
-                    insertJobCommand.Parameters.Add(new NpgsqlParameter("department_id", department.Id));
-                    insertJobCommand.Parameters.Add(new NpgsqlParameter("job_name", job.Name));
-                    insertJobCommand.ExecuteNonQuery();
+                        insertJobCommand.Parameters.Add(new NpgsqlParameter("department_id", department.Id));
+                        insertJobCommand.Parameters.Add(new NpgsqlParameter("job_name", job.Name));
+                        insertJobCommand.ExecuteNonQuery();
+                    }
                 }
             }
         }

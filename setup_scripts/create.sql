@@ -85,35 +85,18 @@ CREATE TABLE moviedb._cast (
 
 
 CREATE TABLE moviedb.country (
-                country_id VARCHAR NOT NULL,
+                country_id CHAR(2) NOT NULL,
                 name VARCHAR NOT NULL,
                 CONSTRAINT country_pk PRIMARY KEY (country_id)
 );
 
 
-CREATE SEQUENCE moviedb.country_of_origin_country_of_origin_id_seq;
-
-CREATE TABLE moviedb.country_of_origin (
-                country_of_origin_id INTEGER NOT NULL DEFAULT nextval('moviedb.country_of_origin_country_of_origin_id_seq'),
-                person_id INTEGER NOT NULL,
-                country_id VARCHAR NOT NULL,
-                CONSTRAINT country_of_origin_pk PRIMARY KEY (country_of_origin_id)
-);
-
-
-ALTER SEQUENCE moviedb.country_of_origin_country_of_origin_id_seq OWNED BY moviedb.country_of_origin.country_of_origin_id;
-
-CREATE SEQUENCE moviedb.movie_productioncountry_movie_productioncountry_id_seq;
-
 CREATE TABLE moviedb.movie_productioncountry (
-                movie_productioncountry_id INTEGER NOT NULL DEFAULT nextval('moviedb.movie_productioncountry_movie_productioncountry_id_seq'),
-                country_id VARCHAR NOT NULL,
+                country_id CHAR(2) NOT NULL,
                 movie_id INTEGER NOT NULL,
-                CONSTRAINT movie_productioncountry_pk PRIMARY KEY (movie_productioncountry_id)
+                CONSTRAINT movie_productioncountry_pk PRIMARY KEY (country_id, movie_id)
 );
 
-
-ALTER SEQUENCE moviedb.movie_productioncountry_movie_productioncountry_id_seq OWNED BY moviedb.movie_productioncountry.movie_productioncountry_id;
 
 ALTER TABLE moviedb.job ADD CONSTRAINT dzial_praca_fk
 FOREIGN KEY (department_id)
@@ -157,13 +140,6 @@ ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE moviedb.country_of_origin ADD CONSTRAINT czlowiek_kraj_pochodzenia_fk
-FOREIGN KEY (person_id)
-REFERENCES moviedb.person (person_id)
-ON DELETE NO ACTION
-ON UPDATE NO ACTION
-NOT DEFERRABLE;
-
 ALTER TABLE moviedb.movie_productioncountry ADD CONSTRAINT film_film_krajprodukcji_fk
 FOREIGN KEY (movie_id)
 REFERENCES moviedb.movie (movie_id)
@@ -200,13 +176,6 @@ ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
 ALTER TABLE moviedb.movie_productioncountry ADD CONSTRAINT kraj_film_krajprodukcji_fk
-FOREIGN KEY (country_id)
-REFERENCES moviedb.country (country_id)
-ON DELETE NO ACTION
-ON UPDATE NO ACTION
-NOT DEFERRABLE;
-
-ALTER TABLE moviedb.country_of_origin ADD CONSTRAINT kraj_kraj_pochodzenia_fk
 FOREIGN KEY (country_id)
 REFERENCES moviedb.country (country_id)
 ON DELETE NO ACTION

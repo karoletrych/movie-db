@@ -22,7 +22,7 @@
   <table id="TAB1" populated="true" UUID="c6860467-44bc-4dbf-80b5-38e4d8c6d2f3" name="kraj" objectType="TABLE" physicalName="country" >
    <remarks></remarks>
    <folder id="FOLTAB11" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL2" populated="true" UUID="2103e51c-9302-412a-b253-40d9ed09cf97" autoIncrement="false" autoIncrementSequenceName="country_country_id_seq" defaultValue="" name="kraj_id" nullable="0" physicalName="country_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL2" populated="true" UUID="2103e51c-9302-412a-b253-40d9ed09cf97" autoIncrement="false" autoIncrementSequenceName="country_country_id_seq" defaultValue="" name="kraj_id" nullable="0" physicalName="country_id" precision="2" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="1" userDefinedTypeUUID="67ddc63f-5541-4dd1-9236-632d9d155e80" >
      <remarks></remarks>
     </column>
     <column id="COL3" populated="true" UUID="71d6cda7-e647-40b2-bd6a-ca3e143bb49e" autoIncrement="false" autoIncrementSequenceName="country_name_seq" defaultValue="" name="nazwa" nullable="0" physicalName="name" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
@@ -77,13 +77,10 @@
   <table id="TAB16" populated="true" UUID="1c4c4392-fefa-4336-bba9-b8228ea46ce1" name="film_krajprodukcji" objectType="TABLE" physicalName="movie_productioncountry" >
    <remarks></remarks>
    <folder id="FOLTAB161" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL17" populated="true" UUID="d97460e8-e362-4d8a-a1b3-f70db91fc7a4" autoIncrement="true" autoIncrementSequenceName="movie_productioncountry_movie_productioncountry_id_seq" defaultValue="" name="film_krajprodukcji_id" nullable="0" physicalName="movie_productioncountry_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL17" populated="true" UUID="8efac126-ead8-4ca8-80c1-122823cb3c75" autoIncrement="false" autoIncrementSequenceName="movie_productioncountry_country_id_seq" defaultValue="" name="kraj_id" nullable="0" physicalName="country_id" precision="2" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="1" userDefinedTypeUUID="67ddc63f-5541-4dd1-9236-632d9d155e80" >
      <remarks></remarks>
     </column>
-    <column id="COL18" populated="true" UUID="8efac126-ead8-4ca8-80c1-122823cb3c75" autoIncrement="false" autoIncrementSequenceName="movie_productioncountry_country_id_seq" defaultValue="" name="kraj_id" nullable="0" physicalName="country_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
-     <remarks></remarks>
-    </column>
-    <column id="COL19" populated="true" UUID="90d54a3f-0a68-4f2a-89a1-52ab31bb32c8" autoIncrement="false" autoIncrementSequenceName="movie_productioncountry_movie_id_seq" defaultValue="" name="film_id" nullable="0" physicalName="movie_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL18" populated="true" UUID="90d54a3f-0a68-4f2a-89a1-52ab31bb32c8" autoIncrement="false" autoIncrementSequenceName="movie_productioncountry_movie_id_seq" defaultValue="" name="film_id" nullable="0" physicalName="movie_id" precision="0" primaryKeySeq="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
     </folder>
@@ -92,8 +89,9 @@
     <folder id="FOLTAB162" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
     <folder id="FOLTAB164" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX20" populated="true" UUID="d6b8cb07-c9d7-4359-9bd1-ed45f30c0e0e" clustered="false" name="movie_productioncountry_pk" physicalName="movie_productioncountry_pk" primaryKeyIndex="true" unique="false" >
-     <index-column id="IDC21" populated="true" UUID="9996be94-9b00-4183-ba4f-3fd8cea67215" ascendingOrDescending="UNSPECIFIED" column-ref="COL17" name="film_krajprodukcji_id" physicalName="movie_productioncountry_id" />
+    <index id="IDX19" populated="true" UUID="d6b8cb07-c9d7-4359-9bd1-ed45f30c0e0e" clustered="false" name="movie_productioncountry_pk" physicalName="movie_productioncountry_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC20" populated="true" UUID="c0b6d174-a70e-4fc1-b747-da3e1c4f90fc" ascendingOrDescending="UNSPECIFIED" column-ref="COL17" name="kraj_id" physicalName="country_id" />
+     <index-column id="IDC21" populated="true" UUID="1227acab-f106-4857-96e4-8e82b9f9b243" ascendingOrDescending="UNSPECIFIED" column-ref="COL18" name="film_id" physicalName="movie_id" />
     </index>
    </folder>
   </table>
@@ -315,10 +313,10 @@
   </table>
   <relationships>
    <relationship id="REL83" populated="true" UUID="313a3cee-9e49-4261-aa6c-44b9c9ff6010" deferrability="7" deleteRule="3" fk-table-ref="TAB16" fkCardinality="7" identifying="false" name="kraj_film_krajprodukcji_fk" physicalName="kraj_film_krajprodukcji_fk" pk-table-ref="TAB1" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP84" populated="true" UUID="e61818d1-a26d-41b3-83a0-afbaef4b54be" fk-column-ref="COL18" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL2" />
+    <column-mapping id="CMP84" populated="true" UUID="e61818d1-a26d-41b3-83a0-afbaef4b54be" fk-column-ref="COL17" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL2" />
    </relationship>
    <relationship id="REL85" populated="true" UUID="dabad6b3-2b24-441e-97e8-cf21f554c2bf" deferrability="7" deleteRule="3" fk-table-ref="TAB16" fkCardinality="7" identifying="false" name="film_film_krajprodukcji_fk" physicalName="film_film_krajprodukcji_fk" pk-table-ref="TAB6" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP86" populated="true" UUID="383fa570-64c9-45e9-a842-86beb8d1928c" fk-column-ref="COL19" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL7" />
+    <column-mapping id="CMP86" populated="true" UUID="383fa570-64c9-45e9-a842-86beb8d1928c" fk-column-ref="COL18" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL7" />
    </relationship>
    <relationship id="REL87" populated="true" UUID="863906eb-3652-4bc8-beb0-dc2735aac67d" deferrability="7" deleteRule="3" fk-table-ref="TAB22" fkCardinality="7" identifying="false" name="film_obsada_fk" physicalName="film_obsada_fk" pk-table-ref="TAB6" pkCardinality="2" updateRule="3" >
     <column-mapping id="CMP88" populated="true" UUID="7cd6e19b-dcaa-47b8-89e2-2a941875a34e" fk-column-ref="COL25" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL7" />
