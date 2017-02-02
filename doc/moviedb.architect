@@ -129,7 +129,7 @@
     <column id="COL32" populated="true" UUID="f14889ec-d322-4c04-b80e-00347aa98517" autoIncrement="false" autoIncrementSequenceName="person_birthday_seq" defaultValue="" name="data_urodzenia" nullable="1" physicalName="birthday" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
      <remarks></remarks>
     </column>
-    <column id="COL33" populated="true" UUID="fa4c0cf6-e9a5-4842-b07d-34420d4c6377" autoIncrement="false" autoIncrementSequenceName="person_deathday_seq" defaultValue="" name="data_zgonu" nullable="1" physicalName="deathday" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+    <column id="COL33" populated="true" UUID="fa4c0cf6-e9a5-4842-b07d-34420d4c6377" autoIncrement="false" autoIncrementSequenceName="person_deathday_seq" defaultValue="" name="data_smierci" nullable="1" physicalName="deathday" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
      <remarks></remarks>
     </column>
     <column id="COL34" populated="true" UUID="52b27e23-18a6-495f-be5a-faa5d3f1c882" autoIncrement="false" autoIncrementSequenceName="person_biography_seq" defaultValue="" name="biografia" nullable="0" physicalName="biography" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
@@ -353,7 +353,7 @@
  <ddl-generator type="ca.sqlpower.architect.ddl.PostgresDDLGenerator" allow-connection="true" target-schema="moviedb"> </ddl-generator>
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
- <play-pen zoom="1.0" viewportX="0" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
+ <play-pen zoom="1.0" viewportX="0" viewportY="176" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
   <table-pane table-ref="TAB1" x="415" y="180" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB6" x="514" y="444" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB16" x="530" y="318" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>

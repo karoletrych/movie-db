@@ -57,6 +57,12 @@
     <Compile Include="AddMovieView.Designer.cs">
       <DependentUpon>AddMovieView.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddPersonView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPersonView.Designer.cs">
+      <DependentUpon>AddPersonView.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddReview.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +105,9 @@
     </Compile>
     <EmbeddedResource Include="AddMovieView.resx">
       <DependentUpon>AddMovieView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddPersonView.resx">
+      <DependentUpon>AddPersonView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddReview.resx">
       <DependentUpon>AddReview.cs</DependentUpon>

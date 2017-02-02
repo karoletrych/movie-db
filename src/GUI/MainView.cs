@@ -190,5 +190,11 @@ namespace GUI
             var deleteView = new DeleteView();
             deleteView.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var addPersonView = new AddPersonView();
+            addPersonView.Show();
+        }
     }
 }

@@ -67,8 +67,10 @@
             this.personView = new System.Windows.Forms.DataGridView();
             this.addMovie = new System.Windows.Forms.Button();
             this.deleteMovie = new System.Windows.Forms.Button();
-            this.deletePerson = new System.Windows.Forms.Button();
             this.allPerson = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.moviesView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.voteFrom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.voteTo)).BeginInit();
@@ -91,10 +93,10 @@
             this.moviesView.AllowUserToDeleteRows = false;
             this.moviesView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.moviesView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.moviesView.Location = new System.Drawing.Point(5, 200);
+            this.moviesView.Location = new System.Drawing.Point(5, 216);
             this.moviesView.Name = "moviesView";
             this.moviesView.ReadOnly = true;
-            this.moviesView.Size = new System.Drawing.Size(457, 432);
+            this.moviesView.Size = new System.Drawing.Size(457, 416);
             this.moviesView.TabIndex = 1;
             this.moviesView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.filmsView_CellContentClick);
             // 
@@ -446,16 +448,16 @@
             this.personView.AllowUserToAddRows = false;
             this.personView.AllowUserToDeleteRows = false;
             this.personView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.personView.Location = new System.Drawing.Point(469, 200);
+            this.personView.Location = new System.Drawing.Point(469, 216);
             this.personView.Name = "personView";
             this.personView.ReadOnly = true;
-            this.personView.Size = new System.Drawing.Size(475, 432);
+            this.personView.Size = new System.Drawing.Size(475, 416);
             this.personView.TabIndex = 42;
             this.personView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.personView_CellClick);
             // 
             // addMovie
             // 
-            this.addMovie.Location = new System.Drawing.Point(5, 633);
+            this.addMovie.Location = new System.Drawing.Point(5, 638);
             this.addMovie.Name = "addMovie";
             this.addMovie.Size = new System.Drawing.Size(75, 23);
             this.addMovie.TabIndex = 43;
@@ -465,7 +467,7 @@
             // 
             // deleteMovie
             // 
-            this.deleteMovie.Location = new System.Drawing.Point(408, 638);
+            this.deleteMovie.Location = new System.Drawing.Point(187, 638);
             this.deleteMovie.Name = "deleteMovie";
             this.deleteMovie.Size = new System.Drawing.Size(119, 23);
             this.deleteMovie.TabIndex = 44;
@@ -473,32 +475,53 @@
             this.deleteMovie.UseVisualStyleBackColor = true;
             this.deleteMovie.Click += new System.EventHandler(this.deleteMovie_Click);
             // 
-            // deletePerson
-            // 
-            this.deletePerson.Location = new System.Drawing.Point(869, 638);
-            this.deletePerson.Name = "deletePerson";
-            this.deletePerson.Size = new System.Drawing.Size(75, 23);
-            this.deletePerson.TabIndex = 46;
-            this.deletePerson.Text = "Usuń osobę";
-            this.deletePerson.UseVisualStyleBackColor = true;
-            // 
             // allPerson
             // 
-            this.allPerson.Location = new System.Drawing.Point(769, 638);
+            this.allPerson.Location = new System.Drawing.Point(788, 638);
             this.allPerson.Name = "allPerson";
-            this.allPerson.Size = new System.Drawing.Size(94, 23);
+            this.allPerson.Size = new System.Drawing.Size(156, 23);
             this.allPerson.TabIndex = 47;
-            this.allPerson.Text = "Wszystkie osoby";
+            this.allPerson.Text = "Wyświetl wszystkie osoby";
             this.allPerson.UseVisualStyleBackColor = true;
             this.allPerson.Click += new System.EventHandler(this.allPerson_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(86, 638);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(95, 23);
+            this.button1.TabIndex = 48;
+            this.button1.Text = "Dodaj osobę";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(5, 197);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(33, 13);
+            this.label12.TabIndex = 49;
+            this.label12.Text = "Filmy:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(466, 198);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(40, 13);
+            this.label13.TabIndex = 50;
+            this.label13.Text = "Osoby:";
             // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(956, 668);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.allPerson);
-            this.Controls.Add(this.deletePerson);
             this.Controls.Add(this.deleteMovie);
             this.Controls.Add(this.addMovie);
             this.Controls.Add(this.personView);
@@ -593,8 +616,10 @@
         private System.Windows.Forms.DataGridView personView;
         private System.Windows.Forms.Button addMovie;
         private System.Windows.Forms.Button deleteMovie;
-        private System.Windows.Forms.Button deletePerson;
         private System.Windows.Forms.Button allPerson;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
     }
 }
 
