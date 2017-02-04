@@ -25,8 +25,8 @@ namespace Database.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Port=5432;Database=postgres;Username=postgres;Password=q;Search Path=moviedb;Host" +
-            "=localhost")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Port=5432;Database=mckkwsfs;Username=mckkwsfs;Password=LN6I-UIiHXA16XkjFtvBbA_x03" +
+            "Q6TeWs;Search Path=moviedb;Host=elmer-02.db.elephantsql.com")]
         public string ConnectionString {
             get {
                 return ((string)(this["ConnectionString"]));

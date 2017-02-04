@@ -209,5 +209,11 @@ namespace GUI
             var addPersonView = new AddPersonView();
             addPersonView.Show();
         }
+
+        private void logout_Click(object sender, EventArgs e)
+        {
+            LoggedUser.Login = null;
+            loggedUser.Text = "";
+        }
     }
 }

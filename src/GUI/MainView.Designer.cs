@@ -71,6 +71,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.logout = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.moviesView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.voteFrom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.voteTo)).BeginInit();
@@ -513,11 +514,22 @@
             this.label13.TabIndex = 50;
             this.label13.Text = "Osoby:";
             // 
+            // logout
+            // 
+            this.logout.Location = new System.Drawing.Point(5, 174);
+            this.logout.Name = "logout";
+            this.logout.Size = new System.Drawing.Size(100, 23);
+            this.logout.TabIndex = 51;
+            this.logout.Text = "Wyloguj";
+            this.logout.UseVisualStyleBackColor = true;
+            this.logout.Click += new System.EventHandler(this.logout_Click);
+            // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(956, 668);
+            this.Controls.Add(this.logout);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.button1);
@@ -620,6 +632,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button logout;
     }
 }
 
